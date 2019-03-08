@@ -1,0 +1,65 @@
+######################
+##      ADMIN       ##
+######################
+create_user:
+    path: /users/create
+    controller: App\Controller\User\CreateUserController::create
+
+edit_user:
+    path: /users/{userId}/edit
+    controller: App\Controller\User\EditUserController::edit
+    requirements:
+        userId: ^\d{1,10}$
+
+list_users:
+    path: /users
+    controller: App\Controller\User\ListUsersController::list
+
+######################
+##  AUTHENTICATION  ##
+######################
+login:
+    path: /login
+    controller: App\Controller\Authentication\LoginController::login
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+
+######################
+##      HOME        ##
+######################
+home:
+    path: /
+    controller: App\Controller\Home\HomeController::index
+
+######################
+##      TASKS       ##
+######################
+create_task:
+    path: /tasks/create
+    controller: App\Controller\Task\CreateTaskController::create
+
+delete_task:
+    path: /tasks/{taskId}/delete
+    controller: App\Controller\Task\DeleteTaskController::delete
+    requirements:
+        taskId: ^\d{1,10}$
+
+edit_task:
+    path: /tasks/{taskId}/edit
+    controller: App\Controller\Task\EditTaskController::edit
+    requirements:
+        taskId: ^\d{1,10}$
+
+list_tasks:
+    path: /tasks
+    controller: App\Controller\Task\ListTasksController::list
+
+toggle_task:
+    path: /tasks/{taskId}/toggle
+    controller: App\Controller\Task\ToggleTaskController::toggle
+    requirements:
+        taskId: ^\d{1,10}$
