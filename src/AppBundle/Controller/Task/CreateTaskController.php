@@ -6,16 +6,12 @@ use AppBundle\Entity\Task;
 use AppBundle\Form\Task\TaskType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
 class CreateTaskController extends Controller
 {
-    /**
-     * @Route("/tasks/create", name="task_create")
-     */
     public function createAction(Request $request)
     {
         $task = new Task();

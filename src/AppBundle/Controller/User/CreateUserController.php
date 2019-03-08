@@ -12,9 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CreateUserController extends Controller
 {
-    /**
-     * @Route("/users/create", name="user_create")
-     */
     public function createAction(Request $request)
     {
         $user = new User();

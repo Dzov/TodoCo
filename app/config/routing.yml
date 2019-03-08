@@ -1,9 +1,67 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+######################
+##      ADMIN       ##
+######################
+create_user:
+    path: /users/create
+    defaults:  { _controller: AppBundle\Controller\User\CreateUserController::createAction }
+
+edit_user:
+    path: /users/{userId}/edit
+    defaults:  { _controller: AppBundle\Controller\User\EditUserController::editAction }
+    requirements:
+        userId: ^\d{1,10}$
+
+list_users:
+    path: /users
+    defaults:  { _controller: AppBundle\Controller\User\ListUsersController::listAction }
+
+######################
+##  AUTHENTICATION  ##
+######################
+login:
+    path: /login
+    defaults:  { _controller: AppBundle\Controller\Authenticaton\LoginController::loginAction }
 
 login_check:
     path: /login_check
 
 logout:
     path: /logout
+
+######################
+##      HOME        ##
+######################
+home:
+    path: /
+    defaults:  { _controller: AppBundle\Controller\Home\HomeController::indexAction }
+
+######################
+##      TASKS       ##
+######################
+create_task:
+    path: /tasks/create
+    defaults:  { _controller: AppBundle\Controller\Task\CreateTaskController::createAction }
+
+delete_task:
+    path: /tasks/{taskId}/delete
+    defaults:  { _controller: AppBundle\Controller\Task\DeleteTaskController::deleteAction }
+    requirements:
+        taskId: ^\d{1,10}$
+
+edit_task:
+    path: /tasks/{taskId}/edit
+    defaults:  { _controller: AppBundle\Controller\Task\EditTaskController::editAction }
+    requirements:
+        taskId: ^\d{1,10}$
+
+list_tasks:
+    path: /tasks
+    defaults:  { _controller: AppBundle\Controller\Task\ListTasksController::listAction }
+
+toggle_task:
+    path: /tasks/{taskId}/toggle
+    defaults:  { _controller: AppBundle\Controller\Task\ToggleTaskController::toggleAction }
+    requirements:
+        taskId: ^\d{1,10}$
+
+

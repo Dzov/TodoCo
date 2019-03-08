@@ -12,9 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class EditUserController extends Controller
 {
-    /**
-     * @Route("/users/{id}/edit", name="user_edit")
-     */
     public function editAction(User $user, Request $request)
     {
         $form = $this->createForm(UserType::class, $user);
