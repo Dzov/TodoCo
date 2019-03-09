@@ -6,12 +6,16 @@ use App\Entity\Task;
 use App\Form\TaskType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
 class CreateTaskController extends AbstractController
 {
+    /**
+     * @Route("/tasks/create", name="create_task")
+     */
     public function create(Request $request)
     {
         $task = new Task();

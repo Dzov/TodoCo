@@ -4,12 +4,16 @@ namespace App\Controller\Task;
 
 use App\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
 class DeleteTaskController extends AbstractController
 {
+    /**
+     * @Route("/tasks/{task}/delete", name="delete_task", requirements={"task"="^\d{1,10}$"})
+     */
     public function delete(Task $task)
     {
         $em = $this->getDoctrine()->getManager();
@@ -18,6 +22,6 @@ class DeleteTaskController extends AbstractController
 
         $this->addFlash('success', 'La tâche a bien été supprimée.');
 
-        return $this->redirectToRoute('task_list');
+        return $this->redirectToRoute('list_tasks');
     }
 }

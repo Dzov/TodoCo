@@ -6,12 +6,16 @@ use App\Entity\User;
 use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
 class EditUserController extends AbstractController
 {
+    /**
+     * @Route("/users/{user}/edit", name="edit_user", requirements={"user"="^\d{1,10}$"})
+     */
     public function edit(User $user, Request $request)
     {
         $form = $this->createForm(UserType::class, $user);
