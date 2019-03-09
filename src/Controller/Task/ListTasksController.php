@@ -2,7 +2,7 @@
 
 namespace App\Controller\Task;
 
-use App\Entity\Task;
+use App\UseCase\Task\Admin\GetTasks;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,11 +14,11 @@ class ListTasksController extends AbstractController
     /**
      * @Route("/tasks", name="list_tasks")
      */
-    public function list()
+    public function list(GetTasks $useCase)
     {
         return $this->render(
             'task/list.html.twig',
-            ['tasks' => $this->getDoctrine()->getRepository(Task::class)->findAll()]
+            ['tasks' => $useCase->execute()]
         );
     }
 }

@@ -22,16 +22,16 @@ class GetTasksTest extends TestCase
     /**
      * @test
      */
-    public function withoutFiltersExecuteShouldReturnUsersTasks()
+    public function withoutFiltersExecuteShouldReturnAllTasks()
     {
-        $repository = new InMemoryTaskRepository([new TaskStub1()]);
-        $tasks = $this->getTasks->execute([], $repository);
+        $tasks = $this->getTasks->execute();
 
         $this->assertTasks([new TaskStub1()], $tasks);
     }
 
     protected function setUp(): void
     {
-        $this->getTasks = new GetTasks();
+        $repository = new InMemoryTaskRepository([new TaskStub1()]);
+        $this->getTasks = new GetTasks($repository);
     }
 }

@@ -9,8 +9,18 @@ use App\Repository\TaskRepository;
  */
 class GetTasks
 {
-    public function execute(array $filters = [], TaskRepository $repository)
+    /**
+     * @var TaskRepository
+     */
+    private $taskRepository;
+
+    public function __construct(TaskRepository $taskRepository)
     {
-        return $repository->findAll();
+        $this->taskRepository = $taskRepository;
+    }
+
+    public function execute(array $filters = [])
+    {
+        return $this->taskRepository->findAll();
     }
 }
