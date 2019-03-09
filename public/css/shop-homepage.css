@@ -4,6 +4,19 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    min-width: 300px;
+}
+
+main {
+    height: calc(100vh - 72px);
+    padding: 40px 50px;
+}
+
 .slide-image {
     width: 100%;
 }
@@ -42,7 +55,7 @@
 
 .thumbnail .caption-full {
     padding: 9px;
-    color: #333;
+    color: #333333;
 }
 
 footer {

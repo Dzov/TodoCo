@@ -1,0 +1,34 @@
+.custom-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    min-width: 250px;
+    max-width: 470px;
+}
+
+@media (min-width: 700px) {
+    .form-group {
+        width: 75%;
+    }
+}
+
+@media (min-width: 900px) {
+    .form-group {
+        width: 50%;
+    }
+}
+
+.todo-logo {
+    width: 15em;
+    margin-bottom: 25px;
+}
+
+@media (min-width: 500px) {
+    .todo-logo {
+        width: 20em;
+    }
+}

@@ -19,7 +19,7 @@ class CreateTaskController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($task);
@@ -27,7 +27,7 @@ class CreateTaskController extends AbstractController
 
             $this->addFlash('success', 'La tâche a été bien été ajoutée.');
 
-            return $this->redirectToRoute('task_list');
+            return $this->redirectToRoute('list_tasks');
         }
 
         return $this->render('task/create.html.twig', ['form' => $form->createView()]);

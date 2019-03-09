@@ -1,3 +1,26 @@
-.navbar-brand {
-    height: 60px;
+.navbar-logo {
+    font-size: 25px;
+    color: white;
+    font-family: 'AileronRegular';
+    font-weight: 600;
+    font-style: normal;
 }
+
+.navbar-logo img {
+    margin-bottom: 6px;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #a9e4ef;
+}
+
+.navbar-light .navbar-nav .nav-link, .dropdown-item {
+    color: white;
+}
+
+.dropdown-menu {
+    border: none;
+    background-color: #a9e4ef;
+}
+
