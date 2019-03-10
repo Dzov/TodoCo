@@ -27,7 +27,7 @@ class EditTaskController extends AbstractController
 
             $this->addFlash('success', 'La tâche a bien été modifiée.');
 
-            return $this->redirectToRoute('task_list');
+            return $this->redirectToRoute('list_tasks');
         }
 
         return $this->render(

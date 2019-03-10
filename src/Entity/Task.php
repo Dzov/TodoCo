@@ -91,7 +91,7 @@ class Task
         $this->isDone = $flag;
     }
 
-    public function getIsDone(): ?bool
+    public function getIsDone(): bool
     {
         return $this->isDone;
     }
