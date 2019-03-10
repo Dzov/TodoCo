@@ -3,6 +3,7 @@
 namespace App\Tests\Doubles\Task\Repository;
 
 use App\Entity\Task;
+use App\Exception\Task\TaskNotFoundException;
 use App\Repository\TaskRepository;
 
 /**
@@ -23,8 +24,27 @@ class InMemoryTaskRepository extends TaskRepository
         self::$result = $result;
     }
 
+    public function insert(Task $task)
+    {
+        self::$result = [$task];
+    }
+
     public function findAll(array $filters = [], array $sort = [])
     {
         return self::$result;
+    }
+
+    public function findById(int $id)
+    {
+        if (!isset(self::$result[$id])) {
+            throw new TaskNotFoundException();
+        }
+
+        return self::$result[$id];
+    }
+
+    public function delete(Task $task)
+    {
+        unset(self::$result[$task->getId()]);
     }
 }

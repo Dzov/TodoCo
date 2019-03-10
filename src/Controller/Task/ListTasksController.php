@@ -14,11 +14,11 @@ class ListTasksController extends AbstractController
     /**
      * @Route("/tasks", name="list_tasks")
      */
-    public function list(GetTasks $useCase)
+    public function list(GetTasks $getTasks)
     {
         return $this->render(
             'task/list.html.twig',
-            ['tasks' => $useCase->execute()]
+            ['tasks' => $getTasks->execute()]
         );
     }
 }

@@ -21,6 +21,6 @@ class ToggleTaskStatusController extends AbstractController
 
         $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
 
-        return $this->redirectToRoute('task_list');
+        return $this->redirectToRoute('list_tasks');
     }
 }
