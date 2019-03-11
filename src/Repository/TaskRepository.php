@@ -51,8 +51,8 @@ class TaskRepository extends ServiceEntityRepository
      */
     public function delete(Task $task)
     {
-        $this->getEntityManager()->remove($task);
-        $this->update();
+        $this->_em->remove($task);
+        $this->flush();
     }
 
     /**
@@ -61,12 +61,17 @@ class TaskRepository extends ServiceEntityRepository
      */
     public function insert(Task $task)
     {
-        $this->getEntityManager()->persist($task);
-        $this->update();
+        $this->_em->persist($task);
+        $this->flush();
     }
 
-    public function update()
+    public function update(Task $task)
     {
-        $this->getEntityManager()->flush();
+        $this->flush();
+    }
+
+    private function flush()
+    {
+        $this->_em->flush();
     }
 }

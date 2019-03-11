@@ -48,7 +48,8 @@ class InMemoryTaskRepository extends TaskRepository
         unset(self::$result[$task->getId()]);
     }
 
-    public function update()
+    public function update(Task $task)
     {
+        self::$result[$task->getId()] = $task;
     }
 }

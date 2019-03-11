@@ -22,7 +22,7 @@ class ToggleTask extends AbstractTaskUseCase
     {
         $task = $this->taskRepository->findById($taskId);
         $task->setIsDone(!$task->isDone());
-        $this->taskRepository->update();
+        $this->taskRepository->update($task);
 
         return $task;
     }
