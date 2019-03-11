@@ -8,7 +8,7 @@ use PHPUnit\Framework\Assert;
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-trait TaskTrait
+trait AssertTaskTrait
 {
     /**
      * @param Task[] $expected

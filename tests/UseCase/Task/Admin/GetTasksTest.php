@@ -1,10 +1,11 @@
 <?php
 
-namespace App\UseCase\Task\Admin;
+namespace App\Tests\UseCase\Task\Admin;
 
 use App\Tests\Doubles\Task\Entity\TaskStub1;
 use App\Tests\Doubles\Task\Repository\InMemoryTaskRepository;
-use App\Tests\UseCase\Task\TaskTrait;
+use App\Tests\UseCase\Task\AssertTaskTrait;
+use App\UseCase\Task\Admin\GetTasks;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -12,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class GetTasksTest extends TestCase
 {
-    use TaskTrait;
+    use AssertTaskTrait;
 
     /**
      * @var GetTasks

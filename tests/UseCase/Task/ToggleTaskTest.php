@@ -1,9 +1,10 @@
 <?php
 
-namespace App\UseCase\Task;
+namespace App\Tests\UseCase\Task;
 
 use App\Tests\Doubles\Task\Entity\TaskStub1;
 use App\Tests\Doubles\Task\Repository\InMemoryTaskRepository;
+use App\UseCase\Task\ToggleTask;
 use PHPUnit\Framework\TestCase;
 
 /**
