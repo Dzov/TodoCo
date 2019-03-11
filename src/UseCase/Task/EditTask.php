@@ -20,7 +20,7 @@ class EditTask extends AbstractTaskUseCase
     /**
      * @throws \App\Exception\Task\TaskNotFoundException
      */
-    public function updateTask(TaskModel $model)
+    public function execute(TaskModel $model)
     {
         $task = $this->taskRepository->findById($model->getId());
 

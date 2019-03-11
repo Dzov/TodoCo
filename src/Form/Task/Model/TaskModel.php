@@ -24,7 +24,7 @@ class TaskModel
     protected $content;
 
     /**
-     * @var \Datetime
+     * @var \DateTimeImmutable
      */
     protected $createdAt;
 
@@ -35,16 +35,16 @@ class TaskModel
 
     public function __construct()
     {
-        $this->createdAt = new \Datetime();
+        $this->createdAt = new \DateTimeImmutable();
         $this->isDone = false;
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -54,7 +54,7 @@ class TaskModel
         $this->title = $title;
     }
 
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->content;
     }
@@ -64,15 +64,12 @@ class TaskModel
         $this->content = $content;
     }
 
-    /**
-     * @return \Datetime
-     */
-    public function getCreatedAt(): \Datetime
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\Datetime $createdAt)
+    public function setCreatedAt(\DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
     }
@@ -85,5 +82,10 @@ class TaskModel
     public function setIsDone(bool $isDone)
     {
         $this->isDone = $isDone;
+    }
+
+    public function setId(int $id)
+    {
+        $this->id = $id;
     }
 }

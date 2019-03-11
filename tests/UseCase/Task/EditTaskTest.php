@@ -32,7 +32,7 @@ class EditTaskTest extends TestCase
     public function withInvalidIdExecuteShouldThrowException()
     {
         $this->expectException('App\Exception\Task\TaskNotFoundException');
-        $this->useCase->updateTask(new InvalidTaskModelStub1());
+        $this->useCase->execute(new InvalidTaskModelStub1());
     }
 
     /**
@@ -44,7 +44,7 @@ class EditTaskTest extends TestCase
         $model->setContent(TaskStub2::CONTENT);
         $model->setTitle(TaskStub2::TITLE);
 
-        $this->useCase->updateTask($model);
+        $this->useCase->execute($model);
 
         $expected = $this->getExpectedTask($model);
 

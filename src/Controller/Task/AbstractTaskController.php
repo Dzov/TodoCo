@@ -5,6 +5,7 @@ namespace App\Controller\Task;
 use App\Entity\Task;
 use App\Form\Task\Model\TaskModel;
 use App\Form\Task\TaskType;
+use App\UseCase\Task\GetTask;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 
@@ -13,12 +14,12 @@ use Symfony\Component\Form\FormInterface;
  */
 class AbstractTaskController extends AbstractController
 {
-    public function getTask(int $taskId, GetTask $useCase)
+    protected function getTask(int $taskId, GetTask $getTask)
     {
-        return $useCase->getTask($taskId);
+        return $getTask->execute($taskId);
     }
 
-    public function buildForm(TaskModel $model): FormInterface
+    protected function buildForm(TaskModel $model): FormInterface
     {
         return $this->createForm(TaskType::class, $model);
     }
@@ -28,7 +29,10 @@ class AbstractTaskController extends AbstractController
         $model = new TaskModel();
         $model->setContent($task->getContent());
         $model->setCreatedAt($task->getCreatedAt());
+        $model->setId($task->getId());
         $model->setIsDone($task->isDone());
         $model->setTitle($task->getTitle());
+
+        return $model;
     }
 }

@@ -3,6 +3,7 @@
 namespace App\UseCase\Task;
 
 use App\Entity\Task;
+use App\Form\Task\Model\TaskModel;
 use App\Repository\TaskRepository;
 use App\UseCase\AbstractTaskUseCase;
 
@@ -16,8 +17,20 @@ class CreateTask extends AbstractTaskUseCase
         parent::__construct($repository);
     }
 
-    public function execute(Task $task)
+    public function execute(TaskModel $model)
     {
+        $task = $this->populateTask($model);
         $this->taskRepository->insert($task);
+    }
+
+    private function populateTask(TaskModel $model): Task
+    {
+        $task = new Task();
+        $task->setContent($model->getContent());
+        $task->setCreatedAt($model->getCreatedAt());
+        $task->setIsDone($model->isDone());
+        $task->setTitle($model->getTitle());
+
+        return $task;
     }
 }

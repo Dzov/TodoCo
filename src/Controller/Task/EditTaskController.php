@@ -4,6 +4,7 @@ namespace App\Controller\Task;
 
 use App\Exception\Task\TaskNotFoundException;
 use App\UseCase\Task\EditTask;
+use App\UseCase\Task\GetTask;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -24,7 +25,7 @@ class EditTaskController extends AbstractTaskController
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
-                $editTask->updateTask($form->getData());
+                $editTask->execute($form->getData());
                 $this->addFlash('success', 'La tâche a bien été modifiée.');
 
                 return $this->redirectToRoute('list_tasks');
