@@ -3,7 +3,7 @@
 namespace App\Controller\Task;
 
 use App\Entity\Task;
-use App\Form\TaskType;
+use App\Form\Task\TaskType;
 use App\UseCase\Task\CreateTask;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

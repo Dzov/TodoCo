@@ -6,6 +6,7 @@ use App\Entity\Task;
 use App\Form\Task\Model\TaskModel;
 use App\Tests\Doubles\Task\Entity\TaskStub1;
 use App\Tests\Doubles\Task\Entity\TaskStub2;
+use App\Tests\Doubles\Task\Model\InvalidTaskModelStub1;
 use App\Tests\Doubles\Task\Model\TaskModelStub1;
 use App\Tests\Doubles\Task\Repository\InMemoryTaskRepository;
 use App\UseCase\Task\EditTask;
@@ -24,6 +25,15 @@ class EditTaskTest extends TestCase
      * @var EditTask
      */
     private $useCase;
+
+    /**
+     * @test
+     */
+    public function withInvalidIdExecuteShouldThrowException()
+    {
+        $this->expectException('App\Exception\Task\TaskNotFoundException');
+        $this->useCase->updateTask(new InvalidTaskModelStub1());
+    }
 
     /**
      * @test

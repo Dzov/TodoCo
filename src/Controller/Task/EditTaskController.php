@@ -2,32 +2,34 @@
 
 namespace App\Controller\Task;
 
-use App\Entity\Task;
-use App\Form\TaskType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Exception\Task\TaskNotFoundException;
+use App\UseCase\Task\EditTask;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class EditTaskController extends AbstractController
+class EditTaskController extends AbstractTaskController
 {
     /**
-     * @Route("/tasks/{task}/edit", name="edit_task", requirements={"task"="^\d{1,10}$"})
+     * @Route("/tasks/{taskId}/edit", name="edit_task", requirements={"taskId"="^\d{1,10}$"})
      */
-    public function edit(Task $task, Request $request)
+    public function edit(int $taskId, Request $request, GetTask $getTask, EditTask $editTask)
     {
-        $form = $this->createForm(TaskType::class, $task);
+        $task = $this->getTask($taskId, $getTask);
+        $form = $this->buildForm($this->buildModel($task));
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            try {
+                $editTask->updateTask($form->getData());
+                $this->addFlash('success', 'La tâche a bien été modifiée.');
 
-            $this->addFlash('success', 'La tâche a bien été modifiée.');
-
-            return $this->redirectToRoute('list_tasks');
+                return $this->redirectToRoute('list_tasks');
+            } catch (TaskNotFoundException $e) {
+            }
         }
 
         return $this->render(
