@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UseCase\Task\Admin;
+namespace App\UseCase\Task;
 
 use App\Repository\TaskRepository;
 

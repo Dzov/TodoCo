@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Tests\UseCase\Task\Admin;
+namespace App\Tests\UseCase\Task;
 
 use App\Tests\Doubles\Task\Entity\TaskStub1;
 use App\Tests\Doubles\Task\Repository\InMemoryTaskRepository;
-use App\Tests\UseCase\Task\AssertTaskTrait;
-use App\UseCase\Task\Admin\GetTasks;
+use App\UseCase\Task\GetTasks;
 use PHPUnit\Framework\TestCase;
 
 /**

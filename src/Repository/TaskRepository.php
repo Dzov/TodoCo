@@ -47,12 +47,11 @@ class TaskRepository extends ServiceEntityRepository
 
     /**
      * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function delete(Task $task)
     {
         $this->_em->remove($task);
-        $this->flush();
+        $this->_em->flush($task);
     }
 
     /**
@@ -62,16 +61,15 @@ class TaskRepository extends ServiceEntityRepository
     public function insert(Task $task)
     {
         $this->_em->persist($task);
-        $this->flush();
+        $this->_em->flush($task);
     }
 
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
     public function update(Task $task)
     {
-        $this->flush();
-    }
-
-    private function flush()
-    {
-        $this->_em->flush();
+        $this->_em->flush($task);
     }
 }

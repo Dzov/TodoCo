@@ -3,7 +3,7 @@
 namespace App\Tests\UseCase\Task;
 
 use App\Entity\Task;
-use App\Form\Task\Model\TaskModel;
+use App\Model\Task\TaskModel;
 use App\Tests\Doubles\Task\Entity\TaskStub1;
 use App\Tests\Doubles\Task\Entity\TaskStub2;
 use App\Tests\Doubles\Task\Model\InvalidTaskModelStub1;

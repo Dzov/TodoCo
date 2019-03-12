@@ -3,9 +3,8 @@
 namespace App\UseCase\Task;
 
 use App\Entity\Task;
-use App\Form\Task\Model\TaskModel;
+use App\Model\Task\TaskModel;
 use App\Repository\TaskRepository;
-use App\UseCase\AbstractTaskUseCase;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

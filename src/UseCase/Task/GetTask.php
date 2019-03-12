@@ -3,7 +3,6 @@
 namespace App\UseCase\Task;
 
 use App\Repository\TaskRepository;
-use App\UseCase\AbstractTaskUseCase;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

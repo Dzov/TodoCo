@@ -2,8 +2,7 @@
 
 namespace App\Form\Task;
 
-use App\Entity\Task;
-use App\Form\Task\Model\TaskModel;
+use App\Model\Task\TaskModel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
