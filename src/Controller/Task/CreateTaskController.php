@@ -2,7 +2,7 @@
 
 namespace App\Controller\Task;
 
-use App\Form\Task\Model\TaskModel;
+use App\Model\Task\TaskModel;
 use App\UseCase\Task\CreateTask;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;

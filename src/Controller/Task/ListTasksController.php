@@ -2,14 +2,13 @@
 
 namespace App\Controller\Task;
 
-use App\UseCase\Task\Admin\GetTasks;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\UseCase\Task\GetTasks;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class ListTasksController extends AbstractController
+class ListTasksController extends AbstractTaskController
 {
     /**
      * @Route("/tasks", name="list_tasks")

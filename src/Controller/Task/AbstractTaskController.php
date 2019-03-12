@@ -3,8 +3,8 @@
 namespace App\Controller\Task;
 
 use App\Entity\Task;
-use App\Form\Task\Model\TaskModel;
 use App\Form\Task\TaskType;
+use App\Model\Task\TaskModel;
 use App\UseCase\Task\GetTask;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
@@ -14,6 +14,10 @@ use Symfony\Component\Form\FormInterface;
  */
 class AbstractTaskController extends AbstractController
 {
+    public function __construct()
+    {
+    }
+
     protected function getTask(int $taskId, GetTask $getTask)
     {
         return $getTask->execute($taskId);
