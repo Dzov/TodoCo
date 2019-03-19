@@ -15,7 +15,7 @@ class CreateTaskController extends AbstractTaskController
     /**
      * @Route("/tasks/create", name="create_task")
      */
-    public function create(Request $request, CreateTask $createTask)
+    public function create(Request $request, CreateTask $createTaskUseCase)
     {
         $form = $this->buildForm(new TaskModel());
 
@@ -23,7 +23,7 @@ class CreateTaskController extends AbstractTaskController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $createTask->execute($form->getData());
+            $createTaskUseCase->execute($form->getData());
 
             $this->addFlash('success', 'La tâche a été bien été ajoutée.');
 

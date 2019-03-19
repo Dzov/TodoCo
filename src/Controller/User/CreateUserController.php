@@ -2,8 +2,11 @@
 
 namespace App\Controller\User;
 
-use App\Entity\User;
+use App\Exception\User\EmailAlreadyExistsException;
 use App\Form\User\UserType;
+use App\Model\User\UserModel;
+use App\UseCase\User\CreateUser;
+use App\UseCase\User\GetUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,24 +20,27 @@ class CreateUserController extends AbstractController
     /**
      * @Route("/users/create", name="create_user")
      */
-    public function create(Request $request, UserPasswordEncoderInterface $passwordEncoder)
-    {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
+    public function create(
+        Request $request,
+        UserPasswordEncoderInterface $passwordEncoder,
+        CreateUser $createUserUseCase,
+        GetUser $getUserUseCase
+    ) {
+        try {
+            $user = new UserModel();
+            $form = $this->createForm(UserType::class, $user);
 
-        $form->handleRequest($request);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($password);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $createUserUseCase->execute($form->getData());
 
-            $em->persist($user);
-            $em->flush();
+                $this->addFlash('success', "L'utilisateur a bien été ajouté.");
 
-            $this->addFlash('success', "L'utilisateur a bien été ajouté.");
-
-            return $this->redirectToRoute('user_list');
+                return $this->redirectToRoute('list_users');
+            }
+        } catch (EmailAlreadyExistsException $eaee) {
+            $this->addFlash('danger', 'Cet email est déjà utilisé');
         }
 
         return $this->render('user/create.html.twig', ['form' => $form->createView()]);
