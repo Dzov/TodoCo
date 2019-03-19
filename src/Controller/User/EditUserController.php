@@ -3,6 +3,7 @@
 namespace App\Controller\User;
 
 use App\Entity\User;
+use App\Exception\User\EmailAlreadyExistsException;
 use App\Exception\User\UserNotFoundException;
 use App\Form\User\UserType;
 use App\Model\User\UserModel;
@@ -21,17 +22,17 @@ class EditUserController extends AbstractController
     /**
      * @Route("/users/{userId}/edit", name="edit_user", requirements={"userId"="^\d{1,10}$"})
      */
-    public function edit(int $userId, Request $request, GetUser $getUser, EditUser $editUser)
+    public function edit(int $userId, Request $request, GetUser $getUserUseCase, EditUser $editUserUseCase)
     {
         try {
-            $user = $getUser->execute($userId);
+            $user = $getUserUseCase->execute($userId);
 
             $form = $this->buildForm($this->buildModel($user));
 
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
-                $editUser->execute($form->getData());
+                $editUserUseCase->execute($form->getData());
 
                 $this->addFlash('success', "L'utilisateur a bien été modifié");
 
@@ -39,6 +40,8 @@ class EditUserController extends AbstractController
             }
         } catch (UserNotFoundException $e) {
             throw $this->createNotFoundException();
+        } catch (EmailAlreadyExistsException $eaee) {
+            $this->addFlash('danger', 'Cet email est déjà utilisé');
         }
 
         return $this->render('user/edit.html.twig', ['form' => $form->createView(), 'user' => $user]);

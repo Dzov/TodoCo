@@ -16,20 +16,21 @@ class EditTaskController extends AbstractTaskController
     /**
      * @Route("/tasks/{taskId}/edit", name="edit_task", requirements={"taskId"="^\d{1,10}$"})
      */
-    public function edit(int $taskId, Request $request, GetTask $getTask, EditTask $editTask)
+    public function edit(int $taskId, Request $request, GetTask $getTaskUseCase, EditTask $editTaskUseCase)
     {
-        $task = $this->getTask($taskId, $getTask);
+        $task = $this->getTask($taskId, $getTaskUseCase);
         $form = $this->buildForm($this->buildModel($task));
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
-                $editTask->execute($form->getData());
+                $editTaskUseCase->execute($form->getData());
                 $this->addFlash('success', 'La tâche a bien été modifiée.');
 
                 return $this->redirectToRoute('list_tasks');
             } catch (TaskNotFoundException $e) {
+                throw $this->createNotFoundException();
             }
         }
 
