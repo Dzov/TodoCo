@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Doubles\Task\Entity;
+namespace App\Tests\Doubles\Entity\Task;
 
 use App\Entity\Task;
 

@@ -2,8 +2,8 @@
 
 namespace App\Tests\UseCase\Task;
 
-use App\Tests\Doubles\Task\Entity\TaskStub1;
-use App\Tests\Doubles\Task\Repository\InMemoryTaskRepository;
+use App\Tests\Doubles\Entity\Task\TaskStub1;
+use App\Tests\Doubles\Repository\Task\InMemoryTaskRepository;
 use App\UseCase\Task\GetTask;
 use PHPUnit\Framework\TestCase;
 

@@ -17,7 +17,7 @@ class ToggleTask extends AbstractTaskUseCase
     /**
      * @throws \App\Exception\Task\TaskNotFoundException
      */
-    public function toggleStatus(int $taskId)
+    public function execute(int $taskId)
     {
         $task = $this->taskRepository->findById($taskId);
         $task->setIsDone(!$task->isDone());

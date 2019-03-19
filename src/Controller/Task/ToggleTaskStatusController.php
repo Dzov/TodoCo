@@ -14,10 +14,10 @@ class ToggleTaskStatusController extends AbstractTaskController
     /**
      * @Route("/tasks/{taskId}/toggle", name="toggle_task", requirements={"taskId"="^\d{1,10}$"})
      */
-    public function toggle(int $taskId, ToggleTask $useCase)
+    public function toggle(int $taskId, ToggleTask $toggleTaskUseCase)
     {
         try {
-            $task = $useCase->toggleStatus($taskId);
+            $task = $toggleTaskUseCase->execute($taskId);
 
             $task->getIsDone()
                 ? $this->addFlash('success', sprintf('Tâche %s est terminée !', $task->getTitle()))

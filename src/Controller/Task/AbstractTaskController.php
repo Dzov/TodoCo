@@ -14,13 +14,9 @@ use Symfony\Component\Form\FormInterface;
  */
 class AbstractTaskController extends AbstractController
 {
-    public function __construct()
+    protected function getTask(int $taskId, GetTask $getTaskUseCase)
     {
-    }
-
-    protected function getTask(int $taskId, GetTask $getTask)
-    {
-        return $getTask->execute($taskId);
+        return $getTaskUseCase->execute($taskId);
     }
 
     protected function buildForm(TaskModel $model): FormInterface

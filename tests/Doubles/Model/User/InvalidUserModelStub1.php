@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Doubles\User\Entity;
+namespace App\Tests\Doubles\Model\User;
 
 use App\Model\User\UserModel;
 

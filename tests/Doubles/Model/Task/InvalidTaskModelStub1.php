@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Tests\Doubles\Task\Model;
+namespace App\Tests\Doubles\Model\Task;
 
 use App\Model\Task\TaskModel;
-use App\Tests\Doubles\Task\Entity\TaskStub2;
+use App\Tests\Doubles\Entity\Task\TaskStub2;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

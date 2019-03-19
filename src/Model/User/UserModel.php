@@ -32,7 +32,7 @@ class UserModel
      */
     protected $username;
 
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -42,7 +42,7 @@ class UserModel
         $this->email = $email;
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -52,7 +52,7 @@ class UserModel
         $this->id = $id;
     }
 
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -62,7 +62,7 @@ class UserModel
         $this->password = $password;
     }
 
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
         return $this->username;
     }

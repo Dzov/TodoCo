@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Doubles\Task\Repository;
+namespace App\Tests\Doubles\Repository\Task;
 
 use App\Entity\Task;
 use App\Exception\Task\TaskNotFoundException;

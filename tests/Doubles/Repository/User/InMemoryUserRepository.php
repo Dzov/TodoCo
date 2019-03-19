@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Doubles\User\Repository;
+namespace App\Tests\Doubles\Repository\User;
 
 use App\Entity\User;
 use App\Exception\User\UserNotFoundException;
@@ -26,7 +26,7 @@ class InMemoryUserRepository extends UserRepository
 
     public function insert(User $user)
     {
-        self::$result = [$user];
+        self::$result[] = $user;
     }
 
     public function findAll(array $filters = [], array $sort = [])
@@ -51,5 +51,27 @@ class InMemoryUserRepository extends UserRepository
     public function update(User $user)
     {
         self::$result[$user->getId()] = $user;
+    }
+
+    public function findByEmail(string $email)
+    {
+        foreach (self::$result as $user) {
+            if ($email === $user->getEmail()) {
+                return $user;
+            }
+        }
+
+        throw new UserNotFoundException();
+    }
+
+    public function findByUsernameOrEmail(string $identifier)
+    {
+        foreach (self::$result as $user) {
+            if ($identifier === $user->getEmail() || $identifier === $user->getUsername()) {
+                return $user;
+            }
+        }
+
+        throw new UserNotFoundException();
     }
 }

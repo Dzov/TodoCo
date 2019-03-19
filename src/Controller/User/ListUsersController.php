@@ -14,11 +14,11 @@ class ListUsersController extends AbstractController
     /**
      * @Route("/users", name="list_users")
      */
-    public function listAction(GetUsers $getUsers)
+    public function listAction(GetUsers $getUsersUseCase)
     {
         return $this->render(
             'user/list.html.twig',
-            ['users' => $getUsers->execute()]
+            ['users' => $getUsersUseCase->execute()]
         );
     }
 }

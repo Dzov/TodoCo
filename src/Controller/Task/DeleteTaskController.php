@@ -14,10 +14,10 @@ class DeleteTaskController extends AbstractTaskController
     /**
      * @Route("/tasks/{taskId}/delete", name="delete_task", requirements={"taskId"="^\d{1,10}$"})
      */
-    public function delete(int $taskId, DeleteTask $deleteTask)
+    public function delete(int $taskId, DeleteTask $deleteTaskUseCase)
     {
         try {
-            $deleteTask->execute($taskId);
+            $deleteTaskUseCase->execute($taskId);
             $this->addFlash('success', 'La tâche a bien été supprimée.');
 
             return $this->redirectToRoute('list_tasks');

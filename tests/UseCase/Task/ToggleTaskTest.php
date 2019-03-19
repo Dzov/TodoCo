@@ -2,8 +2,8 @@
 
 namespace App\Tests\UseCase\Task;
 
-use App\Tests\Doubles\Task\Entity\TaskStub1;
-use App\Tests\Doubles\Task\Repository\InMemoryTaskRepository;
+use App\Tests\Doubles\Entity\Task\TaskStub1;
+use App\Tests\Doubles\Repository\Task\InMemoryTaskRepository;
 use App\UseCase\Task\ToggleTask;
 use PHPUnit\Framework\TestCase;
 
@@ -26,7 +26,7 @@ class ToggleTaskTest extends TestCase
     {
         $this->expectException('App\Exception\Task\TaskNotFoundException');
 
-        $this->useCase->toggleStatus(self::UNKNOWN_TASK_ID);
+        $this->useCase->execute(self::UNKNOWN_TASK_ID);
     }
 
     /**
@@ -38,7 +38,7 @@ class ToggleTaskTest extends TestCase
         $taskStub1->setIsDone(false);
         InMemoryTaskRepository::$result = [TaskStub1::ID => $taskStub1];
 
-        $task = $this->useCase->toggleStatus(TaskStub1::ID);
+        $task = $this->useCase->execute(TaskStub1::ID);
 
         $this->assertTrue($task->getIsDone());
     }
@@ -48,7 +48,7 @@ class ToggleTaskTest extends TestCase
      */
     public function withTaskDoneToggleStatusShouldReturnTaskToDo()
     {
-        $task = $this->useCase->toggleStatus(TaskStub1::ID);
+        $task = $this->useCase->execute(TaskStub1::ID);
 
         $this->assertFalse($task->getIsDone());
     }

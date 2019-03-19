@@ -2,9 +2,9 @@
 
 namespace App\Tests\UseCase\User;
 
-use App\Tests\Doubles\User\Entity\UserStub1;
-use App\Tests\Doubles\User\Entity\UserStub2;
-use App\Tests\Doubles\User\Repository\InMemoryUserRepository;
+use App\Tests\Doubles\Entity\User\UserStub1;
+use App\Tests\Doubles\Entity\User\UserStub2;
+use App\Tests\Doubles\Repository\User\InMemoryUserRepository;
 use App\UseCase\User\GetUsers;
 use PHPUnit\Framework\TestCase;
 
