@@ -6,11 +6,9 @@ use App\Exception\User\EmailAlreadyExistsException;
 use App\Form\User\UserType;
 use App\Model\User\UserModel;
 use App\UseCase\User\CreateUser;
-use App\UseCase\User\GetUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
@@ -20,12 +18,8 @@ class CreateUserController extends AbstractController
     /**
      * @Route("/users/create", name="create_user")
      */
-    public function create(
-        Request $request,
-        UserPasswordEncoderInterface $passwordEncoder,
-        CreateUser $createUserUseCase,
-        GetUser $getUserUseCase
-    ) {
+    public function create(Request $request, CreateUser $createUserUseCase)
+    {
         try {
             $user = new UserModel();
             $form = $this->createForm(UserType::class, $user);
