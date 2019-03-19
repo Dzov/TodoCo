@@ -36,7 +36,7 @@ class EditUserTest extends TestCase
     /**
      * @test
      */
-    public function withValidIdExecuteShouldUpdateUser()
+    public function withValidModelExecuteShouldUpdateUser()
     {
         $model = new UserModelStub1();
         $model->setEmail(UserModelStub2::EMAIL);
@@ -59,6 +59,7 @@ class EditUserTest extends TestCase
     public function emailAlreadyExistsShouldThrowException()
     {
         $this->expectException('App\Exception\User\EmailAlreadyExistsException');
+        InMemoryUserRepository::$result = [UserStub1::ID => new UserStub1(), UserStub2::ID => new UserStub2()];
         $model = new UserModelStub1();
         $model->setEmail(UserStub2::EMAIL);
 
@@ -72,7 +73,6 @@ class EditUserTest extends TestCase
         $userRepository = new InMemoryUserRepository(
             [
                 UserStub1::ID => new UserStub1(),
-                UserStub2::ID => new UserStub2(),
             ]
         );
 
