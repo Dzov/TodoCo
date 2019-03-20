@@ -7,6 +7,7 @@ use App\Form\User\UserType;
 use App\Model\User\UserModel;
 use App\UseCase\User\CreateUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -34,7 +35,7 @@ class CreateUserController extends AbstractController
                 return $this->redirectToRoute('list_users');
             }
         } catch (EmailAlreadyExistsException $eaee) {
-            $this->addFlash('danger', 'Cet email est déjà utilisé');
+            $form['email']->addError(new FormError('Cet email est déjà utilisé'));
         }
 
         return $this->render('user/create.html.twig', ['form' => $form->createView()]);

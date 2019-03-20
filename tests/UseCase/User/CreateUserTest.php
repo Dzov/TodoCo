@@ -43,14 +43,6 @@ class CreateUserTest extends TestCase
         $this->useCase->execute(new UserModelStub1());
     }
 
-    /**
-     * @test
-     */
-    public function withAlreadyExistingUsernameExecuteShouldThrowException()
-    {
-        $this->fail();
-    }
-
     protected function setUp()
     {
         parent::setUp();
