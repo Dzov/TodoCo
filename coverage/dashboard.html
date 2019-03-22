@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/Dzov/Documents/Dev/OpenClassrooms/P7-TodoCo/TodoCo/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href=".css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src=".js/html5shiv.min.js"></script>
+  <script src=".js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">/Users/Dzov/Documents/Dev/OpenClassrooms/P7-TodoCo/TodoCo/src</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Authentication/LoginController.php.html#13">App\Controller\Authentication\LoginController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/User/CreateUserController.php.html#17">App\Controller\User\CreateUserController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/Task/CanUserDeleteTaskVoter.php.html#14">App\Security\Voter\Task\CanUserDeleteTaskVoter</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/User/UserType.php.html#13">App\Form\User\UserType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Task/TaskType.php.html#12">App\Form\Task\TaskType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/User/ListUsersController.php.html#13">App\Controller\User\ListUsersController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Home/ShowDashboardController.php.html#11">App\Controller\Home\ShowDashboardController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/User/EditUserController.php.html#20">App\Controller\User\EditUserController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/ToggleTaskStatusController.php.html#12">App\Controller\Task\ToggleTaskStatusController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/ListTasksController.php.html#12">App\Controller\Task\ListTasksController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/EditTaskController.php.html#14">App\Controller\Task\EditTaskController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/DeleteTaskController.php.html#13">App\Controller\Task\DeleteTaskController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/CreateTaskController.php.html#16">App\Controller\Task\CreateTaskController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/AbstractTaskController.php.html#15">App\Controller\Task\AbstractTaskController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/VoterService/CanUserDeleteTaskVoterService.php.html#13">App\Security\VoterService\CanUserDeleteTaskVoterService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Task/TaskModel.php.html#7">App\Model\Task\TaskModel</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Entity/User/User.php.html#17">App\Entity\User\User</a></td><td class="text-right">70%</td></tr>
+       <tr><td><a href="Model/User/UserModel.php.html#10">App\Model\User\UserModel</a></td><td class="text-right">73%</td></tr>
+       <tr><td><a href="Entity/Task/Task.php.html#14">App\Entity\Task\Task</a></td><td class="text-right">79%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/User/EditUserController.php.html#20">App\Controller\User\EditUserController</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Model/Task/TaskModel.php.html#7">App\Model\Task\TaskModel</a></td><td class="text-right">43</td></tr>
+       <tr><td><a href="Security/Voter/Task/CanUserDeleteTaskVoter.php.html#14">App\Security\Voter\Task\CanUserDeleteTaskVoter</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Entity/User/User.php.html#17">App\Entity\User\User</a></td><td class="text-right">26</td></tr>
+       <tr><td><a href="Controller/Task/CreateTaskController.php.html#16">App\Controller\Task\CreateTaskController</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/Task/EditTaskController.php.html#14">App\Controller\Task\EditTaskController</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/User/CreateUserController.php.html#17">App\Controller\User\CreateUserController</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Security/VoterService/CanUserDeleteTaskVoterService.php.html#13">App\Security\VoterService\CanUserDeleteTaskVoterService</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Model/User/UserModel.php.html#10">App\Model\User\UserModel</a></td><td class="text-right">17</td></tr>
+       <tr><td><a href="Controller/Task/ToggleTaskStatusController.php.html#12">App\Controller\Task\ToggleTaskStatusController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/Task/DeleteTaskController.php.html#13">App\Controller\Task\DeleteTaskController</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Authentication/LoginController.php.html#18"><abbr title="App\Controller\Authentication\LoginController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Task/TaskModel.php.html#72"><abbr title="App\Model\Task\TaskModel::setCreatedAt">setCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User/User.php.html#108"><abbr title="App\Entity\User\User::addRole">addRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User/User.php.html#122"><abbr title="App\Entity\User\User::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Task/TaskType.php.html#14"><abbr title="App\Form\Task\TaskType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Task/TaskType.php.html#25"><abbr title="App\Form\Task\TaskType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/User/UserType.php.html#15"><abbr title="App\Form\User\UserType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Task/TaskModel.php.html#36"><abbr title="App\Model\Task\TaskModel::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Task/TaskModel.php.html#82"><abbr title="App\Model\Task\TaskModel::setIsDone">setIsDone</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Home/ShowDashboardController.php.html#16"><abbr title="App\Controller\Home\ShowDashboardController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Task/TaskModel.php.html#87"><abbr title="App\Model\Task\TaskModel::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/User/UserModel.php.html#55"><abbr title="App\Model\User\UserModel::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/User/UserModel.php.html#85"><abbr title="App\Model\User\UserModel::setAdmin">setAdmin</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/Task/CanUserDeleteTaskVoter.php.html#24"><abbr title="App\Security\Voter\Task\CanUserDeleteTaskVoter::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/Task/CanUserDeleteTaskVoter.php.html#29"><abbr title="App\Security\Voter\Task\CanUserDeleteTaskVoter::supports">supports</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/Task/CanUserDeleteTaskVoter.php.html#42"><abbr title="App\Security\Voter\Task\CanUserDeleteTaskVoter::voteOnAttribute">voteOnAttribute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/VoterService/CanUserDeleteTaskVoterService.php.html#20"><abbr title="App\Security\VoterService\CanUserDeleteTaskVoterService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User/User.php.html#94"><abbr title="App\Entity\User\User::isAdmin">isAdmin</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User/User.php.html#64"><abbr title="App\Entity\User\User::getSalt">getSalt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Task/Task.php.html#129"><abbr title="App\Entity\Task\Task::getAuthorId">getAuthorId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/ToggleTaskStatusController.php.html#17"><abbr title="App\Controller\Task\ToggleTaskStatusController::toggle">toggle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/AbstractTaskController.php.html#17"><abbr title="App\Controller\Task\AbstractTaskController::getTask">getTask</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/AbstractTaskController.php.html#22"><abbr title="App\Controller\Task\AbstractTaskController::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/AbstractTaskController.php.html#27"><abbr title="App\Controller\Task\AbstractTaskController::buildModel">buildModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/CreateTaskController.php.html#21"><abbr title="App\Controller\Task\CreateTaskController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/DeleteTaskController.php.html#18"><abbr title="App\Controller\Task\DeleteTaskController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/EditTaskController.php.html#19"><abbr title="App\Controller\Task\EditTaskController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Task/ListTasksController.php.html#17"><abbr title="App\Controller\Task\ListTasksController::list">list</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/User/CreateUserController.php.html#22"><abbr title="App\Controller\User\CreateUserController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Task/Task.php.html#124"><abbr title="App\Entity\Task\Task::getAuthorUsername">getAuthorUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/User/EditUserController.php.html#25"><abbr title="App\Controller\User\EditUserController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/User/EditUserController.php.html#50"><abbr title="App\Controller\User\EditUserController::buildModel">buildModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/User/EditUserController.php.html#62"><abbr title="App\Controller\User\EditUserController::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/User/ListUsersController.php.html#18"><abbr title="App\Controller\User\ListUsersController::listAction">listAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Task/Task.php.html#57"><abbr title="App\Entity\Task\Task::getAuthor">getAuthor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Task/Task.php.html#107"><abbr title="App\Entity\Task\Task::toggle">toggle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/VoterService/CanUserDeleteTaskVoterService.php.html#25"><abbr title="App\Security\VoterService\CanUserDeleteTaskVoterService::canUserDeleteTask">canUserDeleteTask</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User/User.php.html#115"><abbr title="App\Entity\User\User::removeRole">removeRole</abbr></a></td><td class="text-right">66%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/User/EditUserController.php.html#25"><abbr title="App\Controller\User\EditUserController::edit">edit</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controller/Task/CreateTaskController.php.html#21"><abbr title="App\Controller\Task\CreateTaskController::create">create</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/Task/EditTaskController.php.html#19"><abbr title="App\Controller\Task\EditTaskController::edit">edit</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/User/CreateUserController.php.html#22"><abbr title="App\Controller\User\CreateUserController::create">create</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/Task/ToggleTaskStatusController.php.html#17"><abbr title="App\Controller\Task\ToggleTaskStatusController::toggle">toggle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Security/Voter/Task/CanUserDeleteTaskVoter.php.html#29"><abbr title="App\Security\Voter\Task\CanUserDeleteTaskVoter::supports">supports</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Security/VoterService/CanUserDeleteTaskVoterService.php.html#25"><abbr title="App\Security\VoterService\CanUserDeleteTaskVoterService::canUserDeleteTask">canUserDeleteTask</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/Task/DeleteTaskController.php.html#18"><abbr title="App\Controller\Task\DeleteTaskController::delete">delete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/User/User.php.html#108"><abbr title="App\Entity\User\User::addRole">addRole</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/Voter/Task/CanUserDeleteTaskVoter.php.html#42"><abbr title="App\Security\Voter\Task\CanUserDeleteTaskVoter::voteOnAttribute">voteOnAttribute</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/User/User.php.html#115"><abbr title="App\Entity\User\User::removeRole">removeRole</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.9</a> with <a href="https://xdebug.org/">Xdebug 2.7.0</a> and <a href="https://phpunit.de/">PHPUnit 6.5.14</a> at Fri Mar 22 23:11:06 UTC 2019.</small>
+    </p>
+   </footer>
+  </div>
+  <script src=".js/jquery.min.js" type="text/javascript"></script>
+  <script src=".js/bootstrap.min.js" type="text/javascript"></script>
+  <script src=".js/holder.min.js" type="text/javascript"></script>
+  <script src=".js/d3.min.js" type="text/javascript"></script>
+  <script src=".js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([15,0,0,0,0,0,1,0,3,0,0,18], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([37,0,0,0,0,0,0,1,0,0,0,66], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controller\/Authentication\/LoginController.php.html#13\">App\\Controller\\Authentication\\LoginController<\/a>"],[0,1,"<a href=\"Controller\/Home\/ShowDashboardController.php.html#11\">App\\Controller\\Home\\ShowDashboardController<\/a>"],[0,3,"<a href=\"Controller\/Task\/AbstractTaskController.php.html#15\">App\\Controller\\Task\\AbstractTaskController<\/a>"],[0,4,"<a href=\"Controller\/Task\/CreateTaskController.php.html#16\">App\\Controller\\Task\\CreateTaskController<\/a>"],[0,2,"<a href=\"Controller\/Task\/DeleteTaskController.php.html#13\">App\\Controller\\Task\\DeleteTaskController<\/a>"],[0,4,"<a href=\"Controller\/Task\/EditTaskController.php.html#14\">App\\Controller\\Task\\EditTaskController<\/a>"],[0,1,"<a href=\"Controller\/Task\/ListTasksController.php.html#12\">App\\Controller\\Task\\ListTasksController<\/a>"],[0,3,"<a href=\"Controller\/Task\/ToggleTaskStatusController.php.html#12\">App\\Controller\\Task\\ToggleTaskStatusController<\/a>"],[0,4,"<a href=\"Controller\/User\/CreateUserController.php.html#17\">App\\Controller\\User\\CreateUserController<\/a>"],[0,7,"<a href=\"Controller\/User\/EditUserController.php.html#20\">App\\Controller\\User\\EditUserController<\/a>"],[0,1,"<a href=\"Controller\/User\/ListUsersController.php.html#13\">App\\Controller\\User\\ListUsersController<\/a>"],[100,0,"<a href=\"Entity\/Security\/Roles.php.html#8\">App\\Entity\\Security\\Roles<\/a>"],[79.16666666666666,16,"<a href=\"Entity\/Task\/Task.php.html#14\">App\\Entity\\Task\\Task<\/a>"],[100,0,"<a href=\"Entity\/Task\/TaskAction.php.html#8\">App\\Entity\\Task\\TaskAction<\/a>"],[70.83333333333334,18,"<a href=\"Entity\/User\/User.php.html#17\">App\\Entity\\User\\User<\/a>"],[100,0,"<a href=\"Exception\/Task\/TaskNotFoundException.php.html#8\">App\\Exception\\Task\\TaskNotFoundException<\/a>"],[100,0,"<a href=\"Exception\/User\/EmailAlreadyExistsException.php.html#8\">App\\Exception\\User\\EmailAlreadyExistsException<\/a>"],[100,0,"<a href=\"Exception\/User\/UserNotFoundException.php.html#8\">App\\Exception\\User\\UserNotFoundException<\/a>"],[0,2,"<a href=\"Form\/Task\/TaskType.php.html#12\">App\\Form\\Task\\TaskType<\/a>"],[0,1,"<a href=\"Form\/User\/UserType.php.html#13\">App\\Form\\User\\UserType<\/a>"],[50,15,"<a href=\"Model\/Task\/TaskModel.php.html#7\">App\\Model\\Task\\TaskModel<\/a>"],[73.33333333333333,14,"<a href=\"Model\/User\/UserModel.php.html#10\">App\\Model\\User\\UserModel<\/a>"],[0,6,"<a href=\"Security\/Voter\/Task\/CanUserDeleteTaskVoter.php.html#14\">App\\Security\\Voter\\Task\\CanUserDeleteTaskVoter<\/a>"],[0,4,"<a href=\"Security\/VoterService\/CanUserDeleteTaskVoterService.php.html#13\">App\\Security\\VoterService\\CanUserDeleteTaskVoterService<\/a>"],[100,5,"<a href=\"Service\/User\/UserEmailService.php.html#12\">App\\Service\\User\\UserEmailService<\/a>"],[100,1,"<a href=\"UseCase\/Task\/AbstractTaskUseCase.php.html#10\">App\\UseCase\\Task\\AbstractTaskUseCase<\/a>"],[100,4,"<a href=\"UseCase\/Task\/CreateTask.php.html#14\">App\\UseCase\\Task\\CreateTask<\/a>"],[100,2,"<a href=\"UseCase\/Task\/DeleteTask.php.html#10\">App\\UseCase\\Task\\DeleteTask<\/a>"],[100,3,"<a href=\"UseCase\/Task\/EditTask.php.html#12\">App\\UseCase\\Task\\EditTask<\/a>"],[100,2,"<a href=\"UseCase\/Task\/GetTask.php.html#10\">App\\UseCase\\Task\\GetTask<\/a>"],[100,2,"<a href=\"UseCase\/Task\/GetTasks.php.html#10\">App\\UseCase\\Task\\GetTasks<\/a>"],[100,2,"<a href=\"UseCase\/Task\/ToggleTask.php.html#10\">App\\UseCase\\Task\\ToggleTask<\/a>"],[100,1,"<a href=\"UseCase\/User\/AbstractUserUseCase.php.html#10\">App\\UseCase\\User\\AbstractUserUseCase<\/a>"],[100,3,"<a href=\"UseCase\/User\/CreateUser.php.html#14\">App\\UseCase\\User\\CreateUser<\/a>"],[100,4,"<a href=\"UseCase\/User\/EditUser.php.html#14\">App\\UseCase\\User\\EditUser<\/a>"],[100,2,"<a href=\"UseCase\/User\/GetUser.php.html#10\">App\\UseCase\\User\\GetUser<\/a>"],[100,2,"<a href=\"UseCase\/User\/GetUsers.php.html#10\">App\\UseCase\\User\\GetUsers<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controller\/Authentication\/LoginController.php.html#18\">App\\Controller\\Authentication\\LoginController::login<\/a>"],[0,1,"<a href=\"Controller\/Home\/ShowDashboardController.php.html#16\">App\\Controller\\Home\\ShowDashboardController::index<\/a>"],[0,1,"<a href=\"Controller\/Task\/AbstractTaskController.php.html#17\">App\\Controller\\Task\\AbstractTaskController::getTask<\/a>"],[0,1,"<a href=\"Controller\/Task\/AbstractTaskController.php.html#22\">App\\Controller\\Task\\AbstractTaskController::buildForm<\/a>"],[0,1,"<a href=\"Controller\/Task\/AbstractTaskController.php.html#27\">App\\Controller\\Task\\AbstractTaskController::buildModel<\/a>"],[0,4,"<a href=\"Controller\/Task\/CreateTaskController.php.html#21\">App\\Controller\\Task\\CreateTaskController::create<\/a>"],[0,2,"<a href=\"Controller\/Task\/DeleteTaskController.php.html#18\">App\\Controller\\Task\\DeleteTaskController::delete<\/a>"],[0,4,"<a href=\"Controller\/Task\/EditTaskController.php.html#19\">App\\Controller\\Task\\EditTaskController::edit<\/a>"],[0,1,"<a href=\"Controller\/Task\/ListTasksController.php.html#17\">App\\Controller\\Task\\ListTasksController::list<\/a>"],[0,3,"<a href=\"Controller\/Task\/ToggleTaskStatusController.php.html#17\">App\\Controller\\Task\\ToggleTaskStatusController::toggle<\/a>"],[0,4,"<a href=\"Controller\/User\/CreateUserController.php.html#22\">App\\Controller\\User\\CreateUserController::create<\/a>"],[0,5,"<a href=\"Controller\/User\/EditUserController.php.html#25\">App\\Controller\\User\\EditUserController::edit<\/a>"],[0,1,"<a href=\"Controller\/User\/EditUserController.php.html#50\">App\\Controller\\User\\EditUserController::buildModel<\/a>"],[0,1,"<a href=\"Controller\/User\/EditUserController.php.html#62\">App\\Controller\\User\\EditUserController::buildForm<\/a>"],[0,1,"<a href=\"Controller\/User\/ListUsersController.php.html#18\">App\\Controller\\User\\ListUsersController::listAction<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#51\">App\\Entity\\Task\\Task::__construct<\/a>"],[0,1,"<a href=\"Entity\/Task\/Task.php.html#57\">App\\Entity\\Task\\Task::getAuthor<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#62\">App\\Entity\\Task\\Task::setAuthor<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#67\">App\\Entity\\Task\\Task::getId<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#72\">App\\Entity\\Task\\Task::getCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#77\">App\\Entity\\Task\\Task::setCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#82\">App\\Entity\\Task\\Task::getTitle<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#87\">App\\Entity\\Task\\Task::setTitle<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#92\">App\\Entity\\Task\\Task::getContent<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#97\">App\\Entity\\Task\\Task::setContent<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#102\">App\\Entity\\Task\\Task::isDone<\/a>"],[0,1,"<a href=\"Entity\/Task\/Task.php.html#107\">App\\Entity\\Task\\Task::toggle<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#112\">App\\Entity\\Task\\Task::getIsDone<\/a>"],[100,1,"<a href=\"Entity\/Task\/Task.php.html#117\">App\\Entity\\Task\\Task::setIsDone<\/a>"],[0,1,"<a href=\"Entity\/Task\/Task.php.html#124\">App\\Entity\\Task\\Task::getAuthorUsername<\/a>"],[0,1,"<a href=\"Entity\/Task\/Task.php.html#129\">App\\Entity\\Task\\Task::getAuthorId<\/a>"],[100,1,"<a href=\"Entity\/User\/User.php.html#49\">App\\Entity\\User\\User::getId<\/a>"],[100,1,"<a href=\"Entity\/User\/User.php.html#54\">App\\Entity\\User\\User::getUsername<\/a>"],[100,1,"<a href=\"Entity\/User\/User.php.html#59\">App\\Entity\\User\\User::setUsername<\/a>"],[0,1,"<a href=\"Entity\/User\/User.php.html#64\">App\\Entity\\User\\User::getSalt<\/a>"],[100,1,"<a href=\"Entity\/User\/User.php.html#69\">App\\Entity\\User\\User::getPassword<\/a>"],[100,1,"<a href=\"Entity\/User\/User.php.html#74\">App\\Entity\\User\\User::setPassword<\/a>"],[100,1,"<a href=\"Entity\/User\/User.php.html#79\">App\\Entity\\User\\User::getEmail<\/a>"],[100,1,"<a href=\"Entity\/User\/User.php.html#84\">App\\Entity\\User\\User::setEmail<\/a>"],[100,2,"<a href=\"Entity\/User\/User.php.html#89\">App\\Entity\\User\\User::setAdmin<\/a>"],[0,1,"<a href=\"Entity\/User\/User.php.html#94\">App\\Entity\\User\\User::isAdmin<\/a>"],[100,2,"<a href=\"Entity\/User\/User.php.html#99\">App\\Entity\\User\\User::getRoles<\/a>"],[0,2,"<a href=\"Entity\/User\/User.php.html#108\">App\\Entity\\User\\User::addRole<\/a>"],[66.66666666666666,2,"<a href=\"Entity\/User\/User.php.html#115\">App\\Entity\\User\\User::removeRole<\/a>"],[0,1,"<a href=\"Entity\/User\/User.php.html#122\">App\\Entity\\User\\User::eraseCredentials<\/a>"],[0,1,"<a href=\"Form\/Task\/TaskType.php.html#14\">App\\Form\\Task\\TaskType::buildForm<\/a>"],[0,1,"<a href=\"Form\/Task\/TaskType.php.html#25\">App\\Form\\Task\\TaskType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/User\/UserType.php.html#15\">App\\Form\\User\\UserType::buildForm<\/a>"],[0,1,"<a href=\"Model\/Task\/TaskModel.php.html#36\">App\\Model\\Task\\TaskModel::__construct<\/a>"],[100,2,"<a href=\"Model\/Task\/TaskModel.php.html#42\">App\\Model\\Task\\TaskModel::getId<\/a>"],[100,2,"<a href=\"Model\/Task\/TaskModel.php.html#47\">App\\Model\\Task\\TaskModel::getTitle<\/a>"],[100,1,"<a href=\"Model\/Task\/TaskModel.php.html#52\">App\\Model\\Task\\TaskModel::setTitle<\/a>"],[100,2,"<a href=\"Model\/Task\/TaskModel.php.html#57\">App\\Model\\Task\\TaskModel::getContent<\/a>"],[100,1,"<a href=\"Model\/Task\/TaskModel.php.html#62\">App\\Model\\Task\\TaskModel::setContent<\/a>"],[100,2,"<a href=\"Model\/Task\/TaskModel.php.html#67\">App\\Model\\Task\\TaskModel::getCreatedAt<\/a>"],[0,1,"<a href=\"Model\/Task\/TaskModel.php.html#72\">App\\Model\\Task\\TaskModel::setCreatedAt<\/a>"],[100,1,"<a href=\"Model\/Task\/TaskModel.php.html#77\">App\\Model\\Task\\TaskModel::isDone<\/a>"],[0,1,"<a href=\"Model\/Task\/TaskModel.php.html#82\">App\\Model\\Task\\TaskModel::setIsDone<\/a>"],[0,1,"<a href=\"Model\/Task\/TaskModel.php.html#87\">App\\Model\\Task\\TaskModel::setId<\/a>"],[100,2,"<a href=\"Model\/User\/UserModel.php.html#40\">App\\Model\\User\\UserModel::getEmail<\/a>"],[100,1,"<a href=\"Model\/User\/UserModel.php.html#45\">App\\Model\\User\\UserModel::setEmail<\/a>"],[100,2,"<a href=\"Model\/User\/UserModel.php.html#50\">App\\Model\\User\\UserModel::getId<\/a>"],[0,1,"<a href=\"Model\/User\/UserModel.php.html#55\">App\\Model\\User\\UserModel::setId<\/a>"],[100,2,"<a href=\"Model\/User\/UserModel.php.html#60\">App\\Model\\User\\UserModel::getPassword<\/a>"],[100,1,"<a href=\"Model\/User\/UserModel.php.html#65\">App\\Model\\User\\UserModel::setPassword<\/a>"],[100,2,"<a href=\"Model\/User\/UserModel.php.html#70\">App\\Model\\User\\UserModel::getUsername<\/a>"],[100,1,"<a href=\"Model\/User\/UserModel.php.html#75\">App\\Model\\User\\UserModel::setUsername<\/a>"],[100,1,"<a href=\"Model\/User\/UserModel.php.html#80\">App\\Model\\User\\UserModel::isAdmin<\/a>"],[0,1,"<a href=\"Model\/User\/UserModel.php.html#85\">App\\Model\\User\\UserModel::setAdmin<\/a>"],[0,1,"<a href=\"Security\/Voter\/Task\/CanUserDeleteTaskVoter.php.html#24\">App\\Security\\Voter\\Task\\CanUserDeleteTaskVoter::__construct<\/a>"],[0,3,"<a href=\"Security\/Voter\/Task\/CanUserDeleteTaskVoter.php.html#29\">App\\Security\\Voter\\Task\\CanUserDeleteTaskVoter::supports<\/a>"],[0,2,"<a href=\"Security\/Voter\/Task\/CanUserDeleteTaskVoter.php.html#42\">App\\Security\\Voter\\Task\\CanUserDeleteTaskVoter::voteOnAttribute<\/a>"],[0,1,"<a href=\"Security\/VoterService\/CanUserDeleteTaskVoterService.php.html#20\">App\\Security\\VoterService\\CanUserDeleteTaskVoterService::__construct<\/a>"],[0,3,"<a href=\"Security\/VoterService\/CanUserDeleteTaskVoterService.php.html#25\">App\\Security\\VoterService\\CanUserDeleteTaskVoterService::canUserDeleteTask<\/a>"],[100,1,"<a href=\"Service\/User\/UserEmailService.php.html#19\">App\\Service\\User\\UserEmailService::__construct<\/a>"],[100,4,"<a href=\"Service\/User\/UserEmailService.php.html#28\">App\\Service\\User\\UserEmailService::checkEmailAvailability<\/a>"],[100,1,"<a href=\"UseCase\/Task\/AbstractTaskUseCase.php.html#17\">App\\UseCase\\Task\\AbstractTaskUseCase::__construct<\/a>"],[100,1,"<a href=\"UseCase\/Task\/CreateTask.php.html#21\">App\\UseCase\\Task\\CreateTask::__construct<\/a>"],[100,1,"<a href=\"UseCase\/Task\/CreateTask.php.html#32\">App\\UseCase\\Task\\CreateTask::execute<\/a>"],[100,1,"<a href=\"UseCase\/Task\/CreateTask.php.html#39\">App\\UseCase\\Task\\CreateTask::populateTask<\/a>"],[100,1,"<a href=\"UseCase\/Task\/CreateTask.php.html#55\">App\\UseCase\\Task\\CreateTask::getUser<\/a>"],[100,1,"<a href=\"UseCase\/Task\/DeleteTask.php.html#12\">App\\UseCase\\Task\\DeleteTask::__construct<\/a>"],[100,1,"<a href=\"UseCase\/Task\/DeleteTask.php.html#20\">App\\UseCase\\Task\\DeleteTask::execute<\/a>"],[100,1,"<a href=\"UseCase\/Task\/EditTask.php.html#14\">App\\UseCase\\Task\\EditTask::__construct<\/a>"],[100,1,"<a href=\"UseCase\/Task\/EditTask.php.html#22\">App\\UseCase\\Task\\EditTask::execute<\/a>"],[100,1,"<a href=\"UseCase\/Task\/EditTask.php.html#31\">App\\UseCase\\Task\\EditTask::updateProperties<\/a>"],[100,1,"<a href=\"UseCase\/Task\/GetTask.php.html#12\">App\\UseCase\\Task\\GetTask::__construct<\/a>"],[100,1,"<a href=\"UseCase\/Task\/GetTask.php.html#20\">App\\UseCase\\Task\\GetTask::execute<\/a>"],[100,1,"<a href=\"UseCase\/Task\/GetTasks.php.html#17\">App\\UseCase\\Task\\GetTasks::__construct<\/a>"],[100,1,"<a href=\"UseCase\/Task\/GetTasks.php.html#22\">App\\UseCase\\Task\\GetTasks::execute<\/a>"],[100,1,"<a href=\"UseCase\/Task\/ToggleTask.php.html#12\">App\\UseCase\\Task\\ToggleTask::__construct<\/a>"],[100,1,"<a href=\"UseCase\/Task\/ToggleTask.php.html#20\">App\\UseCase\\Task\\ToggleTask::execute<\/a>"],[100,1,"<a href=\"UseCase\/User\/AbstractUserUseCase.php.html#17\">App\\UseCase\\User\\AbstractUserUseCase::__construct<\/a>"],[100,1,"<a href=\"UseCase\/User\/CreateUser.php.html#26\">App\\UseCase\\User\\CreateUser::__construct<\/a>"],[100,1,"<a href=\"UseCase\/User\/CreateUser.php.html#43\">App\\UseCase\\User\\CreateUser::execute<\/a>"],[100,1,"<a href=\"UseCase\/User\/CreateUser.php.html#52\">App\\UseCase\\User\\CreateUser::populateUser<\/a>"],[100,1,"<a href=\"UseCase\/User\/EditUser.php.html#26\">App\\UseCase\\User\\EditUser::__construct<\/a>"],[100,1,"<a href=\"UseCase\/User\/EditUser.php.html#44\">App\\UseCase\\User\\EditUser::execute<\/a>"],[100,1,"<a href=\"UseCase\/User\/EditUser.php.html#54\">App\\UseCase\\User\\EditUser::updateProperties<\/a>"],[100,1,"<a href=\"UseCase\/User\/EditUser.php.html#64\">App\\UseCase\\User\\EditUser::getEncodedPassword<\/a>"],[100,1,"<a href=\"UseCase\/User\/GetUser.php.html#12\">App\\UseCase\\User\\GetUser::__construct<\/a>"],[100,1,"<a href=\"UseCase\/User\/GetUser.php.html#21\">App\\UseCase\\User\\GetUser::execute<\/a>"],[100,1,"<a href=\"UseCase\/User\/GetUsers.php.html#12\">App\\UseCase\\User\\GetUsers::__construct<\/a>"],[100,1,"<a href=\"UseCase\/User\/GetUsers.php.html#17\">App\\UseCase\\User\\GetUsers::execute<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
