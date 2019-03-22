@@ -19,9 +19,7 @@ class TaskType extends AbstractType
                 'content',
                 TextareaType::class,
                 ['label' => "Description", 'attr' => ['class' => 'form-control']]
-            )
-            //->add('author') ===> must be the user authenticated
-        ;
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)

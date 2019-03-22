@@ -7,6 +7,7 @@
             </h4>
             <h4><a href="{{ path('edit_task', {'taskId' : task.id }) }}">{{ task.title }}</a></h4>
             <p>{{ task.content }}</p>
+            <p>Créé par {{ task.author.username }}</p>
             <form action="{{ path('toggle_task', {'taskId' : task.id }) }}">
                 <button class="btn btn-success btn-sm pull-right">
                     {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -12,22 +13,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Task
 {
     /**
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @JoinColumn(name="author", referencedColumnName="id")
      */
-    protected $id;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    protected $createdAt;
-
-    /**
-     * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Vous devez saisir un titre.")
-     */
-    protected $title;
+    protected $author;
 
     /**
      * @ORM\Column(type="text")
@@ -36,14 +25,42 @@ class Task
     protected $content;
 
     /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    protected $createdAt;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     protected $isDone;
+
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Vous devez saisir un titre.")
+     */
+    protected $title;
 
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->isDone = false;
+    }
+
+    public function getAuthor(): User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(User $author)
+    {
+        $this->author = $author;
     }
 
     public function getId()
@@ -101,5 +118,15 @@ class Task
         $this->isDone = $isDone;
 
         return $this;
+    }
+
+    public function getAuthorUsername(): string
+    {
+        return $this->getAuthor()->getUsername();
+    }
+
+    public function getAuthorId(): int
+    {
+        return $this->getAuthor()->getId();
     }
 }
