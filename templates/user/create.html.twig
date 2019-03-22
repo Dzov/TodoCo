@@ -4,8 +4,8 @@
 {% block header_img %}{% endblock %}
 
 {% block body %}
-    <div class="row">
-        {{ form_start(form, {'action' : path('create_user')}) }}
+    <div class="row custom-form mt-md-4">
+        {{ form_start(form, {'action' : path('create_user'), 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
         <div class="form-group">
             {% if form_errors(form.username) is not empty %}
                 <div class="alert-danger" role="alert">
