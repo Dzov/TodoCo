@@ -86,14 +86,9 @@ class User implements UserInterface
         $this->email = $email;
     }
 
-    public function makeAdmin()
+    public function setAdmin(bool $isAdmin)
     {
-        $this->addRole(Roles::ROLE_ADMIN);
-    }
-
-    public function removeAdmin()
-    {
-        $this->removeRole(Roles::ROLE_ADMIN);
+        $isAdmin ? $this->addRole(Roles::ROLE_ADMIN) : $this->removeRole(Roles::ROLE_ADMIN);
     }
 
     public function isAdmin(): bool

@@ -50,6 +50,7 @@ class EditUserController extends AbstractController
     private function buildModel(User $user)
     {
         $model = new UserModel();
+        $model->setAdmin($user->isAdmin());
         $model->setEmail($user->getEmail());
         $model->setId($user->getId());
         $model->setPassword($user->getPassword());

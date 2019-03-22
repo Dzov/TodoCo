@@ -53,8 +53,9 @@ class EditUser extends AbstractUserUseCase
 
     private function updateProperties(UserModel $model, User $user): User
     {
-        $user->setPassword($this->getEncodedPassword($user, $model->getPassword()));
+        $user->setAdmin($model->isAdmin());
         $user->setEmail($model->getEmail());
+        $user->setPassword($this->getEncodedPassword($user, $model->getPassword()));
         $user->setUsername($model->getUsername());
 
         return $user;
