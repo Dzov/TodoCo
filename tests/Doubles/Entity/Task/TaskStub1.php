@@ -2,7 +2,7 @@
 
 namespace App\Tests\Doubles\Entity\Task;
 
-use App\Entity\Task;
+use App\Entity\Task\Task;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

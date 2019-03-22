@@ -2,7 +2,7 @@
 
 namespace App\Tests\UseCase\Task;
 
-use App\Entity\Task;
+use App\Entity\Task\Task;
 use PHPUnit\Framework\Assert;
 
 /**

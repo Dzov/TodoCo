@@ -2,8 +2,8 @@
 
 namespace App\UseCase\Task;
 
-use App\Entity\Task;
-use App\Entity\User;
+use App\Entity\Task\Task;
+use App\Entity\User\User;
 use App\Model\Task\TaskModel;
 use App\Repository\TaskRepository;
 use App\Repository\UserRepository;

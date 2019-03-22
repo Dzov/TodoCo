@@ -2,7 +2,7 @@
 
 namespace App\Controller\User;
 
-use App\Entity\User;
+use App\Entity\User\User;
 use App\Exception\User\EmailAlreadyExistsException;
 use App\Exception\User\UserNotFoundException;
 use App\Form\User\UserType;
@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class EditUserController extends AbstractController
 {
     /**
-     * @Route("/users/{userId}/edit", name="edit_user", requirements={"userId"="^\d{1,10}$"})
+     * @Route("/admin/users/{userId}/edit", name="edit_user", requirements={"userId"="^\d{1,10}$"})
      */
     public function edit(int $userId, Request $request, GetUser $getUserUseCase, EditUser $editUserUseCase)
     {

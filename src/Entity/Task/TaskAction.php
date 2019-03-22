@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Task;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

@@ -2,7 +2,7 @@
 
 namespace App\Controller\Task;
 
-use App\Entity\Task;
+use App\Entity\Task\Task;
 use App\Form\Task\TaskType;
 use App\Model\Task\TaskModel;
 use App\UseCase\Task\GetTask;

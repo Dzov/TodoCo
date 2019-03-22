@@ -2,8 +2,8 @@
 
 namespace App\Security\VoterService;
 
-use App\Entity\Task;
-use App\Entity\User;
+use App\Entity\Task\Task;
+use App\Entity\User\User;
 use App\Exception\Task\TaskNotFoundException;
 use App\Repository\TaskRepository;
 

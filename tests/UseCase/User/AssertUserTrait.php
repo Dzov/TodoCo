@@ -2,7 +2,7 @@
 
 namespace App\Tests\UseCase\User;
 
-use App\Entity\User;
+use App\Entity\User\User;
 use PHPUnit\Framework\Assert;
 
 /**

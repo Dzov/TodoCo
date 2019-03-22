@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Task;
 
+use App\Entity\User\User;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -13,8 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Task
 {
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     * @JoinColumn(name="author", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\User")
+     * @JoinColumn(name="author", referencedColumnName="id", nullable=false)
      */
     protected $author;
 

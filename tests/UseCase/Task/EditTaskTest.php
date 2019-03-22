@@ -2,7 +2,7 @@
 
 namespace App\Tests\UseCase\Task;
 
-use App\Entity\Task;
+use App\Entity\Task\Task;
 use App\Model\Task\TaskModel;
 use App\Tests\Doubles\Entity\Task\TaskStub1;
 use App\Tests\Doubles\Entity\Task\TaskStub2;

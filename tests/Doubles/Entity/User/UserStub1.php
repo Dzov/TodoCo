@@ -2,7 +2,7 @@
 
 namespace App\Tests\Doubles\Entity\User;
 
-use App\Entity\User;
+use App\Entity\User\User;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
