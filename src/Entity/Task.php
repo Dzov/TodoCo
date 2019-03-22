@@ -19,7 +19,7 @@ class Task
     protected $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime_immutable")
      */
     protected $createdAt;
 
