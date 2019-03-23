@@ -104,9 +104,9 @@ class Task
         return $this->isDone;
     }
 
-    public function toggle($flag)
+    public function toggle()
     {
-        $this->isDone = $flag;
+        $this->setIsDone(!$this->isDone);
     }
 
     public function getIsDone(): bool

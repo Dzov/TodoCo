@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security\VoterService;
+namespace App\Security\VoterService\Task;
 
 use App\Entity\Task\Task;
 use App\Entity\User\User;
