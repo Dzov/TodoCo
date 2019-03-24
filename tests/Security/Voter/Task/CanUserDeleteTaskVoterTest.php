@@ -78,7 +78,7 @@ class CanUserDeleteTaskVoterTest extends TestCase
         parent::setUp();
 
         $this->voter = new CanUserDeleteTaskVoter(
-            new CanUserDeleteTaskVoterServiceMock(new InMemoryTaskRepository([]))
+            new CanUserDeleteTaskVoterServiceMock()
         );
     }
 }
