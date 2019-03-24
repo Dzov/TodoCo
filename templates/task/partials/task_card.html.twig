@@ -1,23 +1,29 @@
-<div class="col-sm-4 col-lg-4 col-md-4">
+<div class="col-sm-6 col-lg-4 col-md-4">
     <div class="thumbnail">
         <div class="caption">
             <h4 class="pull-right">
-                {% if task.isDone %}<span class="glyphicon glyphicon-ok"></span>{% else %}
-                    <span class="glyphicon glyphicon-remove"></span>{% endif %}
+                {% if task.isDone %}<span class="glyphicon glyphicon-ok color-success"></span>{% else %}
+                    <span class="glyphicon glyphicon-remove color-text"></span>{% endif %}
             </h4>
             <h4><a href="{{ path('edit_task', {'taskId' : task.id }) }}">{{ task.title }}</a></h4>
-            <p>{{ task.content }}</p>
-            <p>Créé par {{ task.author.username }}</p>
-            <div class="d-flex justify-content-end mb-4">
-                <form action="{{ path('toggle_task', {'taskId' : task.id }) }}">
-                    <button class="btn btn-success btn-sm pull-right">
-                        {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
-                    </button>
-                </form>
+            <small class="text-muted">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/Y", "Europe/Paris") }}</small>
+            <p class="mt-4">{{ task.content }}</p>
+        </div>
+        <hr>
+        <div class="card_controls">
+            <div class="d-flex mb-4 flex-2">
+                <a href="{{ path('toggle_task', {'taskId' : task.id }) }}" class="card-action">
+                    {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
+                </a>
+                <a href="{{ path('edit_task', {'taskId' : task.id }) }}" class="fa fa-pencil color-notice">
+                </a>
+                <a href="{{ path('edit_task', {'taskId' : task.id }) }}" class="fa fa-trash color-danger">
+
+                </a>
                 {% if is_granted('CAN_USER_DELETE_TASK') %}
-                    <form action="{{ path('delete_task', {'taskId' : task.id }) }}">
-                        <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
-                    </form>
+                    <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class="card-action">
+                        Supprimer
+                    </a>
                 {% endif %}
             </div>
         </div>

@@ -16,10 +16,8 @@
     <!-- Custom CSS -->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/aileron" type="text/css"/>
-    <link href="{{ asset('css/shop-homepage.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/common/navbar.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/common/form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,9 +55,11 @@
                     </div>
                 </li>
                 {% if app.user %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Admin</a>
-                    </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Admin</a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a href="{{ path('logout') }}" class="nav-link .text-danger">Se déconnecter</a>
                     </li>

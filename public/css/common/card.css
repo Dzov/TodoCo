@@ -1,0 +1,24 @@
+.card-action {
+    text-transform: uppercase;
+    color: #6c18e7;
+    font-weight: bold;
+    flex: 1;
+    font-size: 13px;
+    align-self: center;
+}
+
+.card_controls {
+    padding: 3px;
+}
+
+@media (min-width: 945px) {
+    .card-action {
+        padding: 0 8px;
+    }
+}
+
+.fa {
+    font-size: 18px;
+    flex: .2;
+    align-self: center;
+}

@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.btn {
+    min-width: 125px;
+}
+
 .form-group {
     min-width: 250px;
     max-width: 470px;

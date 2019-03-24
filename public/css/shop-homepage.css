@@ -17,6 +17,10 @@ main {
     padding: 40px 50px;
 }
 
+a:active, a:hover {
+    text-decoration: none;
+}
+
 .slide-image {
     width: 100%;
 }
@@ -60,4 +64,26 @@ main {
 
 footer {
     margin: 50px 0;
+}
+
+
+/*************
+    COLORS
+ *************/
+
+.color-success {
+    color: #5cb85c;
+
+}
+
+.color-primary {
+    color: #45b0d5;
+}
+
+.color-danger {
+    color: #c93a2c;
+}
+
+.color-text {
+    color: #5a6269;
 }
