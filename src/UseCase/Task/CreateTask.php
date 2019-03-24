@@ -7,6 +7,7 @@ use App\Entity\User\User;
 use App\Model\Task\TaskModel;
 use App\Repository\TaskRepository;
 use App\Repository\UserRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
@@ -29,21 +30,21 @@ class CreateTask extends AbstractTaskUseCase
      * @throws \Doctrine\ORM\OptimisticLockException
      * @throws \App\Exception\User\UserNotFoundException
      */
-    public function execute(TaskModel $model, int $userId)
+    public function execute(TaskModel $model)
     {
-        $user = $this->getUser($userId);
-        $task = $this->populateTask($model, $user);
+        $author = $this->getUser($model->getAuthorId());
+        $task = $this->populateTask($model, $author);
         $this->taskRepository->insert($task);
     }
 
-    private function populateTask(TaskModel $model, User $user): Task
+    private function populateTask(TaskModel $model, UserInterface $author): Task
     {
         $task = new Task();
         $task->setContent($model->getContent());
         $task->setCreatedAt($model->getCreatedAt());
         $task->setIsDone($model->isDone());
         $task->setTitle($model->getTitle());
-        $task->setAuthor($user);
+        $task->setAuthor($author);
 
         return $task;
     }

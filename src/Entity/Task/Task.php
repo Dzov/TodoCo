@@ -2,9 +2,9 @@
 
 namespace App\Entity\Task;
 
-use App\Entity\User\User;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -54,12 +54,12 @@ class Task
         $this->isDone = false;
     }
 
-    public function getAuthor(): User
+    public function getAuthor(): UserInterface
     {
         return $this->author;
     }
 
-    public function setAuthor(User $author)
+    public function setAuthor(UserInterface $author)
     {
         $this->author = $author;
     }

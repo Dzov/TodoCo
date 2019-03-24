@@ -119,6 +119,9 @@ class User implements UserInterface
         }
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function eraseCredentials()
     {
     }

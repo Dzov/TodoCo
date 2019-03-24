@@ -26,5 +26,6 @@ trait AssertUserTrait
         Assert::assertSame($expectedUser->getId(), $actualUser->getId());
         Assert::assertSame($expectedUser->getEmail(), $actualUser->getEmail());
         Assert::assertSame($expectedUser->getUsername(), $actualUser->getUsername());
+        Assert::assertSame($expectedUser->isAdmin(), $actualUser->isAdmin());
     }
 }

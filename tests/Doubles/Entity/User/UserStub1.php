@@ -23,10 +23,13 @@ class UserStub1 extends User
 
     public $password = self::PASSWORD;
 
+    public $roles = [];
+
     public $username = self::USERNAME;
 
-    public function __construct()
+    public function __construct(array $roles = [])
     {
         $this->password = md5(self::PASSWORD);
+        $this->roles = $roles;
     }
 }

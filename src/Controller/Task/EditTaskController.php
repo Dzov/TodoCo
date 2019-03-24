@@ -3,6 +3,7 @@
 namespace App\Controller\Task;
 
 use App\Exception\Task\TaskNotFoundException;
+use App\Model\Task\TaskModelAssembler;
 use App\UseCase\Task\EditTask;
 use App\UseCase\Task\GetTask;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,10 +17,15 @@ class EditTaskController extends AbstractTaskController
     /**
      * @Route("/tasks/{taskId}/edit", name="edit_task", requirements={"taskId"="^\d{1,10}$"})
      */
-    public function edit(int $taskId, Request $request, GetTask $getTaskUseCase, EditTask $editTaskUseCase)
-    {
+    public function edit(
+        int $taskId,
+        Request $request,
+        GetTask $getTaskUseCase,
+        EditTask $editTaskUseCase,
+        TaskModelAssembler $modelAssembler
+    ) {
         $task = $this->getTask($taskId, $getTaskUseCase);
-        $form = $this->buildForm($this->buildModel($task));
+        $form = $this->buildForm($modelAssembler->createFromEntity($task));
 
         $form->handleRequest($request);
 

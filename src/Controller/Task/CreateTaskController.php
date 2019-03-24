@@ -2,7 +2,6 @@
 
 namespace App\Controller\Task;
 
-use App\Exception\Task\TaskAuthorDoesNotMatchCurrentUserException;
 use App\Exception\User\UserNotFoundException;
 use App\Model\Task\TaskModel;
 use App\UseCase\Task\CreateTask;
@@ -21,13 +20,13 @@ class CreateTaskController extends AbstractTaskController
     public function create(Request $request, CreateTask $createTaskUseCase, UserInterface $user)
     {
         try {
-            $form = $this->buildForm(new TaskModel());
+            $form = $this->buildForm(new TaskModel($user->getId()));
 
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
 
-                $createTaskUseCase->execute($form->getData(), $user->getId());
+                $createTaskUseCase->execute($form->getData());
 
                 $this->addFlash('success', 'La tâche a été bien été ajoutée.');
 
