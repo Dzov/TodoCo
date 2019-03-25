@@ -2,7 +2,7 @@
     text-transform: uppercase;
     color: #6c18e7;
     font-weight: bold;
-    flex: 1;
+    margin-right: 15px ;
     font-size: 13px;
     align-self: center;
 }
@@ -21,4 +21,27 @@
     font-size: 18px;
     flex: .2;
     align-self: center;
+}
+
+.fa-star::before {
+    color: white;
+    -webkit-text-stroke: 1px #5a6269;
+}
+
+.glyphicon {
+    border-radius: 100%;
+    padding: 10px;
+}
+.glyphicon-ok {
+    border: 1px solid #5cb85c;
+    background-color: #5cb85c
+;
+    color : white;
+}
+
+.glyphicon-remove {
+    border: 1px solid #5a6269;
+    background-color: #5a6269
+;
+    color : white;
 }

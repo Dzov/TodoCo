@@ -18,6 +18,7 @@
 .navbar {
     margin-bottom: 0;
     background-color: #a9e4ef;
+    height: 100px;
 }
 
 .navbar-light .navbar-nav .nav-link, .dropdown-item {

@@ -1,13 +1,25 @@
 <div class="col-sm-6 col-lg-4 col-md-4">
     <div class="thumbnail">
         <div class="caption">
-            <h4 class="pull-right">
-                {% if task.isDone %}<span class="glyphicon glyphicon-ok color-success"></span>{% else %}
-                    <span class="glyphicon glyphicon-remove color-text"></span>{% endif %}
+            <header class=" d-flex justify-content-between">
+                <small class="text-muted align-self-center">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/Y", "Europe/Paris") }}</small>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class="fa fa-star mr-4 text-muted">
+                    </a>
+                {#{% if is_granted('CAN_USER_DELETE_TASK') %}#}
+                    <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class="fa fa-trash mr-4 text-muted">
+                    </a>
+                    {#{% endif %}#}
+                    {% if task.isDone %}
+                        <span class="pull-right align-self-center glyphicon glyphicon-ok color-success"></span>
+                    {% else %}
+                        <span class="pull-right align-self-center glyphicon glyphicon-remove color-text"></span>
+                    {% endif %}
+                </div>
+            </header>
+            <h4 class="mt-0"><a href="{{ path('edit_task', {'taskId' : task.id }) }}"><strong>{{ task.title }}</strong></a>
             </h4>
-            <h4><a href="{{ path('edit_task', {'taskId' : task.id }) }}">{{ task.title }}</a></h4>
-            <small class="text-muted">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/Y", "Europe/Paris") }}</small>
-            <p class="mt-4">{{ task.content }}</p>
+            <p >{{ task.content }}</p>
         </div>
         <hr>
         <div class="card_controls">
@@ -15,16 +27,9 @@
                 <a href="{{ path('toggle_task', {'taskId' : task.id }) }}" class="card-action">
                     {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
                 </a>
-                <a href="{{ path('edit_task', {'taskId' : task.id }) }}" class="fa fa-pencil color-notice">
+                <a href="{{ path('edit_task', {'taskId' : task.id }) }}" class="card-action">
+                    Modifier
                 </a>
-                <a href="{{ path('edit_task', {'taskId' : task.id }) }}" class="fa fa-trash color-danger">
-
-                </a>
-                {% if is_granted('CAN_USER_DELETE_TASK') %}
-                    <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class="card-action">
-                        Supprimer
-                    </a>
-                {% endif %}
             </div>
         </div>
     </div>
