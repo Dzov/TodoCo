@@ -4,6 +4,9 @@
     font-family: 'AileronRegular';
     font-weight: 600;
     font-style: normal;
+    flex: 1.8;
+    text-transform: none;
+    margin-bottom: 15px;
 }
 
 .navbar-logo:hover {
@@ -11,14 +14,22 @@
     text-decoration: none;
 }
 
-.navbar-logo img {
-    margin-bottom: 6px;
-}
-
 .navbar {
     margin-bottom: 0;
-    background-color: #a9e4ef;
+    background-color: #45b0d5;
     height: 100px;
+    padding: 20px;
+
+}
+
+.navbar-nav {
+    width: 100%;
+}
+
+.navbar-menu {
+    flex: 1;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .navbar-light .navbar-nav .nav-link, .dropdown-item {
@@ -27,6 +38,6 @@
 
 .dropdown-menu {
     border: none;
-    background-color: #a9e4ef;
+    background-color: #45b0d5;
 }
 

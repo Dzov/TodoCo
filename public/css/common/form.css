@@ -9,19 +9,29 @@
     min-width: 125px;
 }
 
+form {
+    min-height: 250px;
+    margin: auto;
+}
+
 .form-group {
     min-width: 250px;
     max-width: 470px;
+    width: 100%;
+}
+
+.login-form {
+    min-height: 200px;
 }
 
 @media (min-width: 700px) {
-    .form-group {
+    form {
         width: 75%;
     }
 }
 
 @media (min-width: 900px) {
-    .form-group {
+    form {
         width: 50%;
     }
 }
@@ -33,6 +43,6 @@
 
 @media (min-width: 500px) {
     .todo-logo {
-        width: 20em;
+        width: 15em;
     }
 }
