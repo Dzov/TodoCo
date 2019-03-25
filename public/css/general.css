@@ -14,9 +14,13 @@ body {
     color: #5a6269;
 }
 
+h1 {
+    margin: 20px 0;
+}
+
 main {
     min-height: calc(100vh - 170px);
-    padding: 40px 50px;
+    padding: 20px 50px;
 }
 
 a:active, a:hover, a:focus {

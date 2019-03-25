@@ -28,7 +28,7 @@ class CreateTaskController extends AbstractTaskController
 
                 $createTaskUseCase->execute($form->getData());
 
-                $this->addFlash('success', 'La tâche a été bien été ajoutée.');
+                $this->addFlash('success', 'La tâche a bien été ajoutée.');
 
                 return $this->redirectToRoute('list_tasks');
             }

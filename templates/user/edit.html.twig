@@ -9,7 +9,11 @@
 
         {% include 'user/partials/user_form.html.twig' %}
 
-        <button type="submit" class="btn btn-success pull-right">Modifier</button>
+        <div class="form-actions align-self-end justify-content-between">
+            <button type="submit" class="btn btn-primary">Modifier</button>
+        </div>
         {{ form_end(form) }}
     </div>
+
+    <a href="{{ path('list_users') }}" class="btn btn-primary-open mt-4">Retour à la liste</a>
 {% endblock %}

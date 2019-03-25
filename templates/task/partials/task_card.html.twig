@@ -25,7 +25,7 @@
         <div class="card_controls">
             <div class="d-flex mb-4 justify-content-around">
                 <a href="{{ path('toggle_task', {'taskId' : task.id }) }}" class="btn btn-primary">
-                    {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
+                    {% if not task.isDone %}<i class="fa fa-check mr-4"></i>Terminer{% else %}<i class="fa fa-refresh mr-4"></i>Rouvrir{% endif %}
                 </a>
                 <a href="{{ path('edit_task', {'taskId' : task.id }) }}" class="card-action">
                     Modifier

@@ -4,6 +4,10 @@
     <img class="slide-image" src="{{ asset('img/todolist_content.jpg') }}" alt="todo list">{% endblock %}
 
 {% block body %}
+    <div class="d-flex justify-content-between">
+        <h1>Toutes les tâches</h1>
+        <a href="{{ path('create_task') }}" class="btn btn-primary-open mt-4 align-self-center d-flex"><i class="fa fa-plus mr-4"></i>Ajouter une tâche</a>
+    </div>
     <div class="row">
         {% for task in tasks %}
             {% include('task/partials/task_card.html.twig') %}

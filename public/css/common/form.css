@@ -5,13 +5,10 @@
     align-items: center;
 }
 
-.btn {
-    min-width: 125px;
-}
-
 form {
-    min-height: 250px;
+    min-height: 200px;
     margin: auto;
+    padding: 10px
 }
 
 .form-group {
@@ -26,13 +23,13 @@ form {
 
 @media (min-width: 700px) {
     form {
-        width: 75%;
+        width: 65%;
     }
 }
 
 @media (min-width: 900px) {
     form {
-        width: 50%;
+        width: 37%;
     }
 }
 
