@@ -4,12 +4,12 @@
             <header class=" d-flex justify-content-between">
                 <small class="text-muted align-self-center">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/Y", "Europe/Paris") }}</small>
                 <div class="d-flex justify-content-between">
-                    <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class="fa fa-star mr-4 text-muted">
+                    <a href="{{ path('list_tasks') }}" class="fa fa-star mr-4 text-muted">
                     </a>
-                {#{% if is_granted('CAN_USER_DELETE_TASK') %}#}
-                    <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class="fa fa-trash mr-4 text-muted">
-                    </a>
-                    {#{% endif %}#}
+                    {% if is_granted('CAN_USER_DELETE_TASK') %}
+                        <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class="fa fa-trash mr-4 text-muted">
+                        </a>
+                    {% endif %}
                     {% if task.isDone %}
                         <span class="pull-right align-self-center glyphicon glyphicon-ok color-success"></span>
                     {% else %}
@@ -19,12 +19,12 @@
             </header>
             <h4 class="mt-0"><a href="{{ path('edit_task', {'taskId' : task.id }) }}"><strong>{{ task.title }}</strong></a>
             </h4>
-            <p >{{ task.content }}</p>
+            <p>{{ task.content }}</p>
         </div>
-        <hr>
+        <hr width="85%" class="m-4">
         <div class="card_controls">
-            <div class="d-flex mb-4 flex-2">
-                <a href="{{ path('toggle_task', {'taskId' : task.id }) }}" class="card-action">
+            <div class="d-flex mb-4 justify-content-around">
+                <a href="{{ path('toggle_task', {'taskId' : task.id }) }}" class="btn btn-primary">
                     {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
                 </a>
                 <a href="{{ path('edit_task', {'taskId' : task.id }) }}" class="card-action">

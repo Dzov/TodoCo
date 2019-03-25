@@ -1,0 +1,88 @@
+/*!
+ * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    min-width: 300px;
+    font-size: 16px;
+    color: #5a6269;
+}
+
+main {
+    min-height: calc(100vh - 170px);
+    padding: 40px 50px;
+}
+
+a:active, a:hover, a:focus {
+    text-decoration: none;
+    color: #5a6269;
+}
+
+a, button {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+footer {
+    height: 70px;
+}
+
+th, tr {
+    text-align: center;
+}
+
+/*************
+    COLORS
+ *************/
+
+.color-success {
+    color: #5cb85c;
+
+}
+
+.color-primary {
+    color: #45b0d5;
+}
+
+.color-secondary {
+    color: #a9e4ef;
+}
+
+.color-danger {
+    color: #c93a2c;
+}
+
+.color-text {
+    color: #5a6269;
+}
+
+.color-warning {
+    color: #ec972f;
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.alert {
+    width: 100%;
+    border-radius: 0;
+}
+
+
+
