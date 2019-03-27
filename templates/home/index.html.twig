@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="create-task custom-form">
+        {#Formulaire de création d'une tâche#}
+    </section>
+
+    <hr>
+
+    <section>
+        <div class="row">
+            {#{% for task in tasks %}#}
+            {#{% include('task/partials/task_card.html.twig') %}#}
+            {#{% else %}#}
+            {#{% include('task/partials/no_task_message.html.twig') %}#}
+            {#{% endfor %}#}
+        </div>
+    </section>
+
+    <div class="row">
+        <a href="{{ path('list_tasks') }}" class="btn btn-info">Consulter la liste des tâches à faire</a>
+        <a href="" class="btn btn-secondary">Consulter la liste des tâches terminées</a>
+    </div>
+{% endblock %}

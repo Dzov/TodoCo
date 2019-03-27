@@ -1,17 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     {% if error %}
         <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action="{{ path('login_check') }}" method="post">
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+    <div class="d-flex justify-content-center">
+        <img class="align-self-center todo-logo" src="{{ asset('img/todoco.png') }}" alt="todo list">
+    </div>
 
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="_password" />
-
-        <button class="btn btn-success" type="submit">Se connecter</button>
+    <form action="{{ path('login_check') }}" method="post" class="custom-form login-form">
+        <div class="form-group">
+            <label for="username">Nom d'utilisateur ou email:</label>
+            <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" aria-describedby="loginDetailsHelp" placeholder="johndoe@example.com"/>
+            <small id="loginDetailsHelp" class="form-text text-muted">Nous ne partagererons jamais votre email.</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="_password" class="form-control" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-success">Se connecter</button>
     </form>
+
 {% endblock %}

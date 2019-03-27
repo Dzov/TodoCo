@@ -2,21 +2,33 @@
 
 namespace App\Controller\Task;
 
-use App\Entity\Task;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Exception\Task\TaskNotFoundException;
+use App\UseCase\Task\ToggleTask;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class ToggleTaskStatusController extends AbstractController
+class ToggleTaskStatusController extends AbstractTaskController
 {
-    public function toggle(Task $task)
+    /**
+     * @Route("/tasks/{taskId}/toggle", name="toggle_task", requirements={"taskId"="^\d{1,10}$"})
+     */
+    public function toggle(int $taskId, ToggleTask $toggleTaskUseCase)
     {
-        $task->toggle(!$task->isDone());
-        $this->getDoctrine()->getManager()->flush();
+        try {
+            $task = $toggleTaskUseCase->execute($taskId);
 
-        $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+            $task->getIsDone()
+                ? $this->addFlash('success', sprintf('Tâche %s est terminée !', $task->getTitle()))
+                : $this->addFlash(
+                'success',
+                sprintf('La tâche %s a bien été marquée non terminée.', $task->getTitle())
+            );
 
-        return $this->redirectToRoute('task_list');
+            return $this->redirectToRoute('list_tasks');
+        } catch (TaskNotFoundException $e) {
+            throw $this->createNotFoundException();
+        }
     }
 }

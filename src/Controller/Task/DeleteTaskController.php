@@ -2,22 +2,30 @@
 
 namespace App\Controller\Task;
 
-use App\Entity\Task;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Task\TaskAction;
+use App\Exception\Task\TaskNotFoundException;
+use App\UseCase\Task\DeleteTask;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class DeleteTaskController extends AbstractController
+class DeleteTaskController extends AbstractTaskController
 {
-    public function delete(Task $task)
+    /**
+     * @Route("/tasks/{taskId}/delete", name="delete_task", requirements={"taskId"="^\d{1,10}$"})
+     */
+    public function delete(int $taskId, DeleteTask $deleteTaskUseCase)
     {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($task);
-        $em->flush();
+        $this->denyAccessUnlessGranted(TaskAction::CAN_USER_DELETE_TASK, $taskId);
 
-        $this->addFlash('success', 'La tâche a bien été supprimée.');
+        try {
+            $deleteTaskUseCase->execute($taskId);
+            $this->addFlash('success', 'La tâche a bien été supprimée.');
 
-        return $this->redirectToRoute('task_list');
+            return $this->redirectToRoute('list_tasks');
+        } catch (TaskNotFoundException $e) {
+            throw $this->createNotFoundException();
+        }
     }
 }
