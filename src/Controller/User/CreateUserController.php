@@ -2,9 +2,12 @@
 
 namespace App\Controller\User;
 
-use App\Entity\User;
-use App\Form\UserType;
+use App\Exception\User\EmailAlreadyExistsException;
+use App\Form\User\UserType;
+use App\Model\User\UserModel;
+use App\UseCase\User\CreateUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,26 +17,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class CreateUserController extends AbstractController
 {
     /**
-     * @Route("/users/create", name="create_user")
+     * @Route("/admin/users/create", name="create_user")
      */
-    public function create(Request $request)
+    public function create(Request $request, CreateUser $createUserUseCase)
     {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
+        try {
+            $user = new UserModel();
+            $form = $this->createForm(UserType::class, $user);
 
-        $form->handleRequest($request);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
-            $user->setPassword($password);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $createUserUseCase->execute($form->getData());
 
-            $em->persist($user);
-            $em->flush();
+                $this->addFlash('success', "L'utilisateur a bien été ajouté.");
 
-            $this->addFlash('success', "L'utilisateur a bien été ajouté.");
-
-            return $this->redirectToRoute('user_list');
+                return $this->redirectToRoute('list_users');
+            }
+        } catch (EmailAlreadyExistsException $eaee) {
+            $form['email']->addError(new FormError('Cet email est déjà utilisé'));
         }
 
         return $this->render('user/create.html.twig', ['form' => $form->createView()]);

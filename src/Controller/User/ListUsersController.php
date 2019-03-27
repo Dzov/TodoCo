@@ -2,8 +2,10 @@
 
 namespace App\Controller\User;
 
+use App\UseCase\User\GetUsers;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
@@ -11,13 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class ListUsersController extends AbstractController
 {
     /**
-     * @Route("/users", name="list_users")
+     * @Route("/admin/users", name="list_users")
      */
-    public function listAction()
+    public function listAction(GetUsers $getUsersUseCase, UserInterface $user)
     {
         return $this->render(
             'user/list.html.twig',
-            ['users' => $this->getDoctrine()->getRepository('AppBundle:User')->findAll()]
+            ['users' => $getUsersUseCase->execute()]
         );
     }
 }

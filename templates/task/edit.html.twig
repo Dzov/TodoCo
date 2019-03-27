@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="row">
-        {{ form_start(form, {'action' : path('edit_task', { 'task' : task.id })}) }}
-            {{ form_widget(form) }}
+    <h1>Modifier une tâche</h1>
+    <div class="mt-md-5">
+        {{ form_start(form, {'action' : path('edit_task', { 'taskId' : task.id }), 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
 
-            <button type="submit" class="btn btn-success pull-right">Modifier</button>
+        {{ include('task/partials/task_form.html.twig') }}
+
+        <button type="submit" class="btn btn-success pull-right">Modifier</button>
         {{ form_end(form) }}
     </div>
+
+    <a href="{{ path('list_tasks') }}" class="btn btn-primary-open mt-4">Retour à la liste des tâches</a>
 {% endblock %}
