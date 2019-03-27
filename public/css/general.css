@@ -28,7 +28,7 @@ a:active, a:hover, a:focus {
     color: #5a6269;
 }
 
-a, button {
+a, button, li {
     text-transform: uppercase;
     font-weight: bold;
 }

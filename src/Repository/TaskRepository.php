@@ -96,7 +96,8 @@ class TaskRepository extends ServiceEntityRepository
     protected function applySorts(array $sort, QueryBuilder $qb): void
     {
         if (empty($sort)) {
-            $qb->addOrderBy('t.isPriority', 'DESC')
+            $qb->addOrderBy('t.isDone', 'ASC')
+            ->addOrderBy('t.isPriority', 'DESC')
                 ->addOrderBy('t.createdAt', 'DESC');
         }
     }
