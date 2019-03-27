@@ -11,8 +11,6 @@ use App\Tests\Doubles\Entity\User\UserStub1;
  */
 class TaskModelStub1 extends TaskModel
 {
-    const AUTHOR     = UserStub1::ID;
-
     const CONTENT    = TaskStub1::CONTENT;
 
     const CREATED_AT = TaskStub1::CREATED_AT;
@@ -23,18 +21,17 @@ class TaskModelStub1 extends TaskModel
 
     const TITLE      = TaskStub1::TITLE;
 
-    protected $author = self::AUTHOR;
+    public $content = self::CONTENT;
 
-    protected $content = self::CONTENT;
+    public $id = self::ID;
 
-    protected $id = self::ID;
+    public $isDone = self::IS_DONE;
 
-    protected $isDone = self::IS_DONE;
-
-    protected $title = self::TITLE;
+    public $title = self::TITLE;
 
     public function __construct()
     {
+        $this->authorId = UserStub1::ID;
         $this->createdAt = new \DateTimeImmutable(self::CREATED_AT);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\User;
+use App\Entity\User\User;
 use App\Exception\User\UserNotFoundException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NoResultException;

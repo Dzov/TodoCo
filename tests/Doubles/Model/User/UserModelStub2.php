@@ -14,9 +14,13 @@ class UserModelStub2 extends UserModel
 
     const ID       = UserStub2::ID;
 
+    const IS_ADMIN = false;
+
     const PASSWORD = UserStub2::PASSWORD;
 
     const USERNAME = UserStub2::USERNAME;
+
+    public $admin = self::IS_ADMIN;
 
     public $email = self::EMAIL;
 

@@ -2,7 +2,7 @@
 
 namespace App\UseCase\User;
 
-use App\Entity\User;
+use App\Entity\User\User;
 use App\Model\User\UserModel;
 use App\Repository\UserRepository;
 use App\Service\User\UserEmailService;

@@ -4,6 +4,7 @@ namespace App\Tests\Doubles\Model\Task;
 
 use App\Model\Task\TaskModel;
 use App\Tests\Doubles\Entity\Task\TaskStub2;
+use App\Tests\Doubles\Entity\User\UserStub1;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
@@ -20,16 +21,17 @@ class InvalidTaskModelStub1 extends TaskModel
 
     const TITLE      = TaskStub2::TITLE;
 
-    protected $content = self::CONTENT;
+    public $content = self::CONTENT;
 
-    protected $id = self::ID;
+    public $id = self::ID;
 
-    protected $isDone = self::IS_DONE;
+    public $isDone = self::IS_DONE;
 
-    protected $title = self::TITLE;
+    public $title = self::TITLE;
 
     public function __construct()
     {
+        $this->authorId = UserStub1::ID;
         $this->createdAt = new \DateTimeImmutable(self::CREATED_AT);
     }
 }
