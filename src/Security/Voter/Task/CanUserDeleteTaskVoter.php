@@ -47,6 +47,6 @@ class CanUserDeleteTaskVoter extends Voter
             return false;
         }
 
-        return $this->voterService->canUserDeleteTask($token->getUser(), $taskId);
+        return $this->voterService->canUserDeleteTask($token->getUser()->getId(), $taskId);
     }
 }

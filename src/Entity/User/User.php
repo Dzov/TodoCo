@@ -96,6 +96,11 @@ class User implements UserInterface
         return in_array(Roles::ROLE_ADMIN, $this->getRoles());
     }
 
+    public function isAnonymousUser(): bool
+    {
+        return in_array(Roles::ROLE_ANONYMOUS_USER, $this->getRoles());
+    }
+
     public function getRoles(): array
     {
         if (!in_array(Roles::ROLE_USER, $this->roles)) {
