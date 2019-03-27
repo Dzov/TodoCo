@@ -3,6 +3,7 @@
 namespace App\Tests\Doubles\Entity\Task;
 
 use App\Entity\Task\Task;
+use App\Tests\Doubles\Entity\User\UserStub1;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
@@ -30,5 +31,6 @@ class TaskStub1 extends Task
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable(self::CREATED_AT);
+        $this->author = new UserStub1();
     }
 }

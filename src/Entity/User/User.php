@@ -86,19 +86,19 @@ class User implements UserInterface
         $this->email = $email;
     }
 
-    public function makeAdmin()
+    public function setAdmin(bool $isAdmin)
     {
-        $this->addRole(Roles::ROLE_ADMIN);
-    }
-
-    public function removeAdmin()
-    {
-        $this->removeRole(Roles::ROLE_ADMIN);
+        $isAdmin ? $this->addRole(Roles::ROLE_ADMIN) : $this->removeRole(Roles::ROLE_ADMIN);
     }
 
     public function isAdmin(): bool
     {
         return in_array(Roles::ROLE_ADMIN, $this->getRoles());
+    }
+
+    public function isAnonymousUser(): bool
+    {
+        return in_array(Roles::ROLE_ANONYMOUS_USER, $this->getRoles());
     }
 
     public function getRoles(): array
@@ -124,6 +124,9 @@ class User implements UserInterface
         }
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function eraseCredentials()
     {
     }

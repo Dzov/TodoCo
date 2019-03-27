@@ -4,7 +4,7 @@ namespace App\Security\Voter\Task;
 
 use App\Entity\Task\TaskAction;
 use App\Entity\User\User;
-use App\Security\VoterService\CanUserDeleteTaskVoterService;
+use App\Security\VoterService\Task\CanUserDeleteTaskVoterService;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
@@ -47,6 +47,6 @@ class CanUserDeleteTaskVoter extends Voter
             return false;
         }
 
-        return $this->voterService->canUserDeleteTask($token->getUser(), $taskId);
+        return $this->voterService->canUserDeleteTask($token->getUser()->getId(), $taskId);
     }
 }

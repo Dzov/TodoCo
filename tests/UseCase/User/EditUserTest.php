@@ -42,6 +42,7 @@ class EditUserTest extends TestCase
         $model->setEmail(UserModelStub2::EMAIL);
         $model->setPassword(UserModelStub2::PASSWORD);
         $model->setUsername(UserModelStub2::USERNAME);
+        $model->setAdmin(UserModelStub2::IS_ADMIN);
 
         $this->useCase->execute($model);
 

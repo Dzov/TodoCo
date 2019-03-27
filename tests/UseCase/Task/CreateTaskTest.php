@@ -41,7 +41,9 @@ class CreateTaskTest extends TestCase
     public function userNotFoundShouldThrowException()
     {
         $this->expectException('App\Exception\User\UserNotFoundException');
-        $this->useCase->execute(new TaskModelStub1(), self::INVALID_ID);
+        $model = new TaskModelStub1();
+        $model->authorId = self::INVALID_ID;
+        $this->useCase->execute($model);
     }
 
     protected function setUp(): void

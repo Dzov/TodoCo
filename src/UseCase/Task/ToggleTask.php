@@ -2,6 +2,7 @@
 
 namespace App\UseCase\Task;
 
+use App\Entity\Task\Task;
 use App\Repository\TaskRepository;
 
 /**
@@ -19,8 +20,9 @@ class ToggleTask extends AbstractTaskUseCase
      */
     public function execute(int $taskId)
     {
+        /** @var Task $task */
         $task = $this->taskRepository->findById($taskId);
-        $task->setIsDone(!$task->isDone());
+        $task->toggle();
         $this->taskRepository->update($task);
 
         return $task;
