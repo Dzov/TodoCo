@@ -5,20 +5,31 @@
     align-items: center;
 }
 
+form {
+    min-height: 200px;
+    margin: auto;
+    padding: 10px
+}
+
 .form-group {
     min-width: 250px;
     max-width: 470px;
+    width: 100%;
+}
+
+.login-form {
+    min-height: 200px;
 }
 
 @media (min-width: 700px) {
-    .form-group {
-        width: 75%;
+    form {
+        width: 65%;
     }
 }
 
 @media (min-width: 900px) {
-    .form-group {
-        width: 50%;
+    form {
+        width: 37%;
     }
 }
 
@@ -29,6 +40,6 @@
 
 @media (min-width: 500px) {
     .todo-logo {
-        width: 20em;
+        width: 15em;
     }
 }

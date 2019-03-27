@@ -2,7 +2,7 @@
 
 namespace App\Tests\Doubles\Entity\User;
 
-use App\Entity\User;
+use App\Entity\User\User;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
@@ -23,5 +23,12 @@ class UserStub2 extends User
 
     public $password = self::PASSWORD;
 
+    public $roles = [];
+
     public $username = self::USERNAME;
+
+    public function __construct(array $roles = [])
+    {
+        $this->roles = $roles;
+    }
 }

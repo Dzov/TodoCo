@@ -2,7 +2,7 @@
 
 namespace App\UseCase\User;
 
-use App\Entity\User;
+use App\Entity\User\User;
 use App\Model\User\UserModel;
 use App\Repository\UserRepository;
 use App\Service\User\UserEmailService;
@@ -53,8 +53,9 @@ class EditUser extends AbstractUserUseCase
 
     private function updateProperties(UserModel $model, User $user): User
     {
-        $user->setPassword($this->getEncodedPassword($user, $model->getPassword()));
+        $user->setAdmin($model->isAdmin());
         $user->setEmail($model->getEmail());
+        $user->setPassword($this->getEncodedPassword($user, $model->getPassword()));
         $user->setUsername($model->getUsername());
 
         return $user;
