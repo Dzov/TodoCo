@@ -10,6 +10,8 @@ use App\Tests\Doubles\Entity\User\UserStub1;
  */
 class UserModelStub1 extends UserModel
 {
+    const IS_ADMIN = true;
+
     const EMAIL    = UserStub1::EMAIL;
 
     const ID       = UserStub1::ID;
@@ -17,6 +19,8 @@ class UserModelStub1 extends UserModel
     const PASSWORD = UserStub1::PASSWORD;
 
     const USERNAME = UserStub1::USERNAME;
+
+    public $admin = self::IS_ADMIN;
 
     public $email = self::EMAIL;
 

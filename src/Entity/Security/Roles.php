@@ -7,7 +7,9 @@ namespace App\Entity\Security;
  */
 final class Roles
 {
-    const ROLE_ADMIN = 'ROLE_ADMIN';
+    const ROLE_ADMIN          = 'ROLE_ADMIN';
 
-    const ROLE_USER  = 'ROLE_USER';
+    const ROLE_ANONYMOUS_USER = 'ROLE_ANONYMOUS_USER';
+
+    const ROLE_USER           = 'ROLE_USER';
 }

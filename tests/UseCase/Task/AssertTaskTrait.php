@@ -3,6 +3,7 @@
 namespace App\Tests\UseCase\Task;
 
 use App\Entity\Task\Task;
+use App\Tests\UseCase\User\AssertUserTrait;
 use PHPUnit\Framework\Assert;
 
 /**
@@ -10,6 +11,8 @@ use PHPUnit\Framework\Assert;
  */
 trait AssertTaskTrait
 {
+    use AssertUserTrait;
+
     /**
      * @param Task[] $expected
      * @param Task[] $actual
@@ -29,5 +32,8 @@ trait AssertTaskTrait
         Assert::assertEquals($expected->getCreatedAt(), $actual->getCreatedAt());
         Assert::assertSame($expected->getTitle(), $actual->getTitle());
         Assert::assertSame($expected->isDone(), $actual->isDone());
+        Assert::assertSame($expected->getAuthorUsername(), $actual->getAuthorUsername());
+        Assert::assertSame($expected->getAuthorId(), $actual->getAuthorId());
+        $this->assertUser($expected->getAuthor(), $actual->getAuthor());
     }
 }
