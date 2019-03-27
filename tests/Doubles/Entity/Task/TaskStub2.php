@@ -11,21 +11,25 @@ use App\Tests\Doubles\Entity\User\UserStub2;
  */
 class TaskStub2 extends Task
 {
-    const CONTENT    = 'content - stub 2';
+    const CONTENT     = 'content - stub 2';
 
-    const CREATED_AT = '2019-02-02';
+    const CREATED_AT  = '2019-02-02';
 
-    const ID         = 2;
+    const ID          = 2;
 
-    const IS_DONE    = false;
+    const IS_DONE     = false;
 
-    const TITLE      = 'title - stub 2';
+    const IS_PRIORITY = true;
+
+    const TITLE       = 'title - stub 2';
 
     protected $content = self::CONTENT;
 
     protected $id = self::ID;
 
     protected $isDone = self::IS_DONE;
+
+    protected $isPriority = self::IS_PRIORITY;
 
     protected $title = self::TITLE;
 

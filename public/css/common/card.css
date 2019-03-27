@@ -23,13 +23,15 @@
     align-self: center;
 }
 
-.fa-star::before {
+.fa-star::before, .notStarred::before {
     color: white;
     -webkit-text-stroke: 1px #5a6269;
+    align-self: center;
 }
 
-.fa-star:hover:before {
+.fa-star:hover:before, .starred::before {
     color: yellow;
+    -webkit-text-stroke: 1px yellow;
 }
 
 .glyphicon {

@@ -20,7 +20,7 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    public function findAll(array $filters = [], array $sort = [])
+    public function findAll(array $filters = [], array $sorts = [])
     {
         return $this->createQueryBuilder('u')
             ->addOrderBy('u.username', 'ASC')

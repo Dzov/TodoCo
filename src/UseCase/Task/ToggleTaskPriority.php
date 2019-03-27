@@ -8,7 +8,7 @@ use App\Repository\TaskRepository;
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class ToggleTask extends AbstractTaskUseCase
+class ToggleTaskPriority extends AbstractTaskUseCase
 {
     public function __construct(TaskRepository $repository)
     {
@@ -22,7 +22,7 @@ class ToggleTask extends AbstractTaskUseCase
     {
         /** @var Task $task */
         $task = $this->taskRepository->findById($taskId);
-        $task->toggle();
+        $task->togglePriority();
         $this->taskRepository->update($task);
 
         return $task;

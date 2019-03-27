@@ -44,8 +44,8 @@
                         <a class="nav-link" href="{{ path('dashboard') }}">Tableau de Bord<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tâches
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tâches <i class="fa fa-chevron-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{ path('list_tasks') }}">Mes tâches</a>
@@ -78,7 +78,7 @@
     <div class="col-md-12">
         {% for flash_message in app.session.flashBag.get('success') %}
             <div class="alert alert-success" role="alert">
-                <strong>Superbe !</strong> {{ flash_message }}
+                {{ flash_message }}
             </div>
         {% endfor %}
 
@@ -89,7 +89,7 @@
         {% endfor %}
         {% for flash_message in app.session.flashBag.get('danger') %}
             <div class="alert alert-danger" role="alert">
-                <strong>Oops !</strong> {{ flash_message }}
+                {{ flash_message }}
             </div>
         {% endfor %}
     </div>

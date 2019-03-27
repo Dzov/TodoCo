@@ -4,18 +4,18 @@ namespace App\Tests\UseCase\Task;
 
 use App\Tests\Doubles\Entity\Task\TaskStub1;
 use App\Tests\Doubles\Repository\Task\InMemoryTaskRepository;
-use App\UseCase\Task\ToggleTask;
+use App\UseCase\Task\ToggleTaskStatus;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class ToggleTaskTest extends TestCase
+class ToggleTaskStatusTest extends TestCase
 {
     const UNKNOWN_TASK_ID = -1;
 
     /**
-     * @var ToggleTask
+     * @var ToggleTaskStatus
      */
     private $useCase;
 
@@ -57,6 +57,6 @@ class ToggleTaskTest extends TestCase
     {
         parent::setUp();
 
-        $this->useCase = new ToggleTask(new InMemoryTaskRepository([TaskStub1::ID => new TaskStub1()]));
+        $this->useCase = new ToggleTaskStatus(new InMemoryTaskRepository([TaskStub1::ID => new TaskStub1()]));
     }
 }

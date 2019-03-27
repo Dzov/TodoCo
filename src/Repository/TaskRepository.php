@@ -3,10 +3,12 @@
 namespace App\Repository;
 
 use App\Entity\Task\Task;
+use App\Entity\Task\TaskFilter;
 use App\Exception\Task\TaskNotFoundException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -20,12 +22,30 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
-    public function findAll(array $filters = [], array $sort = [])
+    public function findAll(array $filters = [], array $sorts = [])
     {
-        return $this->createQueryBuilder('t')
-            ->addOrderBy('t.createdAt', 'DESC')
-            ->getQuery()
-            ->getResult();
+        $qb = $this->createQueryBuilder('t');
+
+        $this->applyFilters($qb, $filters);
+
+        $this->applySorts($sorts, $qb);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    private function applyFilters(QueryBuilder $qb, array $filters = [])
+    {
+        if (isset($filters[TaskFilter::COMPLETED])) {
+            $qb->andWhere('t.isDone = true');
+        }
+
+        if (isset($filters[TaskFilter::IN_PROGRESS])) {
+            $qb->andWhere('t.isDone = false');
+        }
+
+        if (isset($filters[TaskFilter::STARRED])) {
+            $qb->andWhere('t.isPriority = true');
+        }
     }
 
     /**
@@ -71,5 +91,13 @@ class TaskRepository extends ServiceEntityRepository
     public function update(Task $task)
     {
         $this->_em->flush($task);
+    }
+
+    protected function applySorts(array $sort, QueryBuilder $qb): void
+    {
+        if (empty($sort)) {
+            $qb->addOrderBy('t.isPriority', 'DESC')
+                ->addOrderBy('t.createdAt', 'DESC');
+        }
     }
 }

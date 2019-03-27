@@ -48,6 +48,11 @@ class Task
      */
     protected $title;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isPriority;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -99,12 +104,27 @@ class Task
         $this->content = $content;
     }
 
-    public function isDone()
+    public function isDone(): bool
     {
         return $this->isDone;
     }
 
-    public function toggle()
+    public function isPriority(): bool
+    {
+        return $this->isPriority;
+    }
+
+    public function togglePriority()
+    {
+        $this->setIsPriority(!$this->isPriority);
+    }
+
+    public function setIsPriority(bool $isPriority)
+    {
+        $this->isPriority = $isPriority;
+    }
+
+    public function toggleStatus()
     {
         $this->setIsDone(!$this->isDone);
     }

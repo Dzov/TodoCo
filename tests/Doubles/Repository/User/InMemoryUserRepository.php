@@ -29,7 +29,7 @@ class InMemoryUserRepository extends UserRepository
         self::$result[] = $user;
     }
 
-    public function findAll(array $filters = [], array $sort = [])
+    public function findAll(array $filters = [], array $sorts = [])
     {
         return self::$result;
     }

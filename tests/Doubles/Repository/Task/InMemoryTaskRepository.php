@@ -29,7 +29,7 @@ class InMemoryTaskRepository extends TaskRepository
         self::$result = [$task];
     }
 
-    public function findAll(array $filters = [], array $sort = [])
+    public function findAll(array $filters = [], array $sorts = [])
     {
         return self::$result;
     }
