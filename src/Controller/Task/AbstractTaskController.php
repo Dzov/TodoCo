@@ -2,7 +2,6 @@
 
 namespace App\Controller\Task;
 
-use App\Entity\Task;
 use App\Form\Task\TaskType;
 use App\Model\Task\TaskModel;
 use App\UseCase\Task\GetTask;
@@ -22,17 +21,5 @@ class AbstractTaskController extends AbstractController
     protected function buildForm(TaskModel $model): FormInterface
     {
         return $this->createForm(TaskType::class, $model);
-    }
-
-    protected function buildModel(Task $task): TaskModel
-    {
-        $model = new TaskModel();
-        $model->setContent($task->getContent());
-        $model->setCreatedAt($task->getCreatedAt());
-        $model->setId($task->getId());
-        $model->setIsDone($task->isDone());
-        $model->setTitle($task->getTitle());
-
-        return $model;
     }
 }

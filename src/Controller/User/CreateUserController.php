@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CreateUserController extends AbstractController
 {
     /**
-     * @Route("/users/create", name="create_user")
+     * @Route("/admin/users/create", name="create_user")
      */
     public function create(Request $request, CreateUser $createUserUseCase)
     {

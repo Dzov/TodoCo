@@ -2,7 +2,7 @@
 
 namespace App\Tests\UseCase\User;
 
-use App\Entity\User;
+use App\Entity\User\User;
 use PHPUnit\Framework\Assert;
 
 /**
@@ -26,5 +26,6 @@ trait AssertUserTrait
         Assert::assertSame($expectedUser->getId(), $actualUser->getId());
         Assert::assertSame($expectedUser->getEmail(), $actualUser->getEmail());
         Assert::assertSame($expectedUser->getUsername(), $actualUser->getUsername());
+        Assert::assertSame($expectedUser->isAdmin(), $actualUser->isAdmin());
     }
 }

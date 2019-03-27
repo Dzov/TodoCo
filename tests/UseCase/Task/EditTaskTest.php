@@ -2,7 +2,7 @@
 
 namespace App\Tests\UseCase\Task;
 
-use App\Entity\Task;
+use App\Entity\Task\Task;
 use App\Model\Task\TaskModel;
 use App\Tests\Doubles\Entity\Task\TaskStub1;
 use App\Tests\Doubles\Entity\Task\TaskStub2;
@@ -46,12 +46,12 @@ class EditTaskTest extends TestCase
 
         $this->useCase->execute($model);
 
-        $expected = $this->getExpectedTask($model);
+        $expected = $this->buildExpectedTask($model);
 
         $this->assertTask($expected, InMemoryTaskRepository::$result[TaskStub1::ID]);
     }
 
-    private function getExpectedTask(TaskModel $model): Task
+    private function buildExpectedTask(TaskModel $model): Task
     {
         $expected = new TaskStub1();
         $expected->setTitle($model->getTitle());
