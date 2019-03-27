@@ -1,0 +1,73 @@
+.card-action {
+    text-transform: uppercase;
+    color: #45b0d5;
+    font-weight: bold;
+    margin-right: 15px;
+    font-size: 13px;
+    align-self: center;
+}
+
+.card_controls {
+    padding: 3px;
+}
+
+@media (min-width: 945px) {
+    .card-action {
+        padding: 0 8px;
+    }
+}
+
+.fa {
+    font-size: 18px;
+    flex: .2;
+    align-self: center;
+}
+
+.fa-star::before {
+    color: white;
+    -webkit-text-stroke: 1px #5a6269;
+}
+
+.fa-star:hover:before {
+    color: yellow;
+}
+
+.glyphicon {
+    border-radius: 100%;
+    padding: 11px 10px 9px 10px;
+}
+
+.glyphicon-ok {
+    border: 1px solid #5cb85c;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.glyphicon-remove {
+    border: 1px solid #5a6269;
+    background-color: #5a6269;
+    color: white;
+}
+
+.thumbnail .caption {
+    padding: 10px 15px;
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333333;
+}

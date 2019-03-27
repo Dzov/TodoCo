@@ -1,0 +1,61 @@
+.navbar-logo {
+    font-size: 25px;
+    color: white;
+    font-family: 'AileronRegular';
+    font-weight: 600;
+    font-style: normal;
+    flex: 1.2;
+    text-transform: none;
+    margin-bottom: 15px;
+}
+
+.navbar-logo:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #45b0d5;
+    height: 100px;
+    padding: 20px;
+
+}
+
+.navbar-nav {
+    width: 100%;
+}
+
+.navbar-menu {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.navbar-light .navbar-nav .nav-link, .dropdown-item {
+    color: white;
+}
+
+.dropdown-menu {
+    border: none;
+    background-color: #45b0d5;
+}
+
+.nav-log-action {
+    font-weight: bold;
+    border-color: white;
+    margin-left: 15px;
+}
+
+.navbar-nav .nav-item .nav-log-action:hover {
+    font-weight: bold;
+    background-color: white;
+    color: #45b0d5;
+    border-color: white;
+}
+
+.navbar-nav .nav-item .nav-log-action:focus {
+    font-weight: bold;
+    background-color: white;
+    color: #45b0d5;
+    border-color: white;
+}

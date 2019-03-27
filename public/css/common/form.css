@@ -1,0 +1,45 @@
+.custom-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    min-height: 200px;
+    margin: auto;
+    padding: 10px
+}
+
+.form-group {
+    min-width: 250px;
+    max-width: 470px;
+    width: 100%;
+}
+
+.login-form {
+    min-height: 200px;
+}
+
+@media (min-width: 700px) {
+    form {
+        width: 65%;
+    }
+}
+
+@media (min-width: 900px) {
+    form {
+        width: 37%;
+    }
+}
+
+.todo-logo {
+    width: 15em;
+    margin-bottom: 25px;
+}
+
+@media (min-width: 500px) {
+    .todo-logo {
+        width: 15em;
+    }
+}
