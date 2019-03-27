@@ -10,6 +10,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 class UserModel
 {
     /**
+     * @var bool
+     */
+    protected $admin = false;
+
+    /**
      * @var string
      * @Assert\NotBlank(message="Vous devez saisir une adresse email.")
      * @Assert\Email(message="Le format de l'adresse n'est pas correcte.")
@@ -70,5 +75,15 @@ class UserModel
     public function setUsername(string $username)
     {
         $this->username = $username;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(bool $isAdmin)
+    {
+        $this->admin = $isAdmin;
     }
 }

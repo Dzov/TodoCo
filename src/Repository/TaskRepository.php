@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Task;
+use App\Entity\Task\Task;
 use App\Exception\Task\TaskNotFoundException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;

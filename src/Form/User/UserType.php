@@ -3,6 +3,7 @@
 namespace App\Form\User;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -29,6 +30,15 @@ class UserType extends AbstractType
                     ],
                 ]
             )
-            ->add('email', EmailType::class, ['label' => 'Adresse email', 'attr' => ['class' => 'form-control'],]);
+            ->add('email', EmailType::class, ['label' => 'Adresse email', 'attr' => ['class' => 'form-control'],])
+            ->add(
+                'admin',
+                CheckboxType::class,
+                [
+                    'label'    => 'Administrateur',
+                    'attr'     => ['class' => 'mr-4'],
+                    'required' => false,
+                ]
+            );
     }
 }

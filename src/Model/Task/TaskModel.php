@@ -9,34 +9,45 @@ class TaskModel
     /**
      * @var int
      */
-    protected $id;
-
-    /**
-     * @var string
-     * @Assert\NotBlank(message="Vous devez saisir un titre.")
-     */
-    protected $title;
+    public $authorId;
 
     /**
      * @var string
      * @Assert\NotBlank(message="Vous devez saisir du contenu.")
      */
-    protected $content;
+    public $content;
 
     /**
      * @var \DateTimeImmutable
      */
-    protected $createdAt;
+    public $createdAt;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var bool
      */
-    protected $isDone;
+    public $isDone;
 
-    public function __construct()
+    /**
+     * @var string
+     * @Assert\NotBlank(message="Vous devez saisir un titre.")
+     */
+    public $title;
+
+    public function __construct(int $userId)
     {
+        $this->authorId = $userId;
         $this->createdAt = new \DateTimeImmutable();
         $this->isDone = false;
+    }
+
+    public function getAuthorId(): int
+    {
+        return $this->authorId;
     }
 
     public function getId(): ?int
@@ -74,14 +85,14 @@ class TaskModel
         $this->createdAt = $createdAt;
     }
 
-    public function isDone(): bool
-    {
-        return $this->isDone;
-    }
-
     public function setIsDone(bool $isDone)
     {
         $this->isDone = $isDone;
+    }
+
+    public function isDone(): bool
+    {
+        return $this->isDone;
     }
 
     public function setId(int $id)

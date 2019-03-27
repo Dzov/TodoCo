@@ -2,7 +2,7 @@
 
 namespace App\Controller\Task;
 
-use App\Entity\TaskAction;
+use App\Entity\Task\TaskAction;
 use App\Exception\Task\TaskNotFoundException;
 use App\UseCase\Task\DeleteTask;
 use Symfony\Component\Routing\Annotation\Route;
