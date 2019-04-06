@@ -4,7 +4,7 @@
             <header class=" d-flex justify-content-between">
                 <small class="text-muted align-self-center">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/Y", "Europe/Paris") }}</small>
                 <div class="d-flex justify-content-between">
-                    <a href="{{ path('prioritize_task', {'taskId' : task.id }) }}" class="align-self-center d-flex">
+                    <a href="{{ path('prioritize_task', {'taskId' : task.id }) }}" class="align-self-center fa-star-action d-flex">
                         {% if task.isPriority %}
                             <span class="fa fa-star mr-4 starred"></span>
                         {% else %}

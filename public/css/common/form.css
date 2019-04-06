@@ -11,6 +11,10 @@ form {
     padding: 10px
 }
 
+.form-actions {
+    align-self: flex-end;
+}
+
 .form-group {
     min-width: 250px;
     max-width: 470px;

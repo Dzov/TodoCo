@@ -57,6 +57,7 @@ class Task
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->isDone = false;
+        $this->isPriority = false;
     }
 
     public function getAuthor(): UserInterface
