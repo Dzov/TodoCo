@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\Task;
 
 use App\Entity\Task\Task;
 use App\Entity\Task\TaskFilter;

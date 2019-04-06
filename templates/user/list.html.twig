@@ -30,7 +30,10 @@
                         <td>{{ user.username }}</td>
                         <td>{{ user.email }}</td>
                         <td>
-                            <a href="{{ path('edit_user', {'userId' : user.id}) }}" class="btn btn-primary "><i class="fa fa-pencil mr-4"></i>Modifier</a>
+                            <a href="{{ path('edit_user', {'userId' : user.id}) }}" class="btn btn-primary ">
+                                <i class="fa fa-pencil mr-4"></i>
+                                Modifier
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -4,7 +4,7 @@ namespace App\UseCase\Task;
 
 use App\Entity\Task\TaskFilter;
 use App\Exception\Task\InvalidTaskFilterException;
-use App\Repository\TaskRepository;
+use App\Repository\Task\TaskRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
