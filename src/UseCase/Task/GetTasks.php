@@ -42,8 +42,8 @@ class GetTasks
 
         $validFilters = [TaskFilter::COMPLETED, TaskFilter::STARRED, TaskFilter::IN_PROGRESS];
 
-        foreach ($filters as $key => $filter) {
-            if (!in_array($key, $validFilters)) {
+        foreach ($filters as $filter) {
+            if (!in_array($filter, $validFilters)) {
                 throw new InvalidTaskFilterException();
             }
         }
