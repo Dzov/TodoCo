@@ -47,7 +47,8 @@
     "symfony/phpunit-bridge": "^4.2",
     "symfony/profiler-pack": "*",
     "symfony/web-server-bundle": "^4.1",
-    "symfony/test-pack": "^1.0"
+    "symfony/test-pack": "^1.0",
+    "symfony/css-selector": "^4.2"
   },
   "scripts": {
     "auto-scripts": {
