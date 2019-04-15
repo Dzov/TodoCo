@@ -12,10 +12,12 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class UserType extends AbstractType
 {
+    const LABEL = 'label';
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class, ['label' => "Nom d'utilisateur"])
+            ->add('username', TextType::class, [self::LABEL => "Nom d'utilisateur"])
             ->add(
                 'password',
                 RepeatedType::class,
@@ -23,15 +25,15 @@ class UserType extends AbstractType
                     'type'            => PasswordType::class,
                     'invalid_message' => 'Les deux mots de passe doivent correspondre.',
                     'required'        => true,
-                    'first_options'   => ['label' => 'Mot de passe'],
-                    'second_options'  => ['label' => 'Tapez le mot de passe à nouveau',],
+                    'first_options'   => [self::LABEL => 'Mot de passe'],
+                    'second_options'  => [self::LABEL => 'Tapez le mot de passe à nouveau',],
                 ]
             )
-            ->add('email', EmailType::class, ['label' => 'Adresse email'])
+            ->add('email', EmailType::class, [self::LABEL => 'Adresse email'])
             ->add(
                 'admin',
                 CheckboxType::class,
-                ['label' => 'Administrateur', 'required' => false,]
+                [self::LABEL => 'Administrateur', 'required' => false,]
             );
     }
 }

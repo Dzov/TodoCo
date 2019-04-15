@@ -23,6 +23,10 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
 
+    const PASSWORD = 'password';
+
+    const USERNAME = 'username';
+
     private $csrfTokenManager;
 
     private $entityManager;
@@ -52,13 +56,13 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator
     public function getCredentials(Request $request)
     {
         $credentials = [
-            'username'   => $request->request->get('username'),
-            'password'   => $request->request->get('password'),
-            'csrf_token' => $request->request->get('_csrf_token'),
+            self::USERNAME => $request->request->get(self::USERNAME),
+            self::PASSWORD => $request->request->get(self::PASSWORD),
+            'csrf_token'   => $request->request->get('_csrf_token'),
         ];
         $request->getSession()->set(
             Security::LAST_USERNAME,
-            $credentials['username']
+            $credentials[self::USERNAME]
         );
 
         return $credentials;
@@ -71,10 +75,12 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator
             throw new InvalidCsrfTokenException();
         }
 
-        $user = $this->entityManager->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
+        $user = $this->entityManager->getRepository(User::class)->findOneBy(
+            [self::USERNAME => $credentials[self::USERNAME]]
+        );
 
         if (!$user) {
-            throw new CustomUserMessageAuthenticationException('Username could not be found.');
+            throw new CustomUserMessageAuthenticationException('Ce nom d\'utilisateur n\'existe pas');
         }
 
         return $user;
@@ -82,7 +88,7 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
+        return $this->passwordEncoder->isPasswordValid($user, $credentials[self::PASSWORD]);
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)

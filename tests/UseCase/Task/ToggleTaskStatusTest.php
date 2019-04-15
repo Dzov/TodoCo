@@ -40,7 +40,7 @@ class ToggleTaskStatusTest extends TestCase
 
         $task = $this->useCase->execute(TaskStub1::ID);
 
-        $this->assertTrue($task->getIsDone());
+        $this->assertTrue($task->isDone());
     }
 
     /**
@@ -50,7 +50,7 @@ class ToggleTaskStatusTest extends TestCase
     {
         $task = $this->useCase->execute(TaskStub1::ID);
 
-        $this->assertFalse($task->getIsDone());
+        $this->assertFalse($task->isDone());
     }
 
     protected function setUp(): void

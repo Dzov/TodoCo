@@ -37,7 +37,7 @@ class CanUserDeleteTaskVoterService
             $task = $this->getTask($taskId);
             /** @var User $user */
             $user = $this->getUser($userId);
-            /** @var User $user */
+            /** @var User $taskAuthor */
             $taskAuthor = $this->getAuthor($task);
 
             if ($task->getAuthorId() === $user->getId()) {
@@ -47,8 +47,7 @@ class CanUserDeleteTaskVoterService
             if ($taskAuthor->isAnonymousUser() && $user->isAdmin()) {
                 return true;
             }
-        } catch (TaskNotFoundException $e) {
-        } catch (UserNotFoundException $e) {
+        } catch (TaskNotFoundException | UserNotFoundException $e) {
         }
 
         return false;

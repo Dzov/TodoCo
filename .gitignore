@@ -17,6 +17,9 @@
 .idea/
 .phpunit.result.cache
 coverage
+.scannerwork
+sonar-project.properties
+
 
 
 ###> symfony/framework-bundle ###

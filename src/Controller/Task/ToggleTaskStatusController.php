@@ -19,7 +19,7 @@ class ToggleTaskStatusController extends AbstractTaskController
         try {
             $task = $toggleTaskUseCase->execute($taskId);
 
-            $task->getIsDone()
+            $task->isDone()
                 ? $this->addFlash('success', sprintf('La tâche %s est terminée !', $task->getTitle()))
                 : $this->addFlash('success', sprintf('La tâche %s a bien été marquée non terminée.', $task->getTitle())
             );

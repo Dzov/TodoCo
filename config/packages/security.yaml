@@ -13,6 +13,7 @@ security:
             security: false
         main:
             anonymous: true
+            logout: ~
             guard:
                 authenticators:
                     - App\Security\AppAuthenticator
