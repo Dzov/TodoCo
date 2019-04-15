@@ -19,7 +19,8 @@
 coverage
 .scannerwork
 sonar-project.properties
-
+phpunit.coverage.xml
+phpunit.report.xml
 
 
 ###> symfony/framework-bundle ###
