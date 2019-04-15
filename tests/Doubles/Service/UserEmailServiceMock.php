@@ -2,6 +2,7 @@
 
 namespace App\Tests\Doubles\Service;
 
+use App\Exception\User\EmailAlreadyExistsException;
 use App\Service\User\UserEmailService;
 use App\Tests\Doubles\Repository\User\InMemoryUserRepository;
 
@@ -10,13 +11,18 @@ use App\Tests\Doubles\Repository\User\InMemoryUserRepository;
  */
 class UserEmailServiceMock extends UserEmailService
 {
+    public static $isAvailable;
+
     public function __construct(InMemoryUserRepository $repository)
     {
         parent::__construct($repository);
+        self::$isAvailable = false;
     }
 
     public function checkEmailAvailability(string $email, int $userId = null)
     {
-        parent::checkEmailAvailability($email, $userId);
+        if (!self::$isAvailable) {
+            throw new EmailAlreadyExistsException;
+        }
     }
 }

@@ -24,6 +24,7 @@ class CreateUserTest extends TestCase
      */
     public function withValidModelExecuteShouldCreateUser()
     {
+        UserEmailServiceMock::$isAvailable = true;
         $this->useCase->execute(new UserModelStub1());
 
         $actualUser = InMemoryUserRepository::$result[0];
