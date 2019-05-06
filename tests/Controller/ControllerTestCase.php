@@ -15,30 +15,30 @@ class ControllerTestCase extends AbstractControllerTestCase
 
     public function routes()
     {
-        $homepage = ['GET', '/'];
-        $login = ['GET', '/login'];
-        $getTasks = ['GET', '/tasks'];
-        $createTask = ['GET', '/tasks/create'];
-        $editTask = ['GET', '/tasks/' . self::TASK_ID . '/edit'];
-        $prioritizeTask = ['GET', '/tasks/' . self::TASK_ID . '/prioritize', Response::HTTP_FOUND];
-        $toggleTask = ['GET', '/tasks/' . self::TASK_ID . '/toggle', Response::HTTP_FOUND];
-        $deleteTask = ['GET', '/tasks/' . self::TASK_ID . '/delete', Response::HTTP_FORBIDDEN];
-        $getUsers = ['GET', '/admin/users'];
-        $createUser = ['GET', '/admin/users/create'];
-        $editUser = ['GET', '/admin/users/' . self::USER_ID . '/edit'];
+        $homepageShouldReturn200 = ['GET', '/'];
+        $loginShouldReturn200 = ['GET', '/login'];
+        $getTasksShouldReturn200 = ['GET', '/tasks'];
+        $createTaskShouldReturn200 = ['GET', '/tasks/create'];
+        $editTaskShouldReturn200 = ['GET', '/tasks/' . self::TASK_ID . '/edit'];
+        $prioritizeTaskShouldReturn200 = ['GET', '/tasks/' . self::TASK_ID . '/prioritize', Response::HTTP_FOUND];
+        $toggleTaskShouldReturn302 = ['GET', '/tasks/' . self::TASK_ID . '/toggle', Response::HTTP_FOUND];
+        $deleteTaskShouldReturn403 = ['GET', '/tasks/' . self::TASK_ID . '/delete', Response::HTTP_FORBIDDEN];
+        $getUsersShouldReturn200 = ['GET', '/admin/users'];
+        $createUserShouldReturn200 = ['GET', '/admin/users/create'];
+        $editUserShouldReturn200 = ['GET', '/admin/users/' . self::USER_ID . '/edit'];
 
         return [
-            $homepage,
-            $login,
-            $getTasks,
-            $createTask,
-            $editTask,
-            $prioritizeTask,
-            $toggleTask,
-            $deleteTask,
-            $getUsers,
-            $createUser,
-            $editUser,
+            $homepageShouldReturn200,
+            $loginShouldReturn200,
+            $getTasksShouldReturn200,
+            $createTaskShouldReturn200,
+            $editTaskShouldReturn200,
+            $prioritizeTaskShouldReturn200,
+            $toggleTaskShouldReturn302,
+            $deleteTaskShouldReturn403,
+            $getUsersShouldReturn200,
+            $createUserShouldReturn200,
+            $editUserShouldReturn200,
         ];
     }
 
