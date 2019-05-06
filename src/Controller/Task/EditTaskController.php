@@ -24,28 +24,28 @@ class EditTaskController extends AbstractTaskController
         EditTask $editTaskUseCase,
         TaskModelAssembler $modelAssembler
     ) {
-        $task = $this->getTask($taskId, $getTaskUseCase);
-        $form = $this->buildForm($modelAssembler->createFromEntity($task));
+        try {
+            $task = $this->getTask($taskId, $getTaskUseCase);
+            $form = $this->buildForm($modelAssembler->createFromEntity($task));
 
-        $form->handleRequest($request);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            try {
+            if ($form->isSubmitted() && $form->isValid()) {
                 $editTaskUseCase->execute($form->getData());
                 $this->addFlash('success', 'La tâche a bien été modifiée.');
 
                 return $this->redirectToRoute('list_tasks');
-            } catch (TaskNotFoundException $e) {
-                throw $this->createNotFoundException();
             }
-        }
 
-        return $this->render(
-            'task/edit.html.twig',
-            [
-                'form' => $form->createView(),
-                'task' => $task,
-            ]
-        );
+            return $this->render(
+                'task/edit.html.twig',
+                [
+                    'form' => $form->createView(),
+                    'task' => $task,
+                ]
+            );
+        } catch (TaskNotFoundException $e) {
+            throw $this->createNotFoundException();
+        }
     }
 }
