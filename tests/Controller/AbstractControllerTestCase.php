@@ -20,7 +20,7 @@ abstract class AbstractControllerTestCase extends WebTestCase
      */
     protected $client;
 
-    protected function assertStatus(int $expectedStatus = Response::HTTP_OK)
+    protected function assertSuccessfulResponse(int $expectedStatus = Response::HTTP_OK)
     {
         $this->assertSame($expectedStatus, $this->client->getResponse()->getStatusCode());
     }

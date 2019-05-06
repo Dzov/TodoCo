@@ -55,6 +55,6 @@ class ControllerTestCase extends AbstractControllerTestCase
 
         $this->client->request($method, $uri);
 
-        $this->assertStatus($expectedStatus);
+        $this->assertSuccessfulResponse($expectedStatus);
     }
 }
