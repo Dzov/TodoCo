@@ -4,6 +4,7 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -11,25 +12,43 @@ use Symfony\Component\HttpFoundation\Response;
  */
 abstract class AbstractControllerTestCase extends WebTestCase
 {
-    const PASSWORD = 'test';
+    const ADMIN_PASSWORD = 'test';
 
-    const USERNAME = 'UserStub1';
+    const ADMIN_USERNAME = 'UserStub1';
 
-    const TASK_ID  = 12;
+    const PASSWORD       = 'test';
 
-    const USER_ID  = 12;
+    const USERNAME       = 'UserStub2';
+
+    const TASK_ID        = 12;
+
+    const USER_ID        = 12;
 
     /**
      * @var Client
      */
     protected $client;
 
-    protected function assertSuccessfulResponse(int $expectedStatus = Response::HTTP_OK)
+    protected function assertSuccessfulResponse(int $expectedStatus = Response::HTTP_OK): void
     {
         $this->assertSame($expectedStatus, $this->client->getResponse()->getStatusCode());
     }
 
-    protected function login(): \Symfony\Component\DomCrawler\Crawler
+    protected function loginAsAdmin(): Crawler
+    {
+        $crawler = $this->client->request('GET', '/login');
+
+        $form = $crawler->selectButton('Se connecter')->form();
+
+        $form['username'] = self::ADMIN_USERNAME;
+        $form['password'] = self::ADMIN_PASSWORD;
+
+        $this->client->submit($form);
+
+        return $crawler;
+    }
+
+    protected function login(): Crawler
     {
         $crawler = $this->client->request('GET', '/login');
 
