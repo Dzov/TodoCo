@@ -2,26 +2,28 @@
 
 namespace App\Tests\Controller;
 
+use App\Tests\Doubles\Entity\User\UserStub1;
+use App\Tests\Doubles\Entity\User\UserStub2;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class ControllerTestCase extends AbstractControllerTestCase
+class ControllerTest extends AbstractControllerTestCase
 {
-    const EDIT_USER       = ['GET', '/admin/users/' . self::USER_ID . '/edit'];
+    const EDIT_USER       = ['GET', '/admin/users/' . UserStub1::ID . '/edit'];
 
     const CREATE_USER     = ['GET', '/admin/users/create'];
 
     const LIST_USERS      = ['GET', '/admin/users'];
 
-    const DELETE_TASK     = ['GET', '/tasks/' . self::TASK_ID . '/delete'];
+    const DELETE_TASK     = ['GET', '/tasks/' . UserStub2::ID . '/delete'];
 
-    const TOGGLE_TASK     = ['GET', '/tasks/' . self::TASK_ID . '/toggle'];
+    const TOGGLE_TASK     = ['GET', '/tasks/' . UserStub1::ID . '/toggle'];
 
-    const PRIORITIZE_TASK = ['GET', '/tasks/' . self::TASK_ID . '/prioritize'];
+    const PRIORITIZE_TASK = ['GET', '/tasks/' . UserStub1::ID . '/prioritize'];
 
-    const EDIT_TASK       = ['GET', '/tasks/' . self::TASK_ID . '/edit'];
+    const EDIT_TASK       = ['GET', '/tasks/' . UserStub1::ID . '/edit'];
 
     const CREATE_TASK     = ['GET', '/tasks/create'];
 
@@ -66,7 +68,7 @@ class ControllerTestCase extends AbstractControllerTestCase
         $editTaskShouldReturn200 = self::EDIT_TASK;
         $prioritizeTaskShouldReturn200 = array_merge(self::PRIORITIZE_TASK, [Response::HTTP_FOUND]);
         $toggleTaskShouldReturn302 = array_merge(self::TOGGLE_TASK, [Response::HTTP_FOUND]);
-        $deleteTaskShouldReturn403 = array_merge(self::DELETE_TASK, [Response::HTTP_FORBIDDEN]);
+        $deleteTaskShouldReturn302 = array_merge(self::DELETE_TASK, [Response::HTTP_FOUND]);
 
         return [
             $homepageShouldReturn200,
@@ -76,7 +78,7 @@ class ControllerTestCase extends AbstractControllerTestCase
             $editTaskShouldReturn200,
             $prioritizeTaskShouldReturn200,
             $toggleTaskShouldReturn302,
-            $deleteTaskShouldReturn403,
+            $deleteTaskShouldReturn302,
         ];
     }
 
@@ -127,10 +129,5 @@ class ControllerTestCase extends AbstractControllerTestCase
         $this->client->request($method, $uri);
 
         $this->assertSuccessfulResponse($expectedStatus);
-    }
-
-    protected function setUp()
-    {
-        parent::setUp();
     }
 }

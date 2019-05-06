@@ -11,7 +11,7 @@ use App\Tests\Doubles\Entity\User\UserStub2;
  */
 class TaskStub2 extends Task
 {
-    const CONTENT     = 'content - stub 2';
+    const CONTENT     = 'task 2 - content';
 
     const CREATED_AT  = '2019-02-02';
 
@@ -21,7 +21,7 @@ class TaskStub2 extends Task
 
     const IS_PRIORITY = true;
 
-    const TITLE       = 'title - stub 2';
+    const TITLE       = 'Task 2 - title';
 
     protected $content = self::CONTENT;
 

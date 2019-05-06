@@ -3,6 +3,7 @@
 namespace App\Tests\Controller\Task;
 
 use App\Tests\Controller\AbstractControllerTestCase;
+use App\Tests\Doubles\Entity\Task\TaskStub1;
 
 class ToggleTaskPriorityControllerTest extends AbstractControllerTestCase
 {
@@ -12,7 +13,7 @@ class ToggleTaskPriorityControllerTest extends AbstractControllerTestCase
     public function toggleTaskPriority()
     {
         $this->loginAsAdmin();
-        $this->client->request('GET', '/tasks/' . self::TASK_ID . '/prioritize');
+        $this->client->request('GET', '/tasks/' . TaskStub1::ID . '/prioritize');
         $crawler = $this->client->followRedirect();
 
         $this->assertSuccessfulResponse();

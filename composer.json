@@ -48,7 +48,8 @@
     "symfony/profiler-pack": "*",
     "symfony/web-server-bundle": "^4.1",
     "symfony/test-pack": "^1.0",
-    "symfony/css-selector": "^4.2"
+    "symfony/css-selector": "^4.2",
+    "liip/functional-test-bundle": "~2.0@alpha"
   },
   "scripts": {
     "auto-scripts": {
