@@ -9,13 +9,13 @@ use App\Entity\User\User;
  */
 class UserStub2 extends User
 {
-    const EMAIL    = 'stub2@email.com';
+    const EMAIL    = 'user2@test.com';
 
     const ID       = 2;
 
-    const PASSWORD = 'passwordstub2';
+    const PASSWORD = 'test';
 
-    const USERNAME = 'username - stub 2';
+    const USERNAME = 'UserStub2';
 
     public $email = self::EMAIL;
 

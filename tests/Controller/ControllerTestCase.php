@@ -128,4 +128,9 @@ class ControllerTestCase extends AbstractControllerTestCase
 
         $this->assertSuccessfulResponse($expectedStatus);
     }
+
+    protected function setUp()
+    {
+        parent::setUp();
+    }
 }

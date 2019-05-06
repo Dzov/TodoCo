@@ -11,7 +11,7 @@ class ToggleTaskPriorityControllerTest extends AbstractControllerTestCase
      */
     public function toggleTaskPriority()
     {
-        $this->login();
+        $this->loginAsAdmin();
         $this->client->request('GET', '/tasks/' . self::TASK_ID . '/prioritize');
         $crawler = $this->client->followRedirect();
 
