@@ -7,6 +7,8 @@ use App\Tests\Controller\AbstractControllerTestCase;
 
 class CreateTaskControllerTest extends AbstractControllerTestCase
 {
+    const H1                    = 'Ajouter une tâche';
+
     const SUCCESS_FLASH_MESSAGE = 'La tâche a bien été ajoutée.';
 
     const TASK_CONTENT          = 'new task content';
@@ -21,7 +23,7 @@ class CreateTaskControllerTest extends AbstractControllerTestCase
         $this->loginAsAdmin();
         $crawler = $this->client->request('GET', '/tasks/create');
 
-        $this->assertContains('Ajouter une tâche', $crawler->html());
+        $this->assertContains(self::H1, $crawler->html());
 
         $form = $crawler->selectButton('Ajouter')->form();
         $form['task[title]']->setValue(self::TASK_TITLE);
