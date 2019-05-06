@@ -21,7 +21,7 @@ coverage
 sonar-project.properties
 phpunit.coverage.xml
 phpunit.report.xml
-
+phpunit.xml.dist
 
 ###> symfony/framework-bundle ###
 /.env.local
