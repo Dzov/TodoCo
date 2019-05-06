@@ -13,8 +13,7 @@
             Filtrer <i class="fa fa-chevron-down ml-4"></i>
         </button>
         <div class="dropdown-menu filter-dropdown-menu" aria-labelledby="filterMenu">
-            {#<a href="{{ path('#', {'userId': 'user'}) }}" class="dropdown-item">Mes tâches</a>#}
-            <a href="{{ path('list_tasks', {'filters': {'starred': true }}) }}" class="dropdown-item">Tâches prioritaires</a>
+            <a href="{{ path('list_tasks', {'filters': {'starred': 'starred' }}) }}" class="dropdown-item">Tâches prioritaires</a>
             <a href="{{ path('list_tasks', {'filters' : {'in-progress':'in-progress'}}) }}" class="dropdown-item">Tâches à faire</a>
             <a href="{{ path('list_tasks', {'filters' : {'completed':'completed'}}) }}" class="dropdown-item">Tâches terminées</a>
         </div>

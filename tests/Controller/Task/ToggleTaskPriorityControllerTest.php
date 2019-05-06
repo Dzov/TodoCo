@@ -4,6 +4,7 @@ namespace App\Tests\Controller\Task;
 
 use App\Tests\Controller\AbstractControllerTestCase;
 use App\Tests\Doubles\Entity\Task\TaskStub1;
+use Symfony\Component\HttpFoundation\Response;
 
 class ToggleTaskPriorityControllerTest extends AbstractControllerTestCase
 {
@@ -18,5 +19,16 @@ class ToggleTaskPriorityControllerTest extends AbstractControllerTestCase
 
         $this->assertSuccessfulResponse();
         $this->assertContains('La tâche a bien été mise à jour', $crawler->html());
+    }
+
+    /**
+     * @test
+     */
+    public function toggleNonExistingTaskShouldThrowNotFoundException()
+    {
+        $this->login();
+        $this->client->request('GET', '/tasks/6743/prioritize');
+
+        $this->assertSuccessfulResponse(Response::HTTP_NOT_FOUND);
     }
 }
