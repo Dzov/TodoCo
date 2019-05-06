@@ -15,6 +15,10 @@ abstract class AbstractControllerTestCase extends WebTestCase
 
     const USERNAME = 'UserStub1';
 
+    const TASK_ID  = 12;
+
+    const USER_ID  = 12;
+
     /**
      * @var Client
      */

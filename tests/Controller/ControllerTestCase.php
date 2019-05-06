@@ -9,10 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ControllerTestCase extends AbstractControllerTestCase
 {
-    const TASK_ID = 12;
-
-    const USER_ID = 12;
-
     public function routes()
     {
         $homepageShouldReturn200 = ['GET', '/'];
