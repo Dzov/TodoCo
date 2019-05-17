@@ -22,7 +22,7 @@ class EditTaskControllerTest extends AbstractControllerTestCase
      */
     public function editTask()
     {
-        $this->login();
+        $this->basicLoginAsUser();
         $crawler = $this->client->request('GET', '/tasks/' . TaskStub1::ID . '/edit');
 
         $this->assertContains(self::H1, $crawler->html());
@@ -46,7 +46,7 @@ class EditTaskControllerTest extends AbstractControllerTestCase
      */
     public function editNonExistingTaskShouldThrowNotFoundException()
     {
-        $this->login();
+        $this->basicLoginAsUser();
         $this->client->request('GET', '/tasks/6743/edit');
 
         $this->assertSuccessfulResponse(Response::HTTP_NOT_FOUND);

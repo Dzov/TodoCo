@@ -26,7 +26,7 @@ class CreateUserControllerTest extends AbstractControllerTestCase
      */
     public function createUser()
     {
-        $this->loginAsAdmin();
+        $this->basicLoginAsAdmin();
         $crawler = $this->client->request('GET', 'admin/users/create');
 
         $this->assertContains(self::H1, $crawler->html());
@@ -56,7 +56,7 @@ class CreateUserControllerTest extends AbstractControllerTestCase
      */
     public function createUserWithAlreadyExistingEmailShouldReturnError()
     {
-        $this->loginAsAdmin();
+        $this->basicLoginAsAdmin();
         $crawler = $this->client->request('GET', 'admin/users/create');
 
         $crawler = $this->submitForm($crawler, self::NEW_USERNAME, self::PASSWORD, UserStub1::EMAIL);
