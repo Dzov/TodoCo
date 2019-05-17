@@ -18,7 +18,7 @@ class ToggleTaskStatusControllerTest extends AbstractControllerTestCase
      */
     public function toggleTaskStatusToDo()
     {
-        $this->loginHttpBasic();
+        $this->basicLoginAsAdmin();
         $this->client->request('GET', '/tasks/' . TaskStub1::ID . '/toggle');
         $crawler = $this->client->followRedirect();
 
@@ -30,7 +30,7 @@ class ToggleTaskStatusControllerTest extends AbstractControllerTestCase
      */
     public function toggleTaskStatusDone()
     {
-        $this->login();
+        $this->basicLoginAsUser();
         $this->client->request('GET', '/tasks/' . TaskStub2::ID . '/toggle');
         $crawler = $this->client->followRedirect();
 
@@ -42,7 +42,7 @@ class ToggleTaskStatusControllerTest extends AbstractControllerTestCase
      */
     public function toggleNonExistingTaskShouldThrowNotFoundException()
     {
-        $this->login();
+        $this->basicLoginAsUser();
         $this->client->request('GET', '/tasks/6743/toggle');
 
         $this->assertSuccessfulResponse(Response::HTTP_NOT_FOUND);

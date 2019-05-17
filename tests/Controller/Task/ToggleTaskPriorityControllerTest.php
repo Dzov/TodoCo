@@ -13,7 +13,7 @@ class ToggleTaskPriorityControllerTest extends AbstractControllerTestCase
      */
     public function toggleTaskPriority()
     {
-        $this->loginAsAdmin();
+        $this->basicLoginAsAdmin();
         $this->client->request('GET', '/tasks/' . TaskStub1::ID . '/prioritize');
         $crawler = $this->client->followRedirect();
 
@@ -26,7 +26,7 @@ class ToggleTaskPriorityControllerTest extends AbstractControllerTestCase
      */
     public function toggleNonExistingTaskShouldThrowNotFoundException()
     {
-        $this->login();
+        $this->basicLoginAsUser();
         $this->client->request('GET', '/tasks/6743/prioritize');
 
         $this->assertSuccessfulResponse(Response::HTTP_NOT_FOUND);

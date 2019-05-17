@@ -11,7 +11,6 @@ use Liip\FunctionalTestBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -54,41 +53,24 @@ abstract class AbstractControllerTestCase extends WebTestCase
         $this->assertSame($expectedStatus, $this->client->getResponse()->getStatusCode());
     }
 
-    protected function loginAsAdmin(): Crawler
-    {
-        $crawler = $this->client->request('GET', '/login');
-
-        $form = $crawler->selectButton('Se connecter')->form();
-
-        $form['username'] = self::ADMIN_CREDENTIALS['username'];
-        $form['password'] = self::ADMIN_CREDENTIALS['password'];
-
-        $this->client->submit($form);
-
-        return $crawler;
-    }
-
-    protected function login(): Crawler
-    {
-        $crawler = $this->client->request('GET', '/login');
-
-        $form = $crawler->selectButton('Se connecter')->form();
-
-        $form['username'] = self::USER_CREDENTIALS['username'];
-        $form['password'] = self::USER_CREDENTIALS['password'];
-
-        $this->client->submit($form);
-
-        return $crawler;
-    }
-
-    public function loginHttpBasic()
+    protected function basicLoginAsAdmin()
     {
         $this->client = self::createClient(
             [],
             [
                 'PHP_AUTH_USER' => self::ADMIN_CREDENTIALS['username'],
                 'PHP_AUTH_PW'   => self::ADMIN_CREDENTIALS['password'],
+            ]
+        );
+    }
+
+    protected function basicLoginAsUser()
+    {
+        $this->client = self::createClient(
+            [],
+            [
+                'PHP_AUTH_USER' => self::USER_CREDENTIALS['username'],
+                'PHP_AUTH_PW'   => self::USER_CREDENTIALS['password'],
             ]
         );
     }

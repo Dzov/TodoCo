@@ -20,7 +20,7 @@ class CreateTaskControllerTest extends AbstractControllerTestCase
      */
     public function createTask()
     {
-        $this->loginAsAdmin();
+        $this->basicLoginAsAdmin();
         $crawler = $this->client->request('GET', '/tasks/create');
 
         $this->assertContains(self::H1, $crawler->html());

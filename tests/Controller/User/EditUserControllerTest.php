@@ -24,7 +24,7 @@ class EditUserControllerTest extends AbstractControllerTestCase
      */
     public function editUser()
     {
-        $this->loginAsAdmin();
+        $this->basicLoginAsAdmin();
         $crawler = $this->client->request('GET', 'admin/users/' . UserStub2::ID . '/edit');
 
         $this->assertContains(self::H1, $crawler->html());
@@ -43,7 +43,7 @@ class EditUserControllerTest extends AbstractControllerTestCase
      */
     public function editNonExistingUserShouldThrowNotFoundException()
     {
-        $this->loginAsAdmin();
+        $this->basicLoginAsAdmin();
         $this->client->request('GET', 'admin/users/454/edit');
 
         $this->assertSuccessfulResponse(Response::HTTP_NOT_FOUND);
@@ -54,7 +54,7 @@ class EditUserControllerTest extends AbstractControllerTestCase
      */
     public function editUserWithExistingEmailShouldReturnError()
     {
-        $this->loginAsAdmin();
+        $this->basicLoginAsAdmin();
         $crawler = $this->client->request('GET', 'admin/users/' . UserStub2::ID . '/edit');
 
         $crawler = $this->submitForm($crawler, UserStub1::EMAIL);

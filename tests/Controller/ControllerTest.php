@@ -124,6 +124,20 @@ class ControllerTest extends AbstractControllerTestCase
         $this->assertRoute($method, $uri, $expectedStatus);
     }
 
+    /**
+     * @test
+     * @dataProvider routes
+     */
+    public function assertRoutes(
+        string $method,
+        string $uri,
+        int $expectedStatus = Response::HTTP_OK
+    ) {
+        $this->login();
+
+        $this->assertRoute($method, $uri, $expectedStatus);
+    }
+
     private function assertRoute(string $method, string $uri, int $expectedStatus): void
     {
         $this->client->request($method, $uri);

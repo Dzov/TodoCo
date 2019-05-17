@@ -23,7 +23,7 @@ class ShowDashboardControllerTest extends AbstractControllerTestCase
      */
     public function connectedShouldReturnHomepage()
     {
-        $this->loginAsAdmin();
+        $this->basicLoginAsAdmin();
 
         $this->client->request('GET', '/');
 
