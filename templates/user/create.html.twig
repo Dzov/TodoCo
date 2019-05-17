@@ -6,12 +6,7 @@
     <h1>Créer un utilisateur</h1>
     <div class="mt-md-4">
         {{ form_start(form, {'action' : path('create_user'), 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
-
-        {{ include('user/partials/user_form.html.twig') }}
-
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Ajouter</button>
-        </div>
+        {% include 'user/partials/user_form.html.twig' with {'action' : 'Ajouter', 'buttonIcon' : 'fa-plus'} %}
         {{ form_end(form) }}
     </div>
 

@@ -14,24 +14,35 @@ class GetTasksTest extends TestCase
 {
     use AssertTaskTrait;
 
+    const INVALID_FILTER = 'invalid-filter';
+
     /**
      * @var GetTasks
      */
-    private $getTasks;
+    private $useCase;
 
     /**
      * @test
      */
     public function withoutFiltersExecuteShouldReturnAllTasks()
     {
-        $tasks = $this->getTasks->execute();
+        $tasks = $this->useCase->execute();
 
         $this->assertTasks([new TaskStub1()], $tasks);
+    }
+
+    /**
+     * @test
+     */
+    public function withInvalidFiltersShouldThrowException()
+    {
+        $this->expectException('App\Exception\Task\InvalidTaskFilterException');
+        $this->useCase->execute([self::INVALID_FILTER]);
     }
 
     protected function setUp(): void
     {
         $repository = new InMemoryTaskRepository([new TaskStub1()]);
-        $this->getTasks = new GetTasks($repository);
+        $this->useCase = new GetTasks($repository);
     }
 }

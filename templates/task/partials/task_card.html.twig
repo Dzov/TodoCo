@@ -2,16 +2,16 @@
     <div class="thumbnail">
         <div class="caption">
             <header class=" d-flex justify-content-between">
-                <small class="text-muted align-self-center">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/Y", "Europe/Paris") }}</small>
+                <small class="text-muted align-self-center card-author">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/y", "Europe/Paris") }}</small>
                 <div class="d-flex justify-content-between">
-                    <a href="{{ path('prioritize_task', {'taskId' : task.id }) }}" class="align-self-center d-flex">
+                    <a href="{{ path('prioritize_task', {'taskId' : task.id }) }}" class="align-self-center fa-star-action d-flex">
                         {% if task.isPriority %}
                             <span class="fa fa-star mr-4 starred"></span>
                         {% else %}
                             <span class="fa fa-star mr-4 notStarred"></span>
                         {% endif %}
                     </a>
-                    {% if is_granted('CAN_USER_DELETE_TASK') %}
+                    {% if is_granted('CAN_USER_DELETE_TASK', task.id ) %}
                         <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class=" align-self-center fa fa-trash mr-4 text-muted"></a>
                     {% endif %}
                     {% if task.isDone %}

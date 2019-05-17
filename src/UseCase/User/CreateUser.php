@@ -4,7 +4,7 @@ namespace App\UseCase\User;
 
 use App\Entity\User\User;
 use App\Model\User\UserModel;
-use App\Repository\UserRepository;
+use App\Repository\User\UserRepository;
 use App\Service\User\UserEmailService;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 

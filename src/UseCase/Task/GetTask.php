@@ -2,7 +2,7 @@
 
 namespace App\UseCase\Task;
 
-use App\Repository\TaskRepository;
+use App\Repository\Task\TaskRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

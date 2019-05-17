@@ -4,7 +4,7 @@ namespace App\Tests\Doubles\Repository\User;
 
 use App\Entity\User\User;
 use App\Exception\User\UserNotFoundException;
-use App\Repository\UserRepository;
+use App\Repository\User\UserRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

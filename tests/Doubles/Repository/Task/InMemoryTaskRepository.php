@@ -4,7 +4,7 @@ namespace App\Tests\Doubles\Repository\Task;
 
 use App\Entity\Task\Task;
 use App\Exception\Task\TaskNotFoundException;
-use App\Repository\TaskRepository;
+use App\Repository\Task\TaskRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

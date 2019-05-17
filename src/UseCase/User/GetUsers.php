@@ -2,7 +2,7 @@
 
 namespace App\UseCase\User;
 
-use App\Repository\UserRepository;
+use App\Repository\User\UserRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
