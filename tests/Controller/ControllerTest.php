@@ -17,11 +17,11 @@ class ControllerTest extends AbstractControllerTestCase
 
     const LIST_USERS      = ['GET', '/admin/users'];
 
-    const DELETE_TASK     = ['GET', '/tasks/' . UserStub2::ID . '/delete'];
+    const DELETE_TASK     = ['GET', '/tasks/' . UserStub2::ID . '/delete', Response::HTTP_FOUND];
 
-    const TOGGLE_TASK     = ['GET', '/tasks/' . UserStub1::ID . '/toggle'];
+    const TOGGLE_TASK     = ['GET', '/tasks/' . UserStub1::ID . '/toggle', Response::HTTP_FOUND];
 
-    const PRIORITIZE_TASK = ['GET', '/tasks/' . UserStub1::ID . '/prioritize'];
+    const PRIORITIZE_TASK = ['GET', '/tasks/' . UserStub1::ID . '/prioritize', Response::HTTP_FOUND];
 
     const EDIT_TASK       = ['GET', '/tasks/' . UserStub1::ID . '/edit'];
 
@@ -33,107 +33,56 @@ class ControllerTest extends AbstractControllerTestCase
 
     const HOMEPAGE        = ['GET', '/'];
 
-    public function routesForAdmin()
+    const IS_ADMIN        = true;
+
+    public function testCases()
     {
-        $getUsersShouldReturn200 = self::LIST_USERS;
-        $createUserShouldReturn200 = self::CREATE_USER;
-        $editUserShouldReturn200 = self::EDIT_USER;
+        $allUsersOnHomepageShouldReturnOk = self::HOMEPAGE;
+        $allUsersOnLoginShouldReturnOk = self::LOGIN;
+        $allUsersOnGetTasksShouldReturnOk = self::LIST_TASKS;
+        $allUsersOnCreateTaskShouldReturnOk = self::CREATE_TASK;
+        $allUsersOnEditTaskShouldReturnOk = self::EDIT_TASK;
+        $allUsersOnPrioritizeTaskShouldRedirect = self::PRIORITIZE_TASK;
+        $allUsersOnToggleTaskShouldRedirect = self::TOGGLE_TASK;
+        $allUsersOnDeleteTaskShouldRedirect = self::DELETE_TASK;
+
+        $adminOnGetUsersShouldReturnOk = array_merge(self::LIST_USERS, [Response::HTTP_OK, self::IS_ADMIN]);
+        $adminOnCreateUserShouldReturnOk = array_merge(self::CREATE_USER, [Response::HTTP_OK, self::IS_ADMIN]);
+        $adminOnEditUserShouldReturnOk = array_merge(self::EDIT_USER, [Response::HTTP_OK, self::IS_ADMIN]);
+
+        $userOnGetUsersShouldReturnForbidden = array_merge(self::LIST_USERS, [Response::HTTP_FORBIDDEN]);
+        $userOnCreateUserShouldReturnForbidden = array_merge(self::CREATE_USER, [Response::HTTP_FORBIDDEN]);
+        $userOnEditUserShouldReturnForbidden = array_merge(self::EDIT_USER, [Response::HTTP_FORBIDDEN]);
 
         return [
-            $getUsersShouldReturn200,
-            $createUserShouldReturn200,
-            $editUserShouldReturn200,
-        ];
-    }
-
-    public function routesForUser()
-    {
-        $getUsersShouldReturn200 = array_merge(self::LIST_USERS, [Response::HTTP_FORBIDDEN]);
-        $createUserShouldReturn200 = array_merge(self::CREATE_USER, [Response::HTTP_FORBIDDEN]);
-        $editUserShouldReturn200 = array_merge(self::EDIT_USER, [Response::HTTP_FORBIDDEN]);
-
-        return [
-            $getUsersShouldReturn200,
-            $createUserShouldReturn200,
-            $editUserShouldReturn200,
-        ];
-    }
-
-    public function commonRoutes()
-    {
-        $homepageShouldReturn200 = self::HOMEPAGE;
-        $loginShouldReturn200 = self::LOGIN;
-        $getTasksShouldReturn200 = self::LIST_TASKS;
-        $createTaskShouldReturn200 = self::CREATE_TASK;
-        $editTaskShouldReturn200 = self::EDIT_TASK;
-        $prioritizeTaskShouldReturn200 = array_merge(self::PRIORITIZE_TASK, [Response::HTTP_FOUND]);
-        $toggleTaskShouldReturn302 = array_merge(self::TOGGLE_TASK, [Response::HTTP_FOUND]);
-        $deleteTaskShouldReturn302 = array_merge(self::DELETE_TASK, [Response::HTTP_FOUND]);
-
-        return [
-            $homepageShouldReturn200,
-            $loginShouldReturn200,
-            $getTasksShouldReturn200,
-            $createTaskShouldReturn200,
-            $editTaskShouldReturn200,
-            $prioritizeTaskShouldReturn200,
-            $toggleTaskShouldReturn302,
-            $deleteTaskShouldReturn302,
+            $allUsersOnHomepageShouldReturnOk,
+            $allUsersOnLoginShouldReturnOk,
+            $allUsersOnGetTasksShouldReturnOk,
+            $allUsersOnCreateTaskShouldReturnOk,
+            $allUsersOnEditTaskShouldReturnOk,
+            $allUsersOnPrioritizeTaskShouldRedirect,
+            $allUsersOnToggleTaskShouldRedirect,
+            $allUsersOnDeleteTaskShouldRedirect,
+            $adminOnGetUsersShouldReturnOk,
+            $adminOnCreateUserShouldReturnOk,
+            $adminOnEditUserShouldReturnOk,
+            $userOnGetUsersShouldReturnForbidden,
+            $userOnCreateUserShouldReturnForbidden,
+            $userOnEditUserShouldReturnForbidden,
         ];
     }
 
     /**
      * @test
-     * @dataProvider routesForAdmin
-     */
-    public function assertRoutesAsAdmin(
-        string $method,
-        string $uri,
-        int $expectedStatus = Response::HTTP_OK
-    ) {
-        $this->loginAsAdmin();
-
-        $this->assertRoute($method, $uri, $expectedStatus);
-    }
-
-    /**
-     * @test
-     * @dataProvider commonRoutes
-     */
-    public function assertCommonRoutes(
-        string $method,
-        string $uri,
-        int $expectedStatus = Response::HTTP_OK
-    ) {
-        $this->login();
-
-        $this->assertRoute($method, $uri, $expectedStatus);
-    }
-
-    /**
-     * @test
-     * @dataProvider routesForUser
-     */
-    public function assertRoutesAsUser(
-        string $method,
-        string $uri,
-        int $expectedStatus = Response::HTTP_OK
-    ) {
-        $this->login();
-
-        $this->assertRoute($method, $uri, $expectedStatus);
-    }
-
-    /**
-     * @test
-     * @dataProvider routes
+     * @dataProvider testCases
      */
     public function assertRoutes(
         string $method,
         string $uri,
-        int $expectedStatus = Response::HTTP_OK
+        int $expectedStatus = Response::HTTP_OK,
+        bool $isAdmin = false
     ) {
-        $this->login();
+        $isAdmin ? $this->basicLoginAsAdmin() : $this->basicLoginAsUser();
 
         $this->assertRoute($method, $uri, $expectedStatus);
     }
