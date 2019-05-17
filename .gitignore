@@ -18,6 +18,7 @@
 .phpunit.result.cache
 coverage
 .scannerwork
+sonar-project.properties
 phpunit.coverage.xml
 phpunit.report.xml
 phpunit.xml.dist
