@@ -19,3 +19,19 @@
     background-color: #45b0d5;
     color: white;
 }
+
+.filter-btn {
+    box-shadow: 1px 2px 4px grey;
+}
+
+.filter-btn:active {
+    border: none;
+}
+
+.filter-dropdown-menu {
+    background-color: white;
+}
+
+.filter-dropdown-menu .dropdown-item {
+    color: #45b0d5!important;
+}

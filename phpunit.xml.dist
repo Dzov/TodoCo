@@ -23,6 +23,7 @@
             <directory>src</directory>
             <exclude>
                 <directory>src/Controller</directory>
+                <directory>src/Form</directory>
                 <directory>src/Repository</directory>
                 <directory>src/Migrations</directory>
                 <directory>src/DataFixtures</directory>

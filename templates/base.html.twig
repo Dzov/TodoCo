@@ -43,16 +43,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('dashboard') }}">Tableau de Bord<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tâches
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{ path('list_tasks') }}">Mes tâches</a>
-                            <a class="dropdown-item" href="{{ path('list_tasks') }}">Toutes les tâches</a>
-                            <a class="dropdown-item" href="{{ path('create_task') }}">Ajouter une tâche</a>
-                            <a class="dropdown-item" href="{{ path('list_tasks') }}">Tâches terminées</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('list_tasks') }}">Tâches</a>
                     </li>
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item">
@@ -78,7 +70,7 @@
     <div class="col-md-12">
         {% for flash_message in app.session.flashBag.get('success') %}
             <div class="alert alert-success" role="alert">
-                <strong>Superbe !</strong> {{ flash_message }}
+                {{ flash_message }}
             </div>
         {% endfor %}
 
@@ -89,7 +81,7 @@
         {% endfor %}
         {% for flash_message in app.session.flashBag.get('danger') %}
             <div class="alert alert-danger" role="alert">
-                <strong>Oops !</strong> {{ flash_message }}
+                {{ flash_message }}
             </div>
         {% endfor %}
     </div>

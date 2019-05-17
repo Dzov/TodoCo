@@ -15,7 +15,12 @@ body {
 }
 
 h1 {
-    margin: 20px 0;
+    margin: 10px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 main {
@@ -28,7 +33,7 @@ a:active, a:hover, a:focus {
     color: #5a6269;
 }
 
-a, button {
+a, button, .nav-item {
     text-transform: uppercase;
     font-weight: bold;
 }

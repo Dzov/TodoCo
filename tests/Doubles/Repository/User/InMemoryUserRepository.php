@@ -4,7 +4,7 @@ namespace App\Tests\Doubles\Repository\User;
 
 use App\Entity\User\User;
 use App\Exception\User\UserNotFoundException;
-use App\Repository\UserRepository;
+use App\Repository\User\UserRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
@@ -29,7 +29,7 @@ class InMemoryUserRepository extends UserRepository
         self::$result[] = $user;
     }
 
-    public function findAll(array $filters = [], array $sort = [])
+    public function findAll(array $filters = [], array $sorts = [])
     {
         return self::$result;
     }

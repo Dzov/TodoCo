@@ -2,12 +2,13 @@
 
 namespace App\UseCase\Task;
 
+use App\Entity\Task\Task;
 use App\Repository\Task\TaskRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class GetTask extends AbstractTaskUseCase
+class ToggleTaskPriority extends AbstractTaskUseCase
 {
     public function __construct(TaskRepository $repository)
     {
@@ -19,6 +20,11 @@ class GetTask extends AbstractTaskUseCase
      */
     public function execute(int $taskId)
     {
-        return $this->taskRepository->findById($taskId);
+        /** @var Task $task */
+        $task = $this->taskRepository->findById($taskId);
+        $task->togglePriority();
+        $this->taskRepository->update($task);
+
+        return $task;
     }
 }
