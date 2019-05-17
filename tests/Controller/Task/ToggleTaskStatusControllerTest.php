@@ -18,7 +18,7 @@ class ToggleTaskStatusControllerTest extends AbstractControllerTestCase
      */
     public function toggleTaskStatusToDo()
     {
-        $this->login();
+        $this->loginHttpBasic();
         $this->client->request('GET', '/tasks/' . TaskStub1::ID . '/toggle');
         $crawler = $this->client->followRedirect();
 

@@ -82,6 +82,17 @@ abstract class AbstractControllerTestCase extends WebTestCase
         return $crawler;
     }
 
+    public function loginHttpBasic()
+    {
+        $this->client = self::createClient(
+            [],
+            [
+                'PHP_AUTH_USER' => self::ADMIN_CREDENTIALS['username'],
+                'PHP_AUTH_PW'   => self::ADMIN_CREDENTIALS['password'],
+            ]
+        );
+    }
+
     protected function setUp()
     {
         $this->client = self::createClient();
