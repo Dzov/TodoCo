@@ -35,7 +35,7 @@ class ControllerTest extends AbstractControllerTestCase
 
     const IS_ADMIN        = true;
 
-    public function testCases()
+    public function routeTestCases()
     {
         $allUsersOnHomepageShouldReturnOk = self::HOMEPAGE;
         $allUsersOnLoginShouldReturnOk = self::LOGIN;
@@ -74,7 +74,7 @@ class ControllerTest extends AbstractControllerTestCase
 
     /**
      * @test
-     * @dataProvider testCases
+     * @dataProvider routeTestCases
      */
     public function assertRoutes(
         string $method,
