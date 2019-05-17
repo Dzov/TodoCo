@@ -4,7 +4,7 @@ namespace App\Service\User;
 
 use App\Exception\User\EmailAlreadyExistsException;
 use App\Exception\User\UserNotFoundException;
-use App\Repository\User\UserRepository;
+use App\Repository\UserRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

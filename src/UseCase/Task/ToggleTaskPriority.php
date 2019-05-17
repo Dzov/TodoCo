@@ -3,7 +3,7 @@
 namespace App\UseCase\Task;
 
 use App\Entity\Task\Task;
-use App\Repository\Task\TaskRepository;
+use App\Repository\TaskRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

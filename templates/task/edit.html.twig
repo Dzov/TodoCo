@@ -5,8 +5,9 @@
     <div class="mt-md-5">
         {{ form_start(form, {'action' : path('edit_task', { 'taskId' : task.id }), 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
 
-        {% include 'task/partials/task_form.html.twig' with {'action' : 'Modifier'} %}
+        {{ include('task/partials/task_form.html.twig') }}
 
+        <button type="submit" class="btn btn-success pull-right">Modifier</button>
         {{ form_end(form) }}
     </div>
 

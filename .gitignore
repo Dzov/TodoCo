@@ -16,8 +16,6 @@
 /web/bundles/
 .idea/
 .phpunit.result.cache
-coverage
-
 
 ###> symfony/framework-bundle ###
 /.env.local

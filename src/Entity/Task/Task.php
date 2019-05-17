@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\Task\TaskRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TaskRepository")
  * @ORM\Table
  */
 class Task
@@ -57,7 +57,6 @@ class Task
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->isDone = false;
-        $this->isPriority = false;
     }
 
     public function getAuthor(): UserInterface

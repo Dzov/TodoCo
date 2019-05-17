@@ -6,7 +6,12 @@
     <h1>Modifier <strong>{{ user.username }}</strong></h1>
     <div class="mt-md-4">
         {{ form_start(form, {'action' : path('edit_user', {'userId' : user.id}) , 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
-        {% include 'user/partials/user_form.html.twig' with {'action' : 'Modifier', 'buttonIcon' : 'fa-pencil'} %}
+
+        {% include 'user/partials/user_form.html.twig' %}
+
+        <div class="form-actions align-self-end justify-content-between">
+            <button type="submit" class="btn btn-primary">Modifier</button>
+        </div>
         {{ form_end(form) }}
     </div>
 

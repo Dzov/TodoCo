@@ -6,8 +6,8 @@ use App\Entity\Task\Task;
 use App\Entity\User\User;
 use App\Exception\Task\TaskNotFoundException;
 use App\Exception\User\UserNotFoundException;
-use App\Repository\Task\TaskRepository;
-use App\Repository\User\UserRepository;
+use App\Repository\TaskRepository;
+use App\Repository\UserRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>

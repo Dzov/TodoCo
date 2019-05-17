@@ -23,13 +23,13 @@
     align-self: center;
 }
 
-.fa-star::before, .notStarred::before, .starred:hover:before {
+.fa-star::before, .notStarred::before {
     color: white;
     -webkit-text-stroke: 1px #5a6269;
     align-self: center;
 }
 
-.notStarred:hover:before, .starred::before {
+.fa-star:hover:before, .starred::before {
     color: yellow;
     -webkit-text-stroke: 1px yellow;
 }
@@ -72,8 +72,4 @@
 .thumbnail .caption-full {
     padding: 9px;
     color: #333333;
-}
-
-.card-author {
-    font-size: 12px;
 }
