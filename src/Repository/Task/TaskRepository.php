@@ -6,7 +6,6 @@ use App\Entity\Task\Task;
 use App\Entity\Task\TaskFilter;
 use App\Exception\Task\TaskNotFoundException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -50,6 +49,7 @@ class TaskRepository extends ServiceEntityRepository
 
     /**
      * @throws TaskNotFoundException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function findById(int $id)
     {
@@ -61,7 +61,6 @@ class TaskRepository extends ServiceEntityRepository
                 ->getSingleResult();
         } catch (NoResultException $e) {
             throw new TaskNotFoundException();
-        } catch (NonUniqueResultException $e) {
         }
     }
 
@@ -97,7 +96,7 @@ class TaskRepository extends ServiceEntityRepository
     {
         if (empty($sort)) {
             $qb->addOrderBy('t.isDone', 'ASC')
-            ->addOrderBy('t.isPriority', 'DESC')
+                ->addOrderBy('t.isPriority', 'DESC')
                 ->addOrderBy('t.createdAt', 'DESC');
         }
     }

@@ -1,0 +1,10 @@
+imports:
+    - { resource: '../doctrine.yaml' }
+
+parameters:
+    env(DATABASE_URL): 'sqlite:///%kernel.project_dir%/var/app.db'
+
+doctrine:
+    dbal:
+        driver: 'pdo_sqlite'
+        url: '%env(resolve:DATABASE_URL)%'

@@ -1,7 +1,7 @@
 .navbar-logo {
     font-size: 25px;
     color: white;
-    font-family: 'AileronRegular';
+    font-family: 'AileronRegular', sans-serif;
     font-weight: 600;
     font-style: normal;
     flex: 1.2;

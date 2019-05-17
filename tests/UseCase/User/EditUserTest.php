@@ -38,6 +38,8 @@ class EditUserTest extends TestCase
      */
     public function withValidModelExecuteShouldUpdateUser()
     {
+        UserEmailServiceMock::$isAvailable = true;
+
         $model = new UserModelStub1();
         $model->setEmail(UserModelStub2::EMAIL);
         $model->setPassword(UserModelStub2::PASSWORD);

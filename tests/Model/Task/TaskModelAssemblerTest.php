@@ -26,7 +26,7 @@ class TaskModelAssemblerTest extends TestCase
 
         $this->assertSame($expected->getId(), $actual->getId());
         $this->assertSame($expected->getTitle(), $actual->getTitle());
-        $this->assertSame($expected->getIsDone(), $actual->isDone());
+        $this->assertSame($expected->isDone(), $actual->isDone());
         $this->assertSame($expected->getCreatedAt(), $actual->getCreatedAt());
         $this->assertSame($expected->getContent(), $actual->getContent());
         $this->assertSame($expected->getAuthorId(), $actual->getAuthorId());
