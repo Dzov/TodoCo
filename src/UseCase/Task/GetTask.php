@@ -9,11 +9,6 @@ use App\Repository\Task\TaskRepository;
  */
 class GetTask extends AbstractTaskUseCase
 {
-    public function __construct(TaskRepository $repository)
-    {
-        parent::__construct($repository);
-    }
-
     /**
      * @throws \App\Exception\Task\TaskNotFoundException
      */

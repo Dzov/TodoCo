@@ -4,23 +4,12 @@ namespace App\UseCase\Task;
 
 use App\Entity\Task\TaskFilter;
 use App\Exception\Task\InvalidTaskFilterException;
-use App\Repository\Task\TaskRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class GetTasks
+class GetTasks extends AbstractTaskUseCase
 {
-    /**
-     * @var TaskRepository
-     */
-    private $taskRepository;
-
-    public function __construct(TaskRepository $taskRepository)
-    {
-        $this->taskRepository = $taskRepository;
-    }
-
     /**
      * @throws InvalidTaskFilterException
      */
