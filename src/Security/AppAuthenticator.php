@@ -89,8 +89,8 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator
     public function checkCredentials($credentials, UserInterface $user)
     {
         if (!$this->passwordEncoder->isPasswordValid($user, $credentials[self::PASSWORD])) {
-            throw new CustomUserMessageAuthenticationException('Le mot de passe n\'est pas valide.');
-        };
+            throw new CustomUserMessageAuthenticationException('Ce mot de passe est incorrect');
+        }
 
         return true;
     }
