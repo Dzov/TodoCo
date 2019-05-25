@@ -29,7 +29,7 @@ class GetTasks extends AbstractTaskUseCase
             return;
         }
 
-        $validFilters = [TaskFilter::COMPLETED, TaskFilter::STARRED, TaskFilter::IN_PROGRESS];
+        $validFilters = TaskFilter::getTaskFilters();
 
         foreach ($filters as $filter) {
             if (!in_array($filter, $validFilters)) {

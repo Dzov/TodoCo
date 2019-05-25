@@ -27,6 +27,6 @@ class ShowDashboardControllerTest extends AbstractControllerTestCase
 
         $this->client->request('GET', '/');
 
-        $this->assertSuccessfulResponse();
+        $this->assertExpectedResponse();
     }
 }

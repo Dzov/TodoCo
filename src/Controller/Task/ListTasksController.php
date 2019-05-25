@@ -2,9 +2,7 @@
 
 namespace App\Controller\Task;
 
-use App\Exception\Task\InvalidTaskFilterException;
 use App\UseCase\Task\GetTasks;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -13,16 +11,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ListTasksController extends AbstractTaskController
 {
     /**
-     * @Route("/tasks", name="list_tasks")
+     * @Route("/tasks/{filter}", name="list_tasks",  requirements={"filter": "in-progress|completed|starred"})
      */
-    public function list(Request $request, GetTasks $getTasksUseCase)
+    public function list(GetTasks $getTasksUseCase, string $filter = null)
     {
-        try {
-            $tasks = $getTasksUseCase->execute($request->get('filters') ?? []);
+        $tasks = $getTasksUseCase->execute($filter ? [$filter] : []);
 
-            return $this->render('task/list.html.twig', ['tasks' => $tasks]);
-        } catch (InvalidTaskFilterException $e) {
-            throw $this->createAccessDeniedException();
-        }
+        return $this->render('task/list.html.twig', ['tasks' => $tasks, 'filter' => $filter]);
     }
 }

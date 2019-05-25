@@ -17,7 +17,7 @@ class ToggleTaskPriorityControllerTest extends AbstractControllerTestCase
         $this->client->request('GET', '/tasks/' . TaskStub1::ID . '/prioritize');
         $crawler = $this->client->followRedirect();
 
-        $this->assertSuccessfulResponse();
+        $this->assertExpectedResponse();
         $this->assertContains('La tâche a bien été mise à jour', $crawler->html());
     }
 
@@ -29,6 +29,6 @@ class ToggleTaskPriorityControllerTest extends AbstractControllerTestCase
         $this->basicLoginAsUser();
         $this->client->request('GET', '/tasks/6743/prioritize');
 
-        $this->assertSuccessfulResponse(Response::HTTP_NOT_FOUND);
+        $this->assertExpectedResponse(Response::HTTP_NOT_FOUND);
     }
 }

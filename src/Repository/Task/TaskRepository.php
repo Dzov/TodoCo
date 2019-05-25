@@ -34,15 +34,15 @@ class TaskRepository extends ServiceEntityRepository
 
     private function applyFilters(QueryBuilder $qb, array $filters = [])
     {
-        if (isset($filters[TaskFilter::COMPLETED])) {
+        if (in_array(TaskFilter::COMPLETED, $filters)) {
             $qb->andWhere('t.isDone = true');
         }
 
-        if (isset($filters[TaskFilter::IN_PROGRESS])) {
+        if (in_array(TaskFilter::IN_PROGRESS, $filters)) {
             $qb->andWhere('t.isDone = false');
         }
 
-        if (isset($filters[TaskFilter::STARRED])) {
+        if (in_array(TaskFilter::STARRED, $filters)) {
             $qb->andWhere('t.isPriority = true');
         }
     }

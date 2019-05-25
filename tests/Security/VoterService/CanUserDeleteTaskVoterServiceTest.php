@@ -42,7 +42,7 @@ class CanUserDeleteTaskVoterServiceTest extends TestCase
      */
     public function userIsAdminAndTaskAuthorIsAnonUserShouldReturnTrue()
     {
-        InMemoryTaskRepository::$result = [TaskStub2::ID => new TaskStub2()];
+        InMemoryTaskRepository::$tasks = [TaskStub2::ID => new TaskStub2()];
         $user = new UserStub1([Roles::ROLE_ADMIN]);
         InMemoryUserRepository::$result = [
             $user->getId() => $user,

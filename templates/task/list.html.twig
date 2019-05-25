@@ -8,15 +8,26 @@
         <h1>Liste des tâches</h1>
         <a href="{{ path('create_task') }}" class="btn btn-primary-open mt-4 align-self-center d-flex"><i class="fa fa-plus mr-4"></i>Ajouter une tâche</a>
     </div>
-    <div class="d-flex justify-content-between mb-5 dropdown">
-        <button class="btn filter-btn mt-4 d-flex" type="button" id="filterMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="d-flex mb-5 dropdown align-items-center mt-4">
+        <button class="btn filter-btn d-flex" type="button" id="filterMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Filtrer <i class="fa fa-chevron-down ml-4"></i>
         </button>
         <div class="dropdown-menu filter-dropdown-menu" aria-labelledby="filterMenu">
-            <a href="{{ path('list_tasks', {'filters': {'starred': 'starred' }}) }}" class="dropdown-item">Tâches prioritaires</a>
-            <a href="{{ path('list_tasks', {'filters' : {'in-progress':'in-progress'}}) }}" class="dropdown-item">Tâches à faire</a>
-            <a href="{{ path('list_tasks', {'filters' : {'completed':'completed'}}) }}" class="dropdown-item">Tâches terminées</a>
+            <a href="{{ path('list_tasks', {'filter': 'starred' }) }}" class="dropdown-item">Tâches prioritaires</a>
+            <a href="{{ path('list_tasks', {'filter': 'in-progress' }) }}" class="dropdown-item">Tâches ouvertes</a>
+            <a href="{{ path('list_tasks', {'filter': 'completed'}) }}" class="dropdown-item">Tâches terminées</a>
         </div>
+        {% if filter == 'starred' %}
+            {% set activatedFilter = 'Tâches prioritaires' %}
+        {% elseif filter == 'in-progress' %}
+            {% set activatedFilter = 'Tâches ouvertes' %}
+        {% elseif filter == 'completed' %}
+            {% set activatedFilter = 'Tâches terminées' %}
+        {% endif %}
+
+        {% if activatedFilter is defined %}
+            <span class="filter-tag ml-m-4">{{ activatedFilter }}</span>
+        {% endif %}
     </div>
 
     <a href="{{ path('list_tasks') }}" class="btn card-action pl-0 mb-4">Réinitialiser les filtres</a>
