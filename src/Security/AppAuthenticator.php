@@ -80,7 +80,7 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator
         );
 
         if (!$user) {
-            throw new CustomUserMessageAuthenticationException('Ce nom d\'utilisateur n\'existe pas');
+            throw new CustomUserMessageAuthenticationException('Ce nom d\'utilisateur n\'existe pas.');
         }
 
         return $user;
@@ -88,7 +88,11 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        return $this->passwordEncoder->isPasswordValid($user, $credentials[self::PASSWORD]);
+        if (!$this->passwordEncoder->isPasswordValid($user, $credentials[self::PASSWORD])) {
+            throw new CustomUserMessageAuthenticationException('Le mot de passe n\'est pas valide.');
+        };
+
+        return true;
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
