@@ -7,16 +7,14 @@ namespace App\Entity\Task;
  */
 final class TaskFilter
 {
-    const STARRED     = 'starred';
+    public const STARRED     = 'starred';
 
-    const COMPLETED   = 'completed';
+    public const COMPLETED   = 'completed';
 
-    const IN_PROGRESS = 'in-progress';
+    public const IN_PROGRESS = 'in-progress';
 
     static public function getTaskFilters(): array
     {
-        $reflectionClass = new \ReflectionClass(self::class);
-
-        return $reflectionClass->getConstants();
+        return [self::STARRED, self::COMPLETED, self::IN_PROGRESS];
     }
 }

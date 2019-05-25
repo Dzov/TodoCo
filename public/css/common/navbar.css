@@ -58,3 +58,9 @@
     color: #45b0d5;
     border-color: white;
 }
+
+@media (min-width: 760px) {
+    .navbar-toggler {
+        display: none;
+    }
+}
