@@ -30,6 +30,9 @@ class CanUserDeleteTaskVoterService
         $this->userRepository = $userRepository;
     }
 
+    /**
+     * @throws TaskNotFoundException
+     */
     public function canUserDeleteTask(int $userId, int $taskId): bool
     {
         try {
@@ -47,7 +50,7 @@ class CanUserDeleteTaskVoterService
             if ($taskAuthor->isAnonymousUser() && $user->isAdmin()) {
                 return true;
             }
-        } catch (TaskNotFoundException | UserNotFoundException $e) {
+        } catch (UserNotFoundException $e) {
         }
 
         return false;
