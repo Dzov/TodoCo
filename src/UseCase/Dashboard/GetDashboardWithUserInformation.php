@@ -4,7 +4,6 @@ namespace App\UseCase\Dashboard;
 
 use App\Entity\Task\Task;
 use App\Entity\Task\TaskFilter;
-use App\Repository\Task\TaskRepository;
 use App\UseCase\Task\GetTasks;
 
 /**
@@ -12,19 +11,19 @@ use App\UseCase\Task\GetTasks;
  */
 class GetDashboardWithUserInformation
 {
+    public const TASKS_CLOSED      = 'tasksClosed';
+
+    public const TASKS_CREATED     = 'tasksCreated';
+
+    public const TASKS_IN_PROGRESS = 'tasksInProgress';
+
     /**
      * @var GetTasks
      */
     private $getTasksUseCase;
 
-    /**
-     * @var TaskRepository
-     */
-    private $taskRepository;
-
-    public function __construct(TaskRepository $repository, GetTasks $useCase)
+    public function __construct(GetTasks $useCase)
     {
-        $this->taskRepository = $repository;
         $this->getTasksUseCase = $useCase;
     }
 
@@ -63,9 +62,9 @@ class GetDashboardWithUserInformation
             }
         }
 
-        $metrics['tasksInProgress'] = count($tasksInProgress);
-        $metrics['tasksClosed'] = count($tasksClosed);
-        $metrics['tasksCreated'] = count($tasks);
+        $metrics[self::TASKS_IN_PROGRESS] = count($tasksInProgress);
+        $metrics[self::TASKS_CLOSED] = count($tasksClosed);
+        $metrics[self::TASKS_CREATED] = count($tasks);
 
         return [$tasksInProgress, $tasksStarred, $metrics];
     }
