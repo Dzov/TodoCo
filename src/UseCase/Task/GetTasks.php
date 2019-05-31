@@ -31,8 +31,8 @@ class GetTasks extends AbstractTaskUseCase
 
         $validFilters = TaskFilter::getTaskFilters();
 
-        foreach ($filters as $filter) {
-            if (!in_array($filter, $validFilters)) {
+        foreach ($filters as $key => $filter) {
+            if (!in_array($filter, $validFilters) && TaskFilter::AUTHOR !== $key) {
                 throw new InvalidTaskFilterException();
             }
         }

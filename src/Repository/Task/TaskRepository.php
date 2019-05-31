@@ -45,6 +45,11 @@ class TaskRepository extends ServiceEntityRepository
         if (in_array(TaskFilter::STARRED, $filters)) {
             $qb->andWhere('t.isPriority = true');
         }
+
+        if (isset($filters[TaskFilter::AUTHOR])) {
+            $qb->andWhere('t.author = :authorId')
+                ->setParameter('authorId', $filters[TaskFilter::AUTHOR]);
+        }
     }
 
     /**

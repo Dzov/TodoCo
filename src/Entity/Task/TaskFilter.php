@@ -13,8 +13,10 @@ final class TaskFilter
 
     public const IN_PROGRESS = 'in-progress';
 
+    public const AUTHOR      = 'author';
+
     static public function getTaskFilters(): array
     {
-        return [self::STARRED, self::COMPLETED, self::IN_PROGRESS];
+        return [self::STARRED, self::COMPLETED, self::IN_PROGRESS, self::AUTHOR];
     }
 }

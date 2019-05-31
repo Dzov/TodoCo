@@ -133,6 +133,9 @@ class Task
     public function setIsDone(bool $isDone): self
     {
         $this->isDone = $isDone;
+        if ($isDone) {
+            $this->setIsPriority(false);
+        }
 
         return $this;
     }
