@@ -48,7 +48,7 @@ class EditTaskTest extends TestCase
 
         $expected = $this->buildExpectedTask($model);
 
-        $this->assertTask($expected, InMemoryTaskRepository::$result[TaskStub1::ID]);
+        $this->assertTask($expected, InMemoryTaskRepository::$tasks[TaskStub1::ID]);
     }
 
     private function buildExpectedTask(TaskModel $model): Task

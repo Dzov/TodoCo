@@ -31,8 +31,8 @@ class CreateTaskTest extends TestCase
     {
         $this->useCase->execute(new TaskModelStub1(), UserStub1::ID);
 
-        $this->assertNotEmpty(InMemoryTaskRepository::$result);
-        $this->assertTask(new TaskStub1(), InMemoryTaskRepository::$result[0]);
+        $this->assertNotEmpty(InMemoryTaskRepository::$tasks);
+        $this->assertTask(new TaskStub1(), InMemoryTaskRepository::$tasks[0]);
     }
 
     /**

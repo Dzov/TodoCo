@@ -3,6 +3,7 @@
 namespace App\Tests\Security\VoterService;
 
 use App\Entity\Security\Roles;
+use App\Exception\Task\TaskNotFoundException;
 use App\Security\VoterService\Task\CanUserDeleteTaskVoterService;
 use App\Tests\Doubles\Entity\Task\TaskStub1;
 use App\Tests\Doubles\Entity\Task\TaskStub2;
@@ -24,8 +25,9 @@ class CanUserDeleteTaskVoterServiceTest extends TestCase
     /**
      * @test
      */
-    public function taskNotFoundShouldReturnFalse()
+    public function taskNotFoundShouldThrowException()
     {
+        $this->expectException(TaskNotFoundException::class);
         $this->assertFalse($this->voterService->canUserDeleteTask(UserStub1::ID, self::INVALID_TASK_ID));
     }
 
@@ -42,7 +44,7 @@ class CanUserDeleteTaskVoterServiceTest extends TestCase
      */
     public function userIsAdminAndTaskAuthorIsAnonUserShouldReturnTrue()
     {
-        InMemoryTaskRepository::$result = [TaskStub2::ID => new TaskStub2()];
+        InMemoryTaskRepository::$tasks = [TaskStub2::ID => new TaskStub2()];
         $user = new UserStub1([Roles::ROLE_ADMIN]);
         InMemoryUserRepository::$result = [
             $user->getId() => $user,

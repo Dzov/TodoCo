@@ -46,7 +46,7 @@ class EditUserControllerTest extends AbstractControllerTestCase
         $this->basicLoginAsAdmin();
         $this->client->request('GET', 'admin/users/454/edit');
 
-        $this->assertSuccessfulResponse(Response::HTTP_NOT_FOUND);
+        $this->assertExpectedResponse(Response::HTTP_NOT_FOUND);
     }
 
     /**
