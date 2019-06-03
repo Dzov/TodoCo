@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Modifier une tâche</h1>
+    <h1 class="page-title">Modifier une tâche</h1>
     <div class="mt-md-5">
         {{ form_start(form, {'action' : path('edit_task', { 'taskId' : task.id }), 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
 

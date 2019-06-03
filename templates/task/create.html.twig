@@ -2,7 +2,7 @@
 {% form_theme form 'components/forms/forms.html.twig' %}
 
 {% block body %}
-    <h1>Ajouter une tâche</h1>
+    <h1 class="page-title">Ajouter une tâche</h1>
     <div class="mt-md-5">
         {{ form_start(form, {'action' : path('create_task'), 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
         {% include 'task/partials/task_form.html.twig' with {'action' : 'Ajouter'} %}

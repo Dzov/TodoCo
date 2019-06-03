@@ -1,0 +1,9 @@
+@media (max-width: 570px) {
+    .task-list-header {
+        flex-direction: column;
+    }
+}
+
+.filter-button-icon {
+    margin-right: 0px;
+}

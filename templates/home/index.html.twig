@@ -12,7 +12,7 @@
     <hr>
 
     <section>
-        <h1>Vos tâches prioritaires</h1>
+        <h1 class="page-title">Tâches prioritaires</h1>
         <div class="row">
             {% for task in starredTasks | slice(0, 3) %}
                 {% include('task/partials/task_card.html.twig') %}
@@ -23,7 +23,7 @@
     </section>
 
     <section>
-        <h1>Vos tâches récentes</h1>
+        <h1 class="page-title">Tâches récentes</h1>
         <div class="row">
             {% for task in tasksInProgress | slice(0, 3) %}
                 {% include('task/partials/task_card.html.twig') %}

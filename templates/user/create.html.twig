@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block header_img %}{% endblock %}
-
 {% block body %}
-    <h1>Créer un utilisateur</h1>
+    <h1 class="page-title">Créer un utilisateur</h1>
     <div class="mt-md-4">
         {{ form_start(form, {'action' : path('create_user'), 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
         {% include 'user/partials/user_form.html.twig' with {'action' : 'Ajouter', 'buttonIcon' : 'fa-plus'} %}

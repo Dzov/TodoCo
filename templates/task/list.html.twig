@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block header_img %}
-    <img class="slide-image" src="{{ asset('img/todolist_content.jpg') }}" alt="todo list">{% endblock %}
+{% block cssLink %}
+    <link href="{{ asset('css/task_list.css') }}" rel="stylesheet">{% endblock %}
 
 {% block body %}
-    <div class="d-flex justify-content-between">
-        <h1>Liste des tâches</h1>
-        <a href="{{ path('create_task') }}" class="btn btn-primary-open mt-4 align-self-center d-flex"><i class="fa fa-plus mr-4"></i>Ajouter une tâche</a>
+    <div class="d-flex justify-content-between mt-4 task-list-header">
+        <h1 class="page-title">Liste des tâches</h1>
+        <a href="{{ path('create_task') }}" class="btn btn-primary-open align-self-center d-flex"><i class="fa fa-plus button-icon"></i>Ajouter une tâche</a>
     </div>
     <div class="d-flex mb-5 dropdown align-items-center mt-4">
         <button class="btn filter-btn d-flex" type="button" id="filterMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Filtrer <i class="fa fa-chevron-down ml-4"></i>
+            Filtrer <i class="fa fa-chevron-down filter-button-icon button-icon ml-4"></i>
         </button>
         <div class="dropdown-menu filter-dropdown-menu" aria-labelledby="filterMenu">
             <a href="{{ path('list_tasks', {'filter': 'starred' }) }}" class="dropdown-item">Tâches prioritaires</a>

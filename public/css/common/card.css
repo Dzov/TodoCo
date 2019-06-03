@@ -17,12 +17,6 @@
     }
 }
 
-.fa {
-    font-size: 18px;
-    flex: .2;
-    align-self: center;
-}
-
 .fa-star::before, .notStarred::before, .starred:hover:before {
     color: white;
     -webkit-text-stroke: 1px #5a6269;
@@ -34,9 +28,13 @@
     -webkit-text-stroke: 1px yellow;
 }
 
+.fa-trash:hover:before {
+    color: red;
+}
+
 .glyphicon {
     border-radius: 100%;
-    padding: 11px 10px 9px 10px;
+    padding: 9px 8px 7px 8px;
 }
 
 .glyphicon-ok {
@@ -53,20 +51,19 @@
 
 .thumbnail .caption {
     padding: 10px 15px;
-    height: 130px;
-    overflow: hidden;
+    height: 170px;
+    overflow: scroll;
 }
 
 .caption h4 {
-    white-space: nowrap;
-}
-
-.thumbnail img {
-    width: 100%;
+    overflow-wrap: break-word;
+    margin-bottom: 0;
 }
 
 .thumbnail {
     padding: 0;
+    height: 255px;
+    min-width: 225px;
 }
 
 .thumbnail .caption-full {

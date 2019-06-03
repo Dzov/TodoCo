@@ -88,11 +88,34 @@ th, tr {
     border-radius: 4px;
 }
 
-.alert {
+.action-alert {
     width: 97%;
     margin: auto;
     border-radius: 0;
 }
 
+.show {
+    display: flex!important;
+}
 
+.dropdown-menu.show {
+    display: block!important;
+}
 
+@media (max-width: 800px) {
+    .page-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 650px)
+{
+    .action-alert {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-alert span {
+        margin-bottom: 15px;
+    }
+}
