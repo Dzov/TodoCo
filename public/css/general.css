@@ -16,6 +16,7 @@ body {
 
 h1 {
     margin: 10px 0;
+    font-size: 34px;
 }
 
 ul {
@@ -26,6 +27,7 @@ ul {
 main {
     min-height: calc(100vh - 170px);
     padding: 20px 50px;
+    width: 100%;
 }
 
 a:active, a:hover, a:focus {

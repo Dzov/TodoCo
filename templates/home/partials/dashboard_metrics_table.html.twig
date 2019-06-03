@@ -1,16 +1,18 @@
 {% set metrics = {
-    'tasksCreated' : {'count' : metrics['tasksCreated'], 'label' : 'Tâches créées'},
-    'tasksInProgress' : {'count' : metrics['tasksInProgress'], 'label' : 'Tâches en cours'},
-    'tasksClosed' : {'count' : metrics['tasksClosed'], 'label': 'Tâches terminées'}
+    'tasksCreated' : {'count' : metrics['tasksCreated'], 'label' : 'Tâches <br class="metric-break"> créées', 'path' : path('list_tasks') },
+    'tasksInProgress' : {'count' : metrics['tasksInProgress'], 'label' : 'Tâches <br class="metric-break"> en cours', 'path' : path('list_tasks', {'filter': 'in-progress' }) },
+    'tasksClosed' : {'count' : metrics['tasksClosed'], 'label': 'Tâches <br class="metric-break"> terminées', 'path' : path('list_tasks', {'filter': 'completed'}) }
 } %}
 
 <div class="dashboard-metrics d-flex">
     {% for metric in metrics %}
         <div class="metric-group">
-            <figure>
-                <span class="metric">{{ metric.count }}</span>
-                <figcaption class="text-center">{{ metric.label }}</figcaption>
-            </figure>
+            <a href="{{ metric.path }}">
+                <figure>
+                    <span class="metric">{{ metric.count }}</span>
+                    <figcaption class="text-center">{{ metric.label | raw }}</figcaption>
+                </figure>
+            </a>
         </div>
     {% endfor %}
 </div>
