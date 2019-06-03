@@ -1,0 +1,16 @@
+{% set metrics = {
+    'tasksCreated' : {'count' : metrics['tasksCreated'], 'label' : 'Tâches créées'},
+    'tasksInProgress' : {'count' : metrics['tasksInProgress'], 'label' : 'Tâches en cours'},
+    'tasksClosed' : {'count' : metrics['tasksClosed'], 'label': 'Tâches terminées'}
+} %}
+
+<div class="dashboard-metrics d-flex">
+    {% for metric in metrics %}
+        <div class="metric-group">
+            <figure>
+                <span class="metric">{{ metric.count }}</span>
+                <figcaption class="text-center">{{ metric.label }}</figcaption>
+            </figure>
+        </div>
+    {% endfor %}
+</div>
