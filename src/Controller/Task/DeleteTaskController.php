@@ -17,9 +17,9 @@ class DeleteTaskController extends AbstractTaskController
      */
     public function delete(int $taskId, DeleteTask $deleteTaskUseCase)
     {
-        $this->denyAccessUnlessGranted(TaskAction::CAN_USER_DELETE_TASK, $taskId);
-
         try {
+            $this->denyAccessUnlessGranted(TaskAction::CAN_USER_DELETE_TASK, $taskId);
+
             $deleteTaskUseCase->execute($taskId);
             $this->addFlash('success', 'La tâche a bien été supprimée.');
 

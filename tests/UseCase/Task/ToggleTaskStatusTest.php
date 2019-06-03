@@ -36,7 +36,7 @@ class ToggleTaskStatusTest extends TestCase
     {
         $taskStub1 = new TaskStub1();
         $taskStub1->setIsDone(false);
-        InMemoryTaskRepository::$result = [TaskStub1::ID => $taskStub1];
+        InMemoryTaskRepository::$tasks = [TaskStub1::ID => $taskStub1];
 
         $task = $this->useCase->execute(TaskStub1::ID);
 

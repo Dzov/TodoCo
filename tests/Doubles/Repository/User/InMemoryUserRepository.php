@@ -17,11 +17,11 @@ class InMemoryUserRepository extends UserRepository
     public static $result;
 
     /**
-     * @param User[] $result
+     * @param User[] $tasks
      */
-    public function __construct(array $result)
+    public function __construct(array $tasks)
     {
-        self::$result = $result;
+        self::$result = $tasks;
     }
 
     public function insert(User $user)

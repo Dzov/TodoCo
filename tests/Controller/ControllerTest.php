@@ -17,11 +17,11 @@ class ControllerTest extends AbstractControllerTestCase
 
     const LIST_USERS      = ['GET', '/admin/users'];
 
-    const DELETE_TASK     = ['GET', '/tasks/' . UserStub2::ID . '/delete', Response::HTTP_FOUND];
+    const DELETE_TASK     = ['GET', '/tasks/' . UserStub2::ID . '/delete'];
 
-    const TOGGLE_TASK     = ['GET', '/tasks/' . UserStub1::ID . '/toggle', Response::HTTP_FOUND];
+    const TOGGLE_TASK     = ['GET', '/tasks/' . UserStub1::ID . '/toggle'];
 
-    const PRIORITIZE_TASK = ['GET', '/tasks/' . UserStub1::ID . '/prioritize', Response::HTTP_FOUND];
+    const PRIORITIZE_TASK = ['GET', '/tasks/' . UserStub1::ID . '/prioritize'];
 
     const EDIT_TASK       = ['GET', '/tasks/' . UserStub1::ID . '/edit'];
 
@@ -35,16 +35,17 @@ class ControllerTest extends AbstractControllerTestCase
 
     const IS_ADMIN        = true;
 
-    public function routeTestCases()
+    public function loggedInTestCases()
     {
         $allUsersOnHomepageShouldReturnOk = self::HOMEPAGE;
         $allUsersOnLoginShouldReturnOk = self::LOGIN;
         $allUsersOnGetTasksShouldReturnOk = self::LIST_TASKS;
         $allUsersOnCreateTaskShouldReturnOk = self::CREATE_TASK;
         $allUsersOnEditTaskShouldReturnOk = self::EDIT_TASK;
-        $allUsersOnPrioritizeTaskShouldRedirect = self::PRIORITIZE_TASK;
-        $allUsersOnToggleTaskShouldRedirect = self::TOGGLE_TASK;
-        $allUsersOnDeleteTaskShouldRedirect = self::DELETE_TASK;
+
+        $allUsersOnPrioritizeTaskShouldRedirect = array_merge(self::PRIORITIZE_TASK, [Response::HTTP_FOUND]);
+        $allUsersOnToggleTaskShouldRedirect = array_merge(self::TOGGLE_TASK, [Response::HTTP_FOUND]);
+        $allUsersOnDeleteTaskShouldRedirect = array_merge(self::DELETE_TASK, [Response::HTTP_FOUND]);
 
         $adminOnGetUsersShouldReturnOk = array_merge(self::LIST_USERS, [Response::HTTP_OK, self::IS_ADMIN]);
         $adminOnCreateUserShouldReturnOk = array_merge(self::CREATE_USER, [Response::HTTP_OK, self::IS_ADMIN]);
@@ -72,11 +73,28 @@ class ControllerTest extends AbstractControllerTestCase
         ];
     }
 
+    public function loggedOutTestCases()
+    {
+        return [
+            self::EDIT_USER,
+            self::CREATE_USER,
+            self::LIST_USERS,
+            self::DELETE_TASK,
+            self::TOGGLE_TASK,
+            self::PRIORITIZE_TASK,
+            self::EDIT_TASK,
+            self::CREATE_TASK,
+            self::LIST_TASKS,
+            self::HOMEPAGE,
+            array_merge(self::LOGIN, [Response::HTTP_OK]),
+        ];
+    }
+
     /**
      * @test
-     * @dataProvider routeTestCases
+     * @dataProvider loggedInTestCases
      */
-    public function assertRoutes(
+    public function assertRoutesForLoggedInUsers(
         string $method,
         string $uri,
         int $expectedStatus = Response::HTTP_OK,
@@ -87,10 +105,26 @@ class ControllerTest extends AbstractControllerTestCase
         $this->assertRoute($method, $uri, $expectedStatus);
     }
 
+    /**
+     * @test
+     * @dataProvider loggedOutTestCases
+     */
+    public function assertRoutesForLoggedOutUsers(
+        string $method,
+        string $uri,
+        int $expectedStatus = Response::HTTP_FOUND
+    ) {
+        $this->assertRoute($method, $uri, $expectedStatus);
+
+        if (Response::HTTP_FOUND === $expectedStatus) {
+            $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
+        }
+    }
+
     private function assertRoute(string $method, string $uri, int $expectedStatus): void
     {
         $this->client->request($method, $uri);
 
-        $this->assertSuccessfulResponse($expectedStatus);
+        $this->assertExpectedResponse($expectedStatus);
     }
 }

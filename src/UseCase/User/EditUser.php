@@ -37,14 +37,13 @@ class EditUser extends AbstractUserUseCase
     /**
      * @throws \App\Exception\User\EmailAlreadyExistsException
      * @throws \App\Exception\User\UserNotFoundException
-     * @throws \Doctrine\ORM\NonUniqueResultException
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function execute(UserModel $model): void
     {
-        $user = $this->repository->findById($model->getId());
-        $this->userEmailService->checkEmailAvailability($model->getEmail(), $user->getId());
+        $user = $this->getUser($model);
+        $this->checkEmailAvailability($model, $user);
 
         $updatedUser = $this->updateProperties($model, $user);
 
@@ -64,5 +63,21 @@ class EditUser extends AbstractUserUseCase
     private function getEncodedPassword(User $user, string $password): string
     {
         return $this->passwordEncoder->encodePassword($user, $password);
+    }
+
+    /**
+     * @throws \App\Exception\User\UserNotFoundException
+     */
+    protected function getUser(UserModel $model): User
+    {
+        return $this->repository->findById($model->getId());
+    }
+
+    /**
+     * @throws \App\Exception\User\EmailAlreadyExistsException
+     */
+    protected function checkEmailAvailability(UserModel $model, User $user): void
+    {
+        $this->userEmailService->checkEmailAvailability($model->getEmail(), $user->getId());
     }
 }

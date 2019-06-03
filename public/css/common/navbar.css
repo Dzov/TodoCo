@@ -1,7 +1,6 @@
 .navbar-logo {
     font-size: 25px;
     color: white;
-    font-family: 'AileronRegular', sans-serif;
     font-weight: 600;
     font-style: normal;
     flex: 1.2;
@@ -58,4 +57,10 @@
     background-color: white;
     color: #45b0d5;
     border-color: white;
+}
+
+@media (min-width: 760px) {
+    .navbar-toggler {
+        display: none;
+    }
 }

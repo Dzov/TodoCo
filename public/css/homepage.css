@@ -1,0 +1,38 @@
+.dashboard-metrics-section {
+    background-color: aliceblue;
+    padding: 5px;
+    min-width: 285px;
+}
+
+.dashboard-metrics {
+    max-width: 80%;
+    margin: auto;
+}
+
+.metric-group {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 85px;
+}
+
+.metric-group figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.metric-group .metric {
+    font-size: 50px;
+    color: #45b0d5;
+}
+
+@media (max-width: 768px) {
+    .dashboard-metrics {
+        max-width: 100%;
+    }
+
+    .metric-group .metric {
+        font-size: 40px;
+    }
+}

@@ -2,18 +2,11 @@
 
 namespace App\UseCase\Task;
 
-use App\Repository\Task\TaskRepository;
-
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
 class DeleteTask extends AbstractTaskUseCase
 {
-    public function __construct(TaskRepository $repository)
-    {
-        parent::__construct($repository);
-    }
-
     /**
      * @throws \App\Exception\Task\TaskNotFoundException
      */

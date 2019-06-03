@@ -39,6 +39,9 @@ class CanUserDeleteTaskVoter extends Voter
         return true;
     }
 
+    /**
+     * @throws \App\Exception\Task\TaskNotFoundException
+     */
     protected function voteOnAttribute($attribute, $taskId, TokenInterface $token)
     {
         $user = $token->getUser();
