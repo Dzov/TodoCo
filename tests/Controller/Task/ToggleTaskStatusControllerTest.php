@@ -45,6 +45,6 @@ class ToggleTaskStatusControllerTest extends AbstractControllerTestCase
         $this->basicLoginAsUser();
         $this->client->request('GET', '/tasks/6743/toggle');
 
-        $this->assertSuccessfulResponse(Response::HTTP_NOT_FOUND);
+        $this->assertExpectedResponse(Response::HTTP_NOT_FOUND);
     }
 }

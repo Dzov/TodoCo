@@ -11,11 +11,6 @@ use App\Repository\Task\TaskRepository;
  */
 class EditTask extends AbstractTaskUseCase
 {
-    public function __construct(TaskRepository $repository)
-    {
-        parent::__construct($repository);
-    }
-
     /**
      * @throws \App\Exception\Task\TaskNotFoundException
      */

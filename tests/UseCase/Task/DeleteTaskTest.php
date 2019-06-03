@@ -35,7 +35,7 @@ class DeleteTaskTest extends TestCase
     {
         $this->useCase->execute(TaskStub1::ID);
 
-        $this->assertEmpty(InMemoryTaskRepository::$result);
+        $this->assertEmpty(InMemoryTaskRepository::$tasks);
     }
 
     protected function setUp(): void

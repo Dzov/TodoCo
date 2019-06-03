@@ -10,11 +10,6 @@ use App\Repository\Task\TaskRepository;
  */
 class ToggleTaskPriority extends AbstractTaskUseCase
 {
-    public function __construct(TaskRepository $repository)
-    {
-        parent::__construct($repository);
-    }
-
     /**
      * @throws \App\Exception\Task\TaskNotFoundException
      */

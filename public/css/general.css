@@ -89,7 +89,8 @@ th, tr {
 }
 
 .alert {
-    width: 100%;
+    width: 97%;
+    margin: auto;
     border-radius: 0;
 }
 

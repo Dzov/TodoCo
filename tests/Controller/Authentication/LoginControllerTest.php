@@ -2,9 +2,7 @@
 
 namespace App\Tests\Controller\Authentication;
 
-use App\Controller\Authentication\LoginController;
 use App\Tests\Controller\AbstractControllerTestCase;
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\DomCrawler\Crawler;
 
 class LoginControllerTest extends AbstractControllerTestCase
@@ -31,7 +29,6 @@ class LoginControllerTest extends AbstractControllerTestCase
         $this->assertNotContains('Admin', $crawler->html());
     }
 
-
     private function loginAsAdmin(): Crawler
     {
         $crawler = $this->client->request('GET', '/login');
@@ -42,8 +39,6 @@ class LoginControllerTest extends AbstractControllerTestCase
         $form['password'] = self::ADMIN_CREDENTIALS['password'];
 
         $crawler = $this->client->submit($form);
-
-
 
         return $crawler;
     }

@@ -5,11 +5,18 @@ namespace App\Entity\Task;
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class TaskFilter
+final class TaskFilter
 {
-    const STARRED     = 'starred';
+    public const STARRED     = 'starred';
 
-    const COMPLETED   = 'completed';
+    public const COMPLETED   = 'completed';
 
-    const IN_PROGRESS = 'in-progress';
+    public const IN_PROGRESS = 'in-progress';
+
+    public const AUTHOR      = 'author';
+
+    static public function getTaskFilters(): array
+    {
+        return [self::STARRED, self::COMPLETED, self::IN_PROGRESS, self::AUTHOR];
+    }
 }

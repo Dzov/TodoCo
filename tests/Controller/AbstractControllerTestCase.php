@@ -48,7 +48,7 @@ abstract class AbstractControllerTestCase extends WebTestCase
      */
     protected $entityManager;
 
-    protected function assertSuccessfulResponse(int $expectedStatus = Response::HTTP_OK): void
+    protected function assertExpectedResponse(int $expectedStatus = Response::HTTP_OK): void
     {
         $this->assertSame($expectedStatus, $this->client->getResponse()->getStatusCode());
     }

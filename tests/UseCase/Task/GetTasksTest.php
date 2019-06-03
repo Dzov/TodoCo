@@ -2,6 +2,7 @@
 
 namespace App\Tests\UseCase\Task;
 
+use App\Entity\Task\TaskFilter;
 use App\Tests\Doubles\Entity\Task\TaskStub1;
 use App\Tests\Doubles\Repository\Task\InMemoryTaskRepository;
 use App\UseCase\Task\GetTasks;
@@ -26,7 +27,18 @@ class GetTasksTest extends TestCase
      */
     public function withoutFiltersExecuteShouldReturnAllTasks()
     {
+
         $tasks = $this->useCase->execute();
+
+        $this->assertTasks([new TaskStub1()], $tasks);
+    }
+
+    /**
+     * @test
+     */
+    public function withFilterExecuteShouldReturnTasks()
+    {
+        $tasks = $this->useCase->execute([TaskFilter::STARRED]);
 
         $this->assertTasks([new TaskStub1()], $tasks);
     }

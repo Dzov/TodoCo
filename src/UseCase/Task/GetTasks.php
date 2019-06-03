@@ -4,23 +4,12 @@ namespace App\UseCase\Task;
 
 use App\Entity\Task\TaskFilter;
 use App\Exception\Task\InvalidTaskFilterException;
-use App\Repository\Task\TaskRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
-class GetTasks
+class GetTasks extends AbstractTaskUseCase
 {
-    /**
-     * @var TaskRepository
-     */
-    private $taskRepository;
-
-    public function __construct(TaskRepository $taskRepository)
-    {
-        $this->taskRepository = $taskRepository;
-    }
-
     /**
      * @throws InvalidTaskFilterException
      */
@@ -40,10 +29,10 @@ class GetTasks
             return;
         }
 
-        $validFilters = [TaskFilter::COMPLETED, TaskFilter::STARRED, TaskFilter::IN_PROGRESS];
+        $validFilters = TaskFilter::getTaskFilters();
 
-        foreach ($filters as $filter) {
-            if (!in_array($filter, $validFilters)) {
+        foreach ($filters as $key => $filter) {
+            if (!in_array($filter, $validFilters) && TaskFilter::AUTHOR !== $key) {
                 throw new InvalidTaskFilterException();
             }
         }

@@ -3,18 +3,12 @@
 namespace App\UseCase\Task;
 
 use App\Entity\Task\Task;
-use App\Repository\Task\TaskRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
  */
 class ToggleTaskStatus extends AbstractTaskUseCase
 {
-    public function __construct(TaskRepository $repository)
-    {
-        parent::__construct($repository);
-    }
-
     /**
      * @throws \App\Exception\Task\TaskNotFoundException
      */
