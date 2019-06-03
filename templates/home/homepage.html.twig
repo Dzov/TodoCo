@@ -9,7 +9,12 @@
         {% include 'home/partials/dashboard_metrics_table.html.twig' with metrics %}
     </section>
 
+
     <hr>
+    <div class="d-flex justify-content-center mt-5 mb-4">
+        <a href="{{ path('create_task') }}" class="btn btn-primary mr-4"><i class="fa fa-plus button-icon"></i>Ajouter une tâche</a>
+        <a href="{{ path('list_tasks') }}" class="card-action">Voir toutes les tâches</a>
+    </div>
 
     <section>
         <h1 class="page-title">Tâches prioritaires</h1>

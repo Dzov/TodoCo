@@ -23,7 +23,7 @@
             <h4 class="mt-2"><a href="{{ path('edit_task', {'taskId' : task.id }) }}"><strong>{{ task.title }}</strong></a>
             </h4>
             <small class="text-muted align-self-center card-author">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/y", "Europe/Paris") }}</small>
-            <p>{{ task.content }}</p>
+            <p class="mt-2">{{ task.content }}</p>
 
         </div>
         <hr width="85%" class="m-4">

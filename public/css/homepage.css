@@ -1,7 +1,7 @@
 .dashboard-metrics-section {
     background-color: aliceblue;
     padding: 5px;
-    min-width: 285px;
+    min-width: 260px;
 }
 
 .dashboard-metrics {
@@ -27,6 +27,7 @@
     color: #45b0d5;
 }
 
+
 @media (max-width: 768px) {
     .dashboard-metrics {
         max-width: 100%;
@@ -36,3 +37,5 @@
         font-size: 40px;
     }
 }
+
+

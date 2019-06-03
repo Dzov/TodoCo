@@ -3,8 +3,12 @@
     color: #45b0d5;
     font-weight: bold;
     margin-right: 15px;
-    font-size: 13px;
+    font-size: 14px;
     align-self: center;
+}
+
+.card-action:hover {
+    color: #23527c;
 }
 
 .card_controls {

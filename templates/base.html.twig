@@ -60,27 +60,28 @@
     </section>
 </nav>
 
-<!-- Page Content -->
-<div class="row ">
-    <div class="col-md-12">
-        {% for flash_message in app.session.flashBag.get('success') %}
-            <div class="alert alert-success" role="alert">
-                {{ flash_message }}
-            </div>
-        {% endfor %}
+{% if app.session.flashBag.all is not empty %}
+    <div class="row ">
+        <div class="col-md-12">
+            {% for flash_message in app.session.flashBag.get('success') %}
+                <div class="alert alert-success" role="alert">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
 
-        {% for flash_message in app.session.flashBag.get('notice') %}
-            <div class="alert alert-info" role="alert">
-                {{ flash_message }}
-            </div>
-        {% endfor %}
-        {% for flash_message in app.session.flashBag.get('danger') %}
-            <div class="alert alert-danger" role="alert">
-                {{ flash_message }}
-            </div>
-        {% endfor %}
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="alert alert-info" role="alert">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            {% for flash_message in app.session.flashBag.get('danger') %}
+                <div class="alert alert-danger" role="alert">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
+{% endif %}
 
 <main class="row">
     <div class="col-md-12">
