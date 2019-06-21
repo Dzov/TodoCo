@@ -28,9 +28,12 @@ In order to maintain a good quality level and facilitate the app's maintenance, 
 ## Code quality 
 Make sure all tests pass before pushing your code
 
-To run all tests execute the following command 
+To run all tests execute the following command
+ 
 ``` php bin/phpunit ```
-To only run unit tests you can execute 
+
+To only run unit tests you can execute
+ 
 ``` php bin/phpunit --testsuite unit ```
 
 
