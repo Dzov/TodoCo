@@ -23,7 +23,7 @@
 <body>
 {% include 'components/nav/navbar.html.twig' %}
 
-{% if app.session.flashBag.all is not empty %}
+
     <div class="row ">
         <div class="col-md-12">
             {% for flash_message in app.session.flashBag.get('success') %}
@@ -44,7 +44,6 @@
             {% endfor %}
         </div>
     </div>
-{% endif %}
 
 <main class="row m-0">
     <div class="col-md-12">
