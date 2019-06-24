@@ -54,6 +54,6 @@ class EditUserController extends AbstractController
 
     protected function buildForm(UserModel $model): FormInterface
     {
-        return $this->createForm(UserType::class, $model);
+        return $this->createForm(UserType::class, $model, ['edit' => true]);
     }
 }

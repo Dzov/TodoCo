@@ -24,7 +24,7 @@ class UserType extends AbstractType
                 [
                     'type'            => PasswordType::class,
                     'invalid_message' => 'Les deux mots de passe doivent correspondre.',
-                    'required'        => true,
+                    'required'        => $options['edit'] ? false : true,
                     'first_options'   => [self::LABEL => 'Mot de passe'],
                     'second_options'  => [self::LABEL => 'Tapez le mot de passe à nouveau',],
                 ]
