@@ -62,9 +62,11 @@ class UserModel
         return $this->password;
     }
 
-    public function setPassword(string $password)
+    public function setPassword(?string $password)
     {
-        $this->password = $password;
+        if (null !== $password) {
+            $this->password = $password;
+        }
     }
 
     public function getUsername(): ?string
