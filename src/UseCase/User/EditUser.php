@@ -54,7 +54,9 @@ class EditUser extends AbstractUserUseCase
     {
         $user->setAdmin($model->isAdmin());
         $user->setEmail($model->getEmail());
-        $user->setPassword($this->getEncodedPassword($user, $model->getPassword()));
+        if ($user->getPassword() !== $model->getPassword()) {
+            $user->setPassword($this->getEncodedPassword($user, $model->getPassword()));
+        }
         $user->setUsername($model->getUsername());
 
         return $user;

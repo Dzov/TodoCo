@@ -23,7 +23,7 @@ class CreateUserController extends AbstractController
     {
         try {
             $user = new UserModel();
-            $form = $this->createForm(UserType::class, $user);
+            $form = $this->createForm(UserType::class, $user, ['required' => true]);
 
             $form->handleRequest($request);
 
