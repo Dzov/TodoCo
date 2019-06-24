@@ -1,7 +1,7 @@
 .dashboard-metrics-section {
     background-color: aliceblue;
     padding: 5px;
-    min-width: 285px;
+    min-width: 260px;
 }
 
 .dashboard-metrics {
@@ -22,10 +22,15 @@
     align-items: center;
 }
 
+.metric-group figcaption {
+    font-size: 15px;
+}
+
 .metric-group .metric {
     font-size: 50px;
     color: #45b0d5;
 }
+
 
 @media (max-width: 768px) {
     .dashboard-metrics {
@@ -34,5 +39,27 @@
 
     .metric-group .metric {
         font-size: 40px;
+    }
+}
+
+
+@media (max-width: 575px) {
+    .homepage-action-block {
+        flex-direction: column;
+        align-items: center;
+    }
+    .homepage-action-block .btn-primary {
+        margin-bottom: 1rem;
+    }
+}
+
+.metric-break {
+    display: none;
+}
+
+@media (max-width: 615px)
+{
+    .metric-break {
+        display: flex;
     }
 }

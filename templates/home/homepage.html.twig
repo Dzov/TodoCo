@@ -9,10 +9,15 @@
         {% include 'home/partials/dashboard_metrics_table.html.twig' with metrics %}
     </section>
 
-    <hr>
 
+    <hr>
+    <div class="d-flex justify-content-center mt-sm-5 mb-sm-5 homepage-action-block">
+        <a href="{{ path('create_task') }}" class="btn btn-primary mr-4"><i class="fa fa-plus button-icon"></i>Ajouter une tâche</a>
+        <a href="{{ path('list_tasks') }}" class="card-action">Voir toutes les tâches</a>
+    </div>
+    <hr>
     <section>
-        <h1>Vos tâches prioritaires</h1>
+        <h1 class="page-title">Tâches prioritaires</h1>
         <div class="row">
             {% for task in starredTasks | slice(0, 3) %}
                 {% include('task/partials/task_card.html.twig') %}
@@ -23,7 +28,7 @@
     </section>
 
     <section>
-        <h1>Vos tâches récentes</h1>
+        <h1 class="page-title mt-4">Tâches récentes</h1>
         <div class="row">
             {% for task in tasksInProgress | slice(0, 3) %}
                 {% include('task/partials/task_card.html.twig') %}

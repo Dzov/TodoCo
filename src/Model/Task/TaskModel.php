@@ -35,6 +35,12 @@ class TaskModel
     /**
      * @var string
      * @Assert\NotBlank(message="Vous devez saisir un titre.")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 40,
+     *      minMessage = "Le titre doit contenir 2 caractères minimum",
+     *      maxMessage = "Le titre doit contenir 40 caractères maximum"
+     * )
      */
     public $title;
 

@@ -1,18 +1,17 @@
 <div class="col-sm-6 col-lg-4 col-md-4">
     <div class="thumbnail">
         <div class="caption">
-            <header class=" d-flex justify-content-between">
-                <small class="text-muted align-self-center card-author">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/y", "Europe/Paris") }}</small>
+            <header class=" d-flex justify-content-end">
                 <div class="d-flex justify-content-between">
                     <a href="{{ path('prioritize_task', {'taskId' : task.id }) }}" class="align-self-center fa-star-action d-flex">
                         {% if task.isPriority %}
-                            <span class="fa fa-star mr-4 starred"></span>
+                            <span class="fa fa-star starred mr-4"></span>
                         {% else %}
-                            <span class="fa fa-star mr-4 notStarred"></span>
+                            <span class="fa fa-star notStarred mr-4"></span>
                         {% endif %}
                     </a>
                     {% if is_granted('CAN_USER_DELETE_TASK', task.id ) %}
-                        <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class=" align-self-center fa fa-trash mr-4 text-muted"></a>
+                        <a href="{{ path('delete_task', {'taskId' : task.id }) }}" class=" align-self-center fa fa-trash mr-4 text-muted" onclick="return confirm('Voulez-vous vraiment supprimer la tâche {{ task.title }} ?');"></a>
                     {% endif %}
                     {% if task.isDone %}
                         <span class="align-self-center glyphicon glyphicon-ok color-success"></span>
@@ -21,17 +20,18 @@
                     {% endif %}
                 </div>
             </header>
-            <h4 class="mt-0"><a href="{{ path('edit_task', {'taskId' : task.id }) }}"><strong>{{ task.title }}</strong></a>
+            <h4 class="mt-2"><a href="{{ path('edit_task', {'taskId' : task.id }) }}"><strong>{{ task.title }}</strong></a>
             </h4>
-            <p>{{ task.content }}</p>
+            <small class="text-muted align-self-center card-author">Créé par {{ task.author.username }} - {{ task.createdAt | date("d/m/y", "Europe/Paris") }}</small>
+            <p class="mt-2">{{ task.content }}</p>
 
         </div>
         <hr width="85%" class="m-4">
         <div class="card_controls">
             <div class="d-flex mb-4 justify-content-around">
                 <a href="{{ path('toggle_task', {'taskId' : task.id }) }}" class="btn btn-primary">
-                    {% if not task.isDone %}<i class="fa fa-check mr-4"></i>Terminer{% else %}
-                        <i class="fa fa-refresh mr-4"></i>Rouvrir{% endif %}
+                    {% if not task.isDone %}<i class="fa fa-check button-icon"></i>Terminer{% else %}
+                        <i class="fa fa-refresh button-icon"></i>Rouvrir{% endif %}
                 </a>
                 <a href="{{ path('edit_task', {'taskId' : task.id }) }}" class="card-action">
                     Modifier

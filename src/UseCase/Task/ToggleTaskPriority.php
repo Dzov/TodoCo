@@ -3,7 +3,6 @@
 namespace App\UseCase\Task;
 
 use App\Entity\Task\Task;
-use App\Repository\Task\TaskRepository;
 
 /**
  * @author Amélie Haladjian <amelie.haladjian@gmail.com>
@@ -15,11 +14,24 @@ class ToggleTaskPriority extends AbstractTaskUseCase
      */
     public function execute(int $taskId)
     {
-        /** @var Task $task */
-        $task = $this->taskRepository->findById($taskId);
+        $task = $this->getTask($taskId);
         $task->togglePriority();
-        $this->taskRepository->update($task);
+        $this->update($task);
 
         return $task;
+    }
+
+    /**
+     * @throws \App\Exception\Task\TaskNotFoundException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    private function getTask(int $taskId): Task
+    {
+        return $this->taskRepository->findById($taskId);
+    }
+
+    private function update(Task $task): void
+    {
+        $this->taskRepository->update($task);
     }
 }

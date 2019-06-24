@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block header_img %}{% endblock %}
-
 {% block body %}
-    <h1>Modifier <strong>{{ user.username }}</strong></h1>
+    <h1 class="page-title">Modifier <strong>{{ user.username }}</strong></h1>
     <div class="mt-md-4">
         {{ form_start(form, {'action' : path('edit_user', {'userId' : user.id}) , 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
         {% include 'user/partials/user_form.html.twig' with {'action' : 'Modifier', 'buttonIcon' : 'fa-pencil'} %}

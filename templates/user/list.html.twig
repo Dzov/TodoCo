@@ -1,25 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block header_img %}{% endblock %}
-
 {% block body %}
-    <div class="d-flex justify-content-between">
-        <h1>Liste des utilisateurs</h1>
-        <a href="{{ path('create_user') }}" class="btn btn-primary-open mt-4 align-self-center d-flex"><i class="fa fa-plus mr-4"></i>Ajouter un utilisateur</a>
+    <div class="d-flex justify-content-between list-header">
+        <h1 class="page-title ">Liste des utilisateurs</h1>
+        <a href="{{ path('create_user') }}" class="btn btn-primary-open mt-4 align-self-center d-flex"><i class="fa fa-plus button-icon"></i>Ajouter un utilisateur</a>
     </div>
     {% if users|length == 0 %}
-        <div class="alert alert-warning" role="alert">
-            Il n'y a pas encore d'utilisateur enregistré.
-            <a href="{{ path('create_user') }}" class="btn btn-warning d-flex"><i class="fa fa-plus mr-4"></i>Créer un utilisateur</a>
+        <div class="alert alert-warning action-alert" role="alert">
+            <span>Il n'y a pas encore d'utilisateur enregistré.</span>
+            <a href="{{ path('create_user') }}" class="btn btn-warning d-flex"><i class="fa fa-plus button-icon"></i>Ajouter un utilisateur</a>
         </div>
     {% else %}
-        <div class="row">
+        <div class="row mt-5 responsive-table col-md-12">
+            <table class="table">
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <th class="table-head-responsive"><strong>Nom d'utilisateur</strong></th>
+                        <td class="table-data-responsive">{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-head-responsive">Email</th>
+                        <td class="table-data-responsive">{{ user.email }}</td>
+                    </tr>
+                    <tr class="bottom-row-responsive">
+                        <th class="table-head-responsive">Actions</th>
+                        <td class="table-data-responsive">
+                            <a href="{{ path('edit_user', {'userId' : user.id}) }}" class="btn btn-primary ">
+                                <i class="fa fa-pencil button-icon"></i>
+                                Modifier
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row large-table">
             <table class="table">
                 <thead>
                 <tr>
                     <th>#</th>
                     <th>Nom d'utilisateur</th>
-                    <th>Adresse d'utilisateur</th>
+                    <th>Email</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -31,7 +55,7 @@
                         <td>{{ user.email }}</td>
                         <td>
                             <a href="{{ path('edit_user', {'userId' : user.id}) }}" class="btn btn-primary ">
-                                <i class="fa fa-pencil mr-4"></i>
+                                <i class="fa fa-pencil button-icon"></i>
                                 Modifier
                             </a>
                         </td>
@@ -42,3 +66,4 @@
         </div>
     {% endif %}
 {% endblock %}
+

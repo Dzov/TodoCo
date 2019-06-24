@@ -36,21 +36,16 @@ class CanUserDeleteTaskVoterService
     public function canUserDeleteTask(int $userId, int $taskId): bool
     {
         try {
-            /** @var Task $task */
             $task = $this->getTask($taskId);
-            /** @var User $currentUser */
             $currentUser = $this->getUser($userId);
-            /** @var User $taskAuthor */
             $taskAuthor = $this->getTaskAuthor($task);
 
-            if ($task->getAuthorId() === $currentUser->getId()) {
-                return true;
-            }
-
-            if ($taskAuthor->isAnonymousUser() && $currentUser->isAdmin()) {
+            if ($this->currentUserIsAuthor($task, $currentUser)
+                || ($taskAuthor->isAnonymousUser() && $currentUser->isAdmin())) {
                 return true;
             }
         } catch (UserNotFoundException $e) {
+            return false;
         }
 
         return false;
@@ -59,7 +54,7 @@ class CanUserDeleteTaskVoterService
     /**
      * @throws TaskNotFoundException
      */
-    protected function getTask(int $taskId)
+    protected function getTask(int $taskId): Task
     {
         return $this->taskRepository->findById($taskId);
     }
@@ -68,7 +63,7 @@ class CanUserDeleteTaskVoterService
      * @throws UserNotFoundException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    protected function getUser(int $userId)
+    protected function getUser(int $userId): User
     {
         return $this->userRepository->findById($userId);
     }
@@ -77,8 +72,13 @@ class CanUserDeleteTaskVoterService
      * @throws UserNotFoundException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    protected function getTaskAuthor(Task $task)
+    protected function getTaskAuthor(Task $task): User
     {
         return $this->userRepository->findById($task->getAuthorId());
+    }
+
+    private function currentUserIsAuthor(Task $task, User $currentUser): bool
+    {
+        return $task->getAuthorId() === $currentUser->getId();
     }
 }

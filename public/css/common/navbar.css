@@ -1,43 +1,36 @@
-.navbar-logo {
-    font-size: 25px;
-    color: white;
-    font-weight: 600;
-    font-style: normal;
-    flex: 1.2;
-    text-transform: none;
-    margin-bottom: 15px;
-}
-
-.navbar-logo:hover {
-    color: white;
-    text-decoration: none;
-}
-
-.navbar {
-    margin-bottom: 0;
+.nav {
+    padding: 20px;
+    display: flex;
     background-color: #45b0d5;
     height: 100px;
-    padding: 20px;
-
 }
 
-.navbar-nav {
-    width: 100%;
+.nav-logo {
+    flex: 1;
+    margin-bottom: 5px;
 }
 
-.navbar-menu {
+.nav-menu, .nav-list, .nav-item {
+    align-self: center;
+}
+
+.nav-menu {
     font-weight: bold;
     font-size: 14px;
 }
 
-.navbar-light .navbar-nav .nav-link, .dropdown-item {
-    color: white;
+/**/
+
+.nav-list {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
-.dropdown-menu {
-    border: none;
-    background-color: #45b0d5;
+.nav-link {
+    color: white
 }
+
 
 .nav-log-action {
     font-weight: bold;
@@ -45,22 +38,51 @@
     margin-left: 15px;
 }
 
-.navbar-nav .nav-item .nav-log-action:hover {
+.nav-log-action:hover {
     font-weight: bold;
     background-color: white;
     color: #45b0d5;
     border-color: white;
 }
 
-.navbar-nav .nav-item .nav-log-action:focus {
+.nav-log-action:focus {
     font-weight: bold;
     background-color: white;
     color: #45b0d5;
     border-color: white;
 }
 
-@media (min-width: 760px) {
-    .navbar-toggler {
+.nav-bars {
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    display: none;
+}
+
+.fa-bars {
+    font-size: 30px;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .nav-bars {
+        display: flex;
+    }
+    .nav-list-container {
         display: none;
+    }
+
+    .nav-menu .show .nav-list {
+        flex-direction: column;
+        position: absolute;
+        right: 25px;
+        top: 95px;
+        background-color: #45b0d5;
+        z-index: 100;
+        padding: 10px 15px;
+        box-shadow: 1px 3px 2px;
     }
 }

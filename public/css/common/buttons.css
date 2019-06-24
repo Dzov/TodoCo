@@ -41,5 +41,12 @@
 }
 
 .filter-dropdown-menu .dropdown-item {
-    color: #45b0d5!important;
+    color: #45b0d5 !important;
+}
+
+.button-icon {
+    font-size: 18px;
+    flex: .2;
+    align-self: center;
+    margin-right: 1rem;
 }

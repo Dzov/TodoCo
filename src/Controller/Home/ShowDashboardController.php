@@ -25,7 +25,7 @@ class ShowDashboardController extends AbstractController
         );
 
         return $this->render(
-            'home/index.html.twig',
+            'home/homepage.html.twig',
             ['tasksInProgress' => $tasksInProgress, 'starredTasks' => $tasksStarred, 'metrics' => $metrics]
         );
     }
