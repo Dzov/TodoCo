@@ -28,7 +28,7 @@ In the `.env` file at the root of the project, adapt the `DATABASE_URL` variable
 Create a new database by executing the command `php bin/console doctrine:database:create`. 
 Then, execute the command `php bin/console doctrine:schema:update --force` in order to create the different tables based on the entity mapping. 
 
-Once your database has been properly set up, run the following command in order to import the data fixtures : `php bin/console doctrine:fixtures:load
+Once your database has been properly set up, run the following command in order to import the data fixtures : `php bin/console doctrine:fixtures:load --group=AppFixtures
 `
 
 ### Tests

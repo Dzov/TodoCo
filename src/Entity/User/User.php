@@ -16,6 +16,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
+    const ANONYMOUS_USERNAME = 'anonymous';
+
+    const ANONYMOUS_EMAIL    = 'anon@test.com';
+
     /**
      * @ORM\Column(type="string", length=60, unique=true)
      * @Assert\NotBlank(message="Vous devez saisir une adresse email.")
@@ -45,6 +49,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=25, unique=true)
      */
     protected $username;
+
+    public function __construct()
+    {
+        $this->roles[] = Roles::ROLE_USER;
+    }
 
     public function getId(): int
     {
@@ -89,6 +98,13 @@ class User implements UserInterface
     public function setAdmin(bool $isAdmin)
     {
         $isAdmin ? $this->addRole(Roles::ROLE_ADMIN) : $this->removeRole(Roles::ROLE_ADMIN);
+    }
+
+    public function anonymizeUser()
+    {
+        $this->addRole(Roles::ROLE_ANONYMOUS_USER);
+        $this->username = self::ANONYMOUS_USERNAME;
+        $this->email = self::ANONYMOUS_EMAIL;
     }
 
     public function isAdmin(): bool

@@ -2,8 +2,8 @@
 
 namespace App\Tests\Controller;
 
-use App\DataFixtures\TaskFixtures;
-use App\DataFixtures\UserFixtures;
+use App\DataFixtures\Test\TaskFixturesTest;
+use App\DataFixtures\Test\UserFixturesTest;
 use App\Tests\Doubles\Entity\User\UserStub1;
 use App\Tests\Doubles\Entity\User\UserStub2;
 use Doctrine\ORM\EntityManager;
@@ -80,6 +80,6 @@ abstract class AbstractControllerTestCase extends WebTestCase
         $this->client = self::createClient();
         $this->entityManager = $this->client->getContainer()->get('doctrine.orm.entity_manager');
 
-        $this->loadFixtures([TaskFixtures::class, UserFixtures::class]);
+        $this->loadFixtures([TaskFixturesTest::class, UserFixturesTest::class]);
     }
 }
