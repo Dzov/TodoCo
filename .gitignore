@@ -16,7 +16,6 @@
 /web/bundles/
 .idea/
 .phpunit.result.cache
-coverage
 .scannerwork
 sonar-project.properties
 phpunit.coverage.xml

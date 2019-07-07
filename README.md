@@ -38,9 +38,15 @@ In order to run the tests, execute the following command in the console :
 
 ## Resources 
 
-Code quality has been analyzed with [SonarCloud](https://sonarcloud.io/dashboard?id=Dzov_TodoCo)
+Code quality has been analyzed with [SonarCloud](https://sonarcloud.io/dashboard?id=Dzov_TodoCo).
 
-The different issues can be found on [Github](https://github.com/Dzov/TodoCo/issues)
+Code coverage was analyzed using PHPUnit and the HTML report can be accessed [here](https://github.com/Dzov/TodoCo/tree/master/coverage). 
+
+The different issues can be found on [Github](https://github.com/Dzov/TodoCo/issues).
+
+The contribution guide can be found [here](https://github.com/Dzov/TodoCo/blob/master/CONTRIBUTING.md).
+
+Additional documentation can be found [here](https://github.com/Dzov/TodoCo/tree/master/docs). 
 
 ## Versioning
 
