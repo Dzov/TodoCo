@@ -3,6 +3,7 @@
 namespace App\Tests\Entity\User;
 
 use App\Entity\Security\Roles;
+use App\Entity\User\User;
 use App\Tests\Doubles\Entity\User\UserStub1;
 use App\Tests\Doubles\Entity\User\UserStub2;
 use PHPUnit\Framework\TestCase;
@@ -35,6 +36,20 @@ class UserTest extends TestCase
         $user->setAdmin(self::IS_NOT_ADMIN);
 
         $this->assertSame([Roles::ROLE_USER], $user->getRoles());
+    }
+
+    /**
+     * @test
+     */
+    public function anonymizeUserShouldAnonymizeUser()
+    {
+        $user = new UserStub1([Roles::ROLE_USER]);
+
+        $user->anonymizeUser();
+
+        $this->assertSame(User::ANONYMOUS_EMAIL, $user->getEmail());
+        $this->assertSame(User::ANONYMOUS_USERNAME, $user->getUsername());
+        $this->assertContains(Roles::ROLE_ANONYMOUS_USER, $user->getRoles());
     }
 
     /**

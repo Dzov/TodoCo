@@ -1,13 +1,13 @@
 <?php
 
-namespace App\DataFixtures;
+namespace App\DataFixtures\Test;
 
 use App\Entity\User\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class UserFixtures extends Fixture
+class UserFixturesTest extends Fixture
 {
     /**
      * @var UserPasswordEncoderInterface
