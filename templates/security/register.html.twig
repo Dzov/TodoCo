@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% use 'components/forms/forms.html.twig' %}
+
+{% block body %}
+
+    <div class="d-flex justify-content-center">
+        <img class="align-self-center todo-logo" src="{{ asset('img/todoco.png') }}" alt="todo list">
+    </div>
+
+    <div class="mt-md-4">
+        {{ form_start(form, {'action' : path('register'), 'attr': {'class': 'd-flex flex-column custom-form'}}) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.email) }}
+            <button type="submit" class="btn btn-success" name="login">Valider</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

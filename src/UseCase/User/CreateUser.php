@@ -55,6 +55,7 @@ class CreateUser extends AbstractUserUseCase
         $user->setUsername($model->getUsername());
         $user->setEmail($model->getEmail());
         $user->setPassword($this->encoder->encodePassword($user, $model->getPassword()));
+        $user->setAdmin($model->isAdmin());
 
         return $user;
     }

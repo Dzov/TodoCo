@@ -34,18 +34,40 @@
 
 .nav-log-action {
     font-weight: bold;
-    border-color: white;
+    background-color: white;
+    color: #45b0d5;;
+    border-color: #45b0d5;
     margin-left: 15px;
 }
 
 .nav-log-action:hover {
+    font-weight: bold;
+    background-color: #45b0d5;
+    color: white;
+    border-color: white;
+}
+
+.nav-log-action:focus {
+    font-weight: bold;
+    background-color: #45b0d5;
+    color: white;
+    border-color: #45b0d5;
+}
+
+.nav-register-action {
+    font-weight: bold;
+    border-color: white;
+    margin-left: 15px;
+}
+
+.nav-register-action:hover {
     font-weight: bold;
     background-color: white;
     color: #45b0d5;
     border-color: white;
 }
 
-.nav-log-action:focus {
+.nav-register-action:focus {
     font-weight: bold;
     background-color: white;
     color: #45b0d5;
