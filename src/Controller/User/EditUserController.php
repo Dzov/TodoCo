@@ -54,6 +54,10 @@ class EditUserController extends AbstractController
 
     protected function buildForm(UserModel $model): FormInterface
     {
-        return $this->createForm(UserType::class, $model, ['required' => false]);
+        return $this->createForm(
+            UserType::class,
+            $model,
+            ['required' => false, 'validation_groups' => UserType::ADMIN_VALIDATION_GROUP]
+        );
     }
 }
