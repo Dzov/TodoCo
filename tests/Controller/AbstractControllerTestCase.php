@@ -18,6 +18,12 @@ use Symfony\Component\HttpFoundation\Response;
  */
 abstract class AbstractControllerTestCase extends WebTestCase
 {
+    const NEW_EMAIL             = 'email2@test.com';
+
+    const NEW_USERNAME          = 'new username';
+
+    const PASSWORD              = 'test';
+
     const USER_CREDENTIALS  = [
         'username' => UserStub2::USERNAME,
         'password' => UserStub2::PASSWORD,

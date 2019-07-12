@@ -13,12 +13,6 @@ class CreateUserControllerTest extends AbstractControllerTestCase
 
     const INVALID_EMAIL_ERROR   = 'Cet email est déjà utilisé';
 
-    const NEW_EMAIL             = 'email2@test.com';
-
-    const NEW_USERNAME          = 'new username';
-
-    const PASSWORD              = 'test';
-
     const SUCCESS_FLASH_MESSAGE = 'L\'utilisateur a bien été ajouté.';
 
     /**
